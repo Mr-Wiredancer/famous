@@ -123,7 +123,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <p>中文注释部分由 Mr. Wiredancer(aka J.L) 完成</p>
+
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
@@ -137,6 +138,7 @@
 
 define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
 
+
     <span class="hljs-comment">/**
      * Internal helper object to Context that handles the process of
      *   creating and allocating DOM elements within a managed div.
@@ -146,12 +148,68 @@ define(<span class="hljs-function"><span class="hljs-keyword">function</span><sp
      * @constructor
      * @private
      * @param {Node} container document element in which Famo.us content will be inserted
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ElementAllocator</span><span class="hljs-params">(container)</span> </span>{
-        <span class="hljs-keyword">if</span> (!container) container = <span class="hljs-built_in">document</span>.createDocumentFragment();
-        <span class="hljs-keyword">this</span>.container = container;
-        <span class="hljs-keyword">this</span>.detachedNodes = {};
-        <span class="hljs-keyword">this</span>.nodeCount = <span class="hljs-number">0</span>;
+     */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p><code>ElementAllocator</code>应该作为一个私有类来使用。它是专门用来生成一个给<code>Context</code>内部使用的对象，这个对象是负责<code>Context</code>所管理的 div(<code>container</code>) 下面的 DOM 元素的创建和分配</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ElementAllocator</span><span class="hljs-params">(container)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>注意此处使用了<code>DocumentFragment</code>，这个对象会带来非常高的性能提升。简单来说，<code>DocumentFragment</code>只储存在内存而不在 DOM 树中，所以将元素插入<code>DocumentFragment</code>时不会引起 reflow. 详情参见 <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment">https://developer.mozilla.org/en-US/docs/Web/API/document.createDocumentFragment</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> (!container) container = <span class="hljs-built_in">document</span>.createDocumentFragment();
+        <span class="hljs-keyword">this</span>.container = container;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p><code>detachedNodes</code>是一个存放可重用的 DOM 元素的池</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">this</span>.detachedNodes = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p><code>nodeCount</code>记录这个对象所管理的通过<code>allocate</code>分配的非空闲元素的个数</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">this</span>.nodeCount = <span class="hljs-number">0</span>;
     }
 
     <span class="hljs-comment">/**
@@ -161,12 +219,39 @@ define(<span class="hljs-function"><span class="hljs-keyword">function</span><sp
      * @method migrate
      *
      * @param {Node} container document element to which Famo.us content will be migrated
-     */</span>
-    ElementAllocator.prototype.migrate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">migrate</span><span class="hljs-params">(container)</span> </span>{
-        <span class="hljs-keyword">var</span> oldContainer = <span class="hljs-keyword">this</span>.container;
-        <span class="hljs-keyword">if</span> (container === oldContainer) <span class="hljs-keyword">return</span>;
+     */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>将原有container的 DOM 元素转移到新的container去，并管理新的 container </p>
 
-        <span class="hljs-keyword">if</span> (oldContainer <span class="hljs-keyword">instanceof</span> DocumentFragment) {
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    ElementAllocator.prototype.migrate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">migrate</span><span class="hljs-params">(container)</span> </span>{
+        <span class="hljs-keyword">var</span> oldContainer = <span class="hljs-keyword">this</span>.container;
+        <span class="hljs-keyword">if</span> (container === oldContainer) <span class="hljs-keyword">return</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>如果<code>container</code>是一个<code>DocumentFragment</code>对象, 则直接将<code>this.container</code>加到<code>container</code>下面</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> (oldContainer <span class="hljs-keyword">instanceof</span> DocumentFragment) {
             container.appendChild(oldContainer);
         }
         <span class="hljs-keyword">else</span> {
@@ -186,8 +271,22 @@ define(<span class="hljs-function"><span class="hljs-keyword">function</span><sp
      *
      * @param {string} type type of element, e.g. 'div'
      * @return {Node} allocated document element
-     */</span>
-    ElementAllocator.prototype.allocate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">allocate</span><span class="hljs-params">(type)</span> </span>{
+     */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>如果空闲池里有所需类型的空闲元素，则返回一个空闲元素；否则创建一个新元素并返回</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    ElementAllocator.prototype.allocate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">allocate</span><span class="hljs-params">(type)</span> </span>{
         type = type.toLowerCase();
         <span class="hljs-keyword">if</span> (!(type <span class="hljs-keyword">in</span> <span class="hljs-keyword">this</span>.detachedNodes)) <span class="hljs-keyword">this</span>.detachedNodes[type] = [];
         <span class="hljs-keyword">var</span> nodeStore = <span class="hljs-keyword">this</span>.detachedNodes[type];
@@ -210,8 +309,22 @@ define(<span class="hljs-function"><span class="hljs-keyword">function</span><sp
      * @method deallocate
      *
      * @param {Node} element document element to deallocate
-     */</span>
-    ElementAllocator.prototype.deallocate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deallocate</span><span class="hljs-params">(element)</span> </span>{
+     */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>将一个可以重用的元素放到空闲池去</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    ElementAllocator.prototype.deallocate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deallocate</span><span class="hljs-params">(element)</span> </span>{
         <span class="hljs-keyword">var</span> nodeType = element.nodeName.toLowerCase();
         <span class="hljs-keyword">var</span> nodeStore = <span class="hljs-keyword">this</span>.detachedNodes[nodeType];
         nodeStore.push(element);
@@ -225,8 +338,22 @@ define(<span class="hljs-function"><span class="hljs-keyword">function</span><sp
      * @method getNodeCount
      *
      * @return {Number} total node count
-     */</span>
-    ElementAllocator.prototype.getNodeCount = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getNodeCount</span><span class="hljs-params">()</span> </span>{
+     */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>getter of this.nodeCount</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    ElementAllocator.prototype.getNodeCount = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getNodeCount</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.nodeCount;
     };
 
