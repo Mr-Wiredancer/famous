@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Timer.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+              
+              <a class="source" href="KeyCodes.html">
+                KeyCodes.js
+              </a>
+            
+              
+              <a class="source" href="Timer.html">
+                Timer.js
+              </a>
+            
+              
+              <a class="source" href="Utility.html">
+                Utility.js
+              </a>
+            
+              
+              <a class="source" href="ContextualView.html">
+                ContextualView.js
+              </a>
+            
+              
+              <a class="source" href="Deck.html">
+                Deck.js
+              </a>
+            
+              
+              <a class="source" href="DrawerLayout.html">
+                DrawerLayout.js
+              </a>
+            
+              
+              <a class="source" href="EdgeSwapper.html">
+                EdgeSwapper.js
+              </a>
+            
+              
+              <a class="source" href="FlexibleLayout.html">
+                FlexibleLayout.js
+              </a>
+            
+              
+              <a class="source" href="Flipper.html">
+                Flipper.js
+              </a>
+            
+              
+              <a class="source" href="GridLayout.html">
+                GridLayout.js
+              </a>
+            
+              
+              <a class="source" href="HeaderFooterLayout.html">
+                HeaderFooterLayout.js
+              </a>
+            
+              
+              <a class="source" href="Lightbox.html">
+                Lightbox.js
+              </a>
+            
+              
+              <a class="source" href="RenderController.html">
+                RenderController.js
+              </a>
+            
+              
+              <a class="source" href="ScrollContainer.html">
+                ScrollContainer.js
+              </a>
+            
+              
+              <a class="source" href="Scroller.html">
+                Scroller.js
+              </a>
+            
+              
+              <a class="source" href="Scrollview.html">
+                Scrollview.js
+              </a>
+            
+              
+              <a class="source" href="SequentialLayout.html">
+                SequentialLayout.js
+              </a>
+            
+              
+              <a class="source" href="NavigationBar.html">
+                NavigationBar.js
+              </a>
+            
+              
+              <a class="source" href="Slider.html">
+                Slider.js
+              </a>
+            
+              
+              <a class="source" href="TabBar.html">
+                TabBar.js
+              </a>
+            
+              
+              <a class="source" href="ToggleButton.html">
+                ToggleButton.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Timer.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>TODO fix func-style</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/*eslint func-style: [0, "declaration"] */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-comment">/**
+     * An internal library to reproduce javascript time-based scheduling.
+     *   Using standard javascript setTimeout methods can have a negative performance impact
+     *   when combined with the Famous rendering process, so instead require Timer and call
+     *   Timer.setTimeout, Timer.setInterval, etc.
+     *
+     * @class Timer
+     * @constructor
+     */</span>
+    <span class="hljs-keyword">var</span> FamousEngine = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/Engine'</span>);
+
+    <span class="hljs-keyword">var</span> _event  = <span class="hljs-string">'prerender'</span>;
+
+    <span class="hljs-keyword">var</span> getTime = (<span class="hljs-built_in">window</span>.performance) ?
+        <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.performance.now();
+        }
+        : <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now();
+        };
+
+    <span class="hljs-comment">/**
+     * Add a function to be run on every prerender
+     *
+     * @method addTimerFunction
+     *
+     * @param {function} fn function to be run every prerender
+     *
+     * @return {function} function passed in as parameter
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addTimerFunction</span><span class="hljs-params">(fn)</span> </span>{
+        FamousEngine.on(_event, fn);
+        <span class="hljs-keyword">return</span> fn;
+    }
+
+    <span class="hljs-comment">/**
+     * Wraps a function to be invoked after a certain amount of time.
+     *  After a set duration has passed, it executes the function and
+     *  removes it as a listener to 'prerender'.
+     *
+     * @method setTimeout
+     *
+     * @param {function} fn function to be run after a specified duration
+     * @param {number} duration milliseconds from now to execute the function
+     *
+     * @return {function} function passed in as parameter
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setTimeout</span><span class="hljs-params">(fn, duration)</span> </span>{
+        <span class="hljs-keyword">var</span> t = getTime();
+        <span class="hljs-keyword">var</span> callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">var</span> t2 = getTime();
+            <span class="hljs-keyword">if</span> (t2 - t &gt;= duration) {
+                fn.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+                FamousEngine.removeListener(_event, callback);
+            }
+        };
+        <span class="hljs-keyword">return</span> addTimerFunction(callback);
+    }
+
+    <span class="hljs-comment">/**
+     * Wraps a function to be invoked after a certain amount of time.
+     *  After a set duration has passed, it executes the function and
+     *  resets the execution time.
+     *
+     * @method setInterval
+     *
+     * @param {function} fn function to be run after a specified duration
+     * @param {number} duration interval to execute function in milliseconds
+     *
+     * @return {function} function passed in as parameter
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setInterval</span><span class="hljs-params">(fn, duration)</span> </span>{
+        <span class="hljs-keyword">var</span> t = getTime();
+        <span class="hljs-keyword">var</span> callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">var</span> t2 = getTime();
+            <span class="hljs-keyword">if</span> (t2 - t &gt;= duration) {
+                fn.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+                t = getTime();
+            }
+        };
+        <span class="hljs-keyword">return</span> addTimerFunction(callback);
+    }
+
+    <span class="hljs-comment">/**
+     * Wraps a function to be invoked after a certain amount of prerender ticks.
+     *  Similar use to setTimeout but tied to the engine's run speed.
+     *
+     * @method after
+     *
+     * @param {function} fn function to be run after a specified amount of ticks
+     * @param {number} numTicks number of prerender frames to wait
+     *
+     * @return {function} function passed in as parameter
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">after</span><span class="hljs-params">(fn, numTicks)</span> </span>{
+        <span class="hljs-keyword">if</span> (numTicks === <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">var</span> callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            numTicks--;
+            <span class="hljs-keyword">if</span> (numTicks &lt;= <span class="hljs-number">0</span>) { <span class="hljs-comment">//in case numTicks is fraction or negative</span>
+                fn.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+                clear(callback);
+            }
+        };
+        <span class="hljs-keyword">return</span> addTimerFunction(callback);
+    }
+
+    <span class="hljs-comment">/**
+     * Wraps a function to be continually invoked after a certain amount of prerender ticks.
+     *  Similar use to setInterval but tied to the engine's run speed.
+     *
+     * @method every
+     *
+     * @param {function} fn function to be run after a specified amount of ticks
+     * @param {number} numTicks number of prerender frames to wait
+     *
+     * @return {function} function passed in as parameter
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">every</span><span class="hljs-params">(fn, numTicks)</span> </span>{
+        numTicks = numTicks || <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">var</span> initial = numTicks;
+        <span class="hljs-keyword">var</span> callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            numTicks--;
+            <span class="hljs-keyword">if</span> (numTicks &lt;= <span class="hljs-number">0</span>) { <span class="hljs-comment">//in case numTicks is fraction or negative</span>
+                fn.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+                numTicks = initial;
+            }
+        };
+        <span class="hljs-keyword">return</span> addTimerFunction(callback);
+    }
+
+    <span class="hljs-comment">/**
+     * Remove a function that gets called every prerender
+     *
+     * @method clear
+     *
+     * @param {function} fn event linstener
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clear</span><span class="hljs-params">(fn)</span> </span>{
+        FamousEngine.removeListener(_event, fn);
+    }
+
+    <span class="hljs-comment">/**
+     * Executes a function after a certain amount of time. Makes sure
+     *  the function is not run multiple times.
+     *
+     * @method debounce
+     *
+     * @param {function} func function to run after certain amount of time
+     * @param {number} wait amount of time
+     *
+     * @return {function} function that is not able to debounce
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span><span class="hljs-params">(func, wait)</span> </span>{
+        <span class="hljs-keyword">var</span> timeout;
+        <span class="hljs-keyword">var</span> ctx;
+        <span class="hljs-keyword">var</span> timestamp;
+        <span class="hljs-keyword">var</span> result;
+        <span class="hljs-keyword">var</span> args;
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            ctx = <span class="hljs-keyword">this</span>;
+            args = <span class="hljs-built_in">arguments</span>;
+            timestamp = getTime();
+
+            <span class="hljs-keyword">var</span> fn = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">var</span> last = getTime - timestamp;
+
+                <span class="hljs-keyword">if</span> (last &lt; wait) {
+                    timeout = setTimeout(fn, wait - last);
+                } <span class="hljs-keyword">else</span> {
+                    timeout = <span class="hljs-literal">null</span>;
+                    result = func.apply(ctx, args);
+                }
+            };
+
+            clear(timeout);
+            timeout = setTimeout(fn, wait);
+
+            <span class="hljs-keyword">return</span> result;
+        };
+    }
+
+    <span class="hljs-built_in">module</span>.exports = {
+        setTimeout : setTimeout,
+        setInterval : setInterval,
+        debounce : debounce,
+        after : after,
+        every : every,
+        clear : clear
+    };
+
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

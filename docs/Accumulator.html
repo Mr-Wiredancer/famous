@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Accumulator.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Accumulator.html">
+                Accumulator.js
+              </a>
+            
+              
+              <a class="source" href="DesktopEmulationMode.html">
+                DesktopEmulationMode.js
+              </a>
+            
+              
+              <a class="source" href="FastClick.html">
+                FastClick.js
+              </a>
+            
+              
+              <a class="source" href="GenericSync.html">
+                GenericSync.js
+              </a>
+            
+              
+              <a class="source" href="MouseSync.html">
+                MouseSync.js
+              </a>
+            
+              
+              <a class="source" href="PinchSync.html">
+                PinchSync.js
+              </a>
+            
+              
+              <a class="source" href="RotateSync.html">
+                RotateSync.js
+              </a>
+            
+              
+              <a class="source" href="ScaleSync.html">
+                ScaleSync.js
+              </a>
+            
+              
+              <a class="source" href="ScrollSync.html">
+                ScrollSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchSync.html">
+                TouchSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchTracker.html">
+                TouchTracker.js
+              </a>
+            
+              
+              <a class="source" href="TwoFingerSync.html">
+                TwoFingerSync.js
+              </a>
+            
+              
+              <a class="source" href="Matrix.html">
+                Matrix.js
+              </a>
+            
+              
+              <a class="source" href="Quaternion.html">
+                Quaternion.js
+              </a>
+            
+              
+              <a class="source" href="Random.html">
+                Random.js
+              </a>
+            
+              
+              <a class="source" href="Utilities.html">
+                Utilities.js
+              </a>
+            
+              
+              <a class="source" href="Vector.html">
+                Vector.js
+              </a>
+            
+              
+              <a class="source" href="Draggable.html">
+                Draggable.js
+              </a>
+            
+              
+              <a class="source" href="Fader.html">
+                Fader.js
+              </a>
+            
+              
+              <a class="source" href="ModifierChain.html">
+                ModifierChain.js
+              </a>
+            
+              
+              <a class="source" href="StateModifier.html">
+                StateModifier.js
+              </a>
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Accumulator.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> EventHandler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/EventHandler'</span>);
+    <span class="hljs-keyword">var</span> Transitionable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/transitions/Transitionable'</span>);
+
+    <span class="hljs-comment">/**
+     * Accumulates differentials of event sources that emit a `delta`
+     *  attribute taking a Number or Array of Number types. The accumulated
+     *  value is stored in a getter/setter.
+     *
+     * @class Accumulator
+     * @constructor
+     * @param value {Number|Array|Transitionable}   Initializing value
+     * @param [eventName='update'] {String}         Name of update event
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Accumulator</span><span class="hljs-params">(value, eventName)</span> </span>{
+        <span class="hljs-keyword">if</span> (eventName === <span class="hljs-literal">undefined</span>) eventName = <span class="hljs-string">'update'</span>;
+
+        <span class="hljs-keyword">this</span>._state = (value &amp;&amp; value.get &amp;&amp; value.set)
+            ? value
+            : <span class="hljs-keyword">new</span> Transitionable(value || <span class="hljs-number">0</span>);
+
+        <span class="hljs-keyword">this</span>._eventInput = <span class="hljs-keyword">new</span> EventHandler();
+        EventHandler.setInputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._eventInput);
+
+        <span class="hljs-keyword">this</span>._eventInput.on(eventName, _handleUpdate.bind(<span class="hljs-keyword">this</span>));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleUpdate</span><span class="hljs-params">(data)</span> </span>{
+        <span class="hljs-keyword">var</span> delta = data.delta;
+        <span class="hljs-keyword">var</span> state = <span class="hljs-keyword">this</span>.get();
+
+        <span class="hljs-keyword">if</span> (delta.constructor === state.constructor){
+            <span class="hljs-keyword">var</span> newState = (delta <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>)
+                ? [state[<span class="hljs-number">0</span>] + delta[<span class="hljs-number">0</span>], state[<span class="hljs-number">1</span>] + delta[<span class="hljs-number">1</span>]]
+                : state + delta;
+            <span class="hljs-keyword">this</span>.set(newState);
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Basic getter
+     *
+     * @method get
+     * @return {Number|Array} current value
+     */</span>
+    Accumulator.prototype.get = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._state.get();
+    };
+
+    <span class="hljs-comment">/**
+     * Basic setter
+     *
+     * @method set
+     * @param value {Number|Array} new value
+     */</span>
+    Accumulator.prototype.set = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(value)</span> </span>{
+        <span class="hljs-keyword">this</span>._state.set(value);
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Accumulator;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

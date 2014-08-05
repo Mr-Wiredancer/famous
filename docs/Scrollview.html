@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Scrollview.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+              
+              <a class="source" href="KeyCodes.html">
+                KeyCodes.js
+              </a>
+            
+              
+              <a class="source" href="Timer.html">
+                Timer.js
+              </a>
+            
+              
+              <a class="source" href="Utility.html">
+                Utility.js
+              </a>
+            
+              
+              <a class="source" href="ContextualView.html">
+                ContextualView.js
+              </a>
+            
+              
+              <a class="source" href="Deck.html">
+                Deck.js
+              </a>
+            
+              
+              <a class="source" href="DrawerLayout.html">
+                DrawerLayout.js
+              </a>
+            
+              
+              <a class="source" href="EdgeSwapper.html">
+                EdgeSwapper.js
+              </a>
+            
+              
+              <a class="source" href="FlexibleLayout.html">
+                FlexibleLayout.js
+              </a>
+            
+              
+              <a class="source" href="Flipper.html">
+                Flipper.js
+              </a>
+            
+              
+              <a class="source" href="GridLayout.html">
+                GridLayout.js
+              </a>
+            
+              
+              <a class="source" href="HeaderFooterLayout.html">
+                HeaderFooterLayout.js
+              </a>
+            
+              
+              <a class="source" href="Lightbox.html">
+                Lightbox.js
+              </a>
+            
+              
+              <a class="source" href="RenderController.html">
+                RenderController.js
+              </a>
+            
+              
+              <a class="source" href="ScrollContainer.html">
+                ScrollContainer.js
+              </a>
+            
+              
+              <a class="source" href="Scroller.html">
+                Scroller.js
+              </a>
+            
+              
+              <a class="source" href="Scrollview.html">
+                Scrollview.js
+              </a>
+            
+              
+              <a class="source" href="SequentialLayout.html">
+                SequentialLayout.js
+              </a>
+            
+              
+              <a class="source" href="NavigationBar.html">
+                NavigationBar.js
+              </a>
+            
+              
+              <a class="source" href="Slider.html">
+                Slider.js
+              </a>
+            
+              
+              <a class="source" href="TabBar.html">
+                TabBar.js
+              </a>
+            
+              
+              <a class="source" href="ToggleButton.html">
+                ToggleButton.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Scrollview.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: felix@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> PhysicsEngine = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/physics/PhysicsEngine'</span>);
+    <span class="hljs-keyword">var</span> Particle = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/physics/bodies/Particle'</span>);
+    <span class="hljs-keyword">var</span> Drag = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/physics/forces/Drag'</span>);
+    <span class="hljs-keyword">var</span> Spring = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/physics/forces/Spring'</span>);
+
+    <span class="hljs-keyword">var</span> EventHandler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/EventHandler'</span>);
+    <span class="hljs-keyword">var</span> OptionsManager = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/OptionsManager'</span>);
+    <span class="hljs-keyword">var</span> ViewSequence = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/ViewSequence'</span>);
+    <span class="hljs-keyword">var</span> Scroller = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/views/Scroller'</span>);
+    <span class="hljs-keyword">var</span> Utility = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/utilities/Utility'</span>);
+
+    <span class="hljs-keyword">var</span> GenericSync = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/inputs/GenericSync'</span>);
+    <span class="hljs-keyword">var</span> ScrollSync = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/inputs/ScrollSync'</span>);
+    <span class="hljs-keyword">var</span> TouchSync = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/inputs/TouchSync'</span>);
+    GenericSync.register({scroll : ScrollSync, touch : TouchSync});
+
+    <span class="hljs-comment">/**
+     * Scrollview will lay out a collection of renderables sequentially in the specified direction, and will
+     * allow you to scroll through them with mousewheel or touch events.
+     * @class Scrollview
+     * @constructor
+     * @param {Options} [options] An object of configurable options.
+     * @param {Number} [options.direction=Utility.Direction.Y] Using the direction helper found in the famous Utility
+     * module, this option will lay out the Scrollview instance's renderables either horizontally
+     * (x) or vertically (y). Utility's direction is essentially either zero (X) or one (Y), so feel free
+     * to just use integers as well.
+     * @param {Boolean} [options.rails=true] When true, Scrollview's genericSync will only process input in it's primary access.
+     * @param {Number} [clipSize=undefined] The size of the area (in pixels) that Scrollview will display content in.
+     * @param {Number} [margin=undefined] The size of the area (in pixels) that Scrollview will process renderables' associated calculations in.
+     * @param {Number} [friction=0.001] Input resistance proportional to the velocity of the input.
+     * Controls the feel of the Scrollview instance at low velocities.
+     * @param {Number} [drag=0.0001] Input resistance proportional to the square of the velocity of the input.
+     * Affects Scrollview instance more prominently at high velocities.
+     * @param {Number} [edgeGrip=0.5] A coefficient for resistance against after-touch momentum.
+     * @param {Number} [egePeriod=300] Sets the period on the spring that handles the physics associated
+     * with hitting the end of a scrollview.
+     * @param {Number} [edgeDamp=1] Sets the damping on the spring that handles the physics associated
+     * with hitting the end of a scrollview.
+     * @param {Boolean} [paginated=false] A paginated scrollview will scroll through items discretely
+     * rather than continously.
+     * @param {Number} [pagePeriod=500] Sets the period on the spring that handles the physics associated
+     * with pagination.
+     * @param {Number} [pageDamp=0.8] Sets the damping on the spring that handles the physics associated
+     * with pagination.
+     * @param {Number} [pageStopSpeed=Infinity] The threshold for determining the amount of velocity
+     * required to trigger pagination. The lower the threshold, the easier it is to scroll continuosly.
+     * @param {Number} [pageSwitchSpeed=1] The threshold for momentum-based velocity pagination.
+     * @param {Number} [speedLimit=10] The highest scrolling speed you can reach.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Scrollview</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>.options = <span class="hljs-built_in">Object</span>.create(Scrollview.DEFAULT_OPTIONS);
+        <span class="hljs-keyword">this</span>._optionsManager = <span class="hljs-keyword">new</span> OptionsManager(<span class="hljs-keyword">this</span>.options);
+
+        <span class="hljs-keyword">this</span>._node = <span class="hljs-literal">null</span>;
+
+        <span class="hljs-keyword">this</span>._physicsEngine = <span class="hljs-keyword">new</span> PhysicsEngine();
+        <span class="hljs-keyword">this</span>._particle = <span class="hljs-keyword">new</span> Particle();
+        <span class="hljs-keyword">this</span>._physicsEngine.addBody(<span class="hljs-keyword">this</span>._particle);
+
+        <span class="hljs-keyword">this</span>.spring = <span class="hljs-keyword">new</span> Spring({anchor: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]});
+
+        <span class="hljs-keyword">this</span>.drag = <span class="hljs-keyword">new</span> Drag({forceFunction: Drag.FORCE_FUNCTIONS.QUADRATIC});
+        <span class="hljs-keyword">this</span>.friction = <span class="hljs-keyword">new</span> Drag({forceFunction: Drag.FORCE_FUNCTIONS.LINEAR});
+
+        <span class="hljs-keyword">this</span>.sync = <span class="hljs-keyword">new</span> GenericSync([<span class="hljs-string">'scroll'</span>, <span class="hljs-string">'touch'</span>], {direction : <span class="hljs-keyword">this</span>.options.direction});
+
+        <span class="hljs-keyword">this</span>._eventInput = <span class="hljs-keyword">new</span> EventHandler();
+        <span class="hljs-keyword">this</span>._eventOutput = <span class="hljs-keyword">new</span> EventHandler();
+
+        <span class="hljs-keyword">this</span>._eventInput.pipe(<span class="hljs-keyword">this</span>.sync);
+        <span class="hljs-keyword">this</span>.sync.pipe(<span class="hljs-keyword">this</span>._eventInput);
+
+        EventHandler.setInputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._eventInput);
+        EventHandler.setOutputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._eventOutput);
+
+        <span class="hljs-keyword">this</span>._touchCount = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>._springState = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>._onEdge = <span class="hljs-number">0</span>; <span class="hljs-comment">// -1 for top, 1 for bottom</span>
+        <span class="hljs-keyword">this</span>._pageSpringPosition = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>._edgeSpringPosition = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>._touchVelocity = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>._earlyEnd = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._needsPaginationCheck = <span class="hljs-literal">false</span>;
+
+        <span class="hljs-keyword">this</span>._scroller = <span class="hljs-keyword">new</span> Scroller();
+        <span class="hljs-keyword">this</span>._scroller.positionFrom(<span class="hljs-keyword">this</span>.getPosition.bind(<span class="hljs-keyword">this</span>));
+
+        <span class="hljs-keyword">this</span>.setOptions(options);
+
+        _bindEvents.call(<span class="hljs-keyword">this</span>);
+    }
+
+    <span class="hljs-comment">/** @const */</span>
+    <span class="hljs-keyword">var</span> TOLERANCE = <span class="hljs-number">0.5</span>;
+
+    Scrollview.DEFAULT_OPTIONS = {
+        direction: Utility.Direction.Y,
+        rails: <span class="hljs-literal">true</span>,
+        friction: <span class="hljs-number">0.001</span>,
+        drag: <span class="hljs-number">0.0001</span>,
+        edgeGrip: <span class="hljs-number">0.5</span>,
+        edgePeriod: <span class="hljs-number">300</span>,
+        edgeDamp: <span class="hljs-number">1</span>,
+        margin: <span class="hljs-number">1000</span>,       <span class="hljs-comment">// mostly safe</span>
+        paginated: <span class="hljs-literal">false</span>,
+        pagePeriod: <span class="hljs-number">500</span>,
+        pageDamp: <span class="hljs-number">0.8</span>,
+        pageStopSpeed: <span class="hljs-number">10</span>,
+        pageSwitchSpeed: <span class="hljs-number">0.5</span>,
+        speedLimit: <span class="hljs-number">10</span>,
+        groupScroll: <span class="hljs-literal">false</span>
+    };
+
+    <span class="hljs-comment">/** @enum */</span>
+    <span class="hljs-keyword">var</span> SpringStates = {
+        NONE: <span class="hljs-number">0</span>,
+        EDGE: <span class="hljs-number">1</span>,
+        PAGE: <span class="hljs-number">2</span>
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleStart</span><span class="hljs-params">(event)</span> </span>{
+        <span class="hljs-keyword">this</span>._touchCount = event.count;
+        <span class="hljs-keyword">if</span> (event.count === <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>._touchCount = <span class="hljs-number">1</span>;
+
+        _detachAgents.call(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.setVelocity(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">this</span>._touchVelocity = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>._earlyEnd = <span class="hljs-literal">false</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleMove</span><span class="hljs-params">(event)</span> </span>{
+        <span class="hljs-keyword">var</span> velocity = -event.velocity;
+        <span class="hljs-keyword">var</span> delta = -event.delta;
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._onEdge &amp;&amp; event.slip) {
+            <span class="hljs-keyword">if</span> ((velocity &lt; <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>._onEdge &lt; <span class="hljs-number">0</span>) || (velocity &gt; <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>._onEdge &gt; <span class="hljs-number">0</span>)) {
+                <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._earlyEnd) {
+                    _handleEnd.call(<span class="hljs-keyword">this</span>, event);
+                    <span class="hljs-keyword">this</span>._earlyEnd = <span class="hljs-literal">true</span>;
+                }
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._earlyEnd &amp;&amp; (<span class="hljs-built_in">Math</span>.abs(velocity) &gt; <span class="hljs-built_in">Math</span>.abs(<span class="hljs-keyword">this</span>.getVelocity()))) {
+                _handleStart.call(<span class="hljs-keyword">this</span>, event);
+            }
+        }
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._earlyEnd) <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">this</span>._touchVelocity = velocity;
+
+        <span class="hljs-keyword">if</span> (event.slip) <span class="hljs-keyword">this</span>.setVelocity(velocity);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.setPosition(<span class="hljs-keyword">this</span>.getPosition() + delta);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleEnd</span><span class="hljs-params">(event)</span> </span>{
+        <span class="hljs-keyword">this</span>._touchCount = event.count || <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._touchCount) {
+            _detachAgents.call(<span class="hljs-keyword">this</span>);
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._onEdge) _setSpring.call(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._edgeSpringPosition, SpringStates.EDGE);
+            _attachAgents.call(<span class="hljs-keyword">this</span>);
+            <span class="hljs-keyword">var</span> velocity = -event.velocity;
+            <span class="hljs-keyword">var</span> speedLimit = <span class="hljs-keyword">this</span>.options.speedLimit;
+            <span class="hljs-keyword">if</span> (event.slip) speedLimit *= <span class="hljs-keyword">this</span>.options.edgeGrip;
+            <span class="hljs-keyword">if</span> (velocity &lt; -speedLimit) velocity = -speedLimit;
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (velocity &gt; speedLimit) velocity = speedLimit;
+            <span class="hljs-keyword">this</span>.setVelocity(velocity);
+            <span class="hljs-keyword">this</span>._touchVelocity = <span class="hljs-literal">undefined</span>;
+            <span class="hljs-keyword">this</span>._needsPaginationCheck = <span class="hljs-literal">true</span>;
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_bindEvents</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>._eventInput.bindThis(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'start'</span>, _handleStart);
+        <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'update'</span>, _handleMove);
+        <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'end'</span>, _handleEnd);
+
+        <span class="hljs-keyword">this</span>._scroller.on(<span class="hljs-string">'edgeHit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span> </span>{
+            <span class="hljs-keyword">this</span>._edgeSpringPosition = data.position;
+        }.bind(<span class="hljs-keyword">this</span>));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_attachAgents</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._springState) <span class="hljs-keyword">this</span>._physicsEngine.attach([<span class="hljs-keyword">this</span>.spring], <span class="hljs-keyword">this</span>._particle);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>._physicsEngine.attach([<span class="hljs-keyword">this</span>.drag, <span class="hljs-keyword">this</span>.friction], <span class="hljs-keyword">this</span>._particle);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_detachAgents</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>._springState = SpringStates.NONE;
+        <span class="hljs-keyword">this</span>._physicsEngine.detachAll();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_nodeSizeForDirection</span><span class="hljs-params">(node)</span> </span>{
+        <span class="hljs-keyword">var</span> direction = <span class="hljs-keyword">this</span>.options.direction;
+        <span class="hljs-keyword">var</span> nodeSize = (node.getSize() || <span class="hljs-keyword">this</span>._scroller.getSize())[direction];
+        <span class="hljs-keyword">if</span> (!nodeSize) nodeSize = <span class="hljs-keyword">this</span>._scroller.getSize()[direction];
+        <span class="hljs-keyword">return</span> nodeSize;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleEdge</span><span class="hljs-params">(edgeDetected)</span> </span>{
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._onEdge &amp;&amp; edgeDetected) {
+            <span class="hljs-keyword">this</span>.sync.setOptions({scale: <span class="hljs-keyword">this</span>.options.edgeGrip});
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._touchCount &amp;&amp; <span class="hljs-keyword">this</span>._springState !== SpringStates.EDGE) {
+                _setSpring.call(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._edgeSpringPosition, SpringStates.EDGE);
+            }
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._onEdge &amp;&amp; !edgeDetected) {
+            <span class="hljs-keyword">this</span>.sync.setOptions({scale: <span class="hljs-number">1</span>});
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._springState &amp;&amp; <span class="hljs-built_in">Math</span>.abs(<span class="hljs-keyword">this</span>.getVelocity()) &lt; <span class="hljs-number">0.001</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>reset agents, detaching the spring</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                _detachAgents.call(<span class="hljs-keyword">this</span>);
+                _attachAgents.call(<span class="hljs-keyword">this</span>);
+            }
+        }
+        <span class="hljs-keyword">this</span>._onEdge = edgeDetected;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handlePagination</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._needsPaginationCheck) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._touchCount) <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._springState === SpringStates.EDGE) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-keyword">var</span> velocity = <span class="hljs-keyword">this</span>.getVelocity();
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Math</span>.abs(velocity) &gt;= <span class="hljs-keyword">this</span>.options.pageStopSpeed) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-keyword">var</span> position = <span class="hljs-keyword">this</span>.getPosition();
+        <span class="hljs-keyword">var</span> velocitySwitch = <span class="hljs-built_in">Math</span>.abs(velocity) &gt; <span class="hljs-keyword">this</span>.options.pageSwitchSpeed;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>parameters to determine when to switch</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">var</span> nodeSize = _nodeSizeForDirection.call(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._node);
+        <span class="hljs-keyword">var</span> positionNext = position &gt; <span class="hljs-number">0.5</span> * nodeSize;
+        <span class="hljs-keyword">var</span> velocityNext = velocity &gt; <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">if</span> ((positionNext &amp;&amp; !velocitySwitch) || (velocitySwitch &amp;&amp; velocityNext)) <span class="hljs-keyword">this</span>.goToNextPage();
+        <span class="hljs-keyword">else</span> _setSpring.call(<span class="hljs-keyword">this</span>, <span class="hljs-number">0</span>, SpringStates.PAGE);
+
+        <span class="hljs-keyword">this</span>._needsPaginationCheck = <span class="hljs-literal">false</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setSpring</span><span class="hljs-params">(position, springState)</span> </span>{
+        <span class="hljs-keyword">var</span> springOptions;
+        <span class="hljs-keyword">if</span> (springState === SpringStates.EDGE) {
+            <span class="hljs-keyword">this</span>._edgeSpringPosition = position;
+            springOptions = {
+                anchor: [<span class="hljs-keyword">this</span>._edgeSpringPosition, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+                period: <span class="hljs-keyword">this</span>.options.edgePeriod,
+                dampingRatio: <span class="hljs-keyword">this</span>.options.edgeDamp
+            };
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (springState === SpringStates.PAGE) {
+            <span class="hljs-keyword">this</span>._pageSpringPosition = position;
+            springOptions = {
+                anchor: [<span class="hljs-keyword">this</span>._pageSpringPosition, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+                period: <span class="hljs-keyword">this</span>.options.pagePeriod,
+                dampingRatio: <span class="hljs-keyword">this</span>.options.pageDamp
+            };
+        }
+
+        <span class="hljs-keyword">this</span>.spring.setOptions(springOptions);
+        <span class="hljs-keyword">if</span> (springState &amp;&amp; !<span class="hljs-keyword">this</span>._springState) {
+            _detachAgents.call(<span class="hljs-keyword">this</span>);
+            <span class="hljs-keyword">this</span>._springState = springState;
+            _attachAgents.call(<span class="hljs-keyword">this</span>);
+        }
+        <span class="hljs-keyword">this</span>._springState = springState;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_normalizeState</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">var</span> position = <span class="hljs-keyword">this</span>.getPosition();
+        <span class="hljs-keyword">var</span> nodeSize = _nodeSizeForDirection.call(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._node);
+        <span class="hljs-keyword">var</span> nextNode = <span class="hljs-keyword">this</span>._node.getNext();
+
+        <span class="hljs-keyword">while</span> (position &gt; nodeSize + TOLERANCE &amp;&amp; nextNode) {
+            _shiftOrigin.call(<span class="hljs-keyword">this</span>, -nodeSize);
+            position -= nodeSize;
+            <span class="hljs-keyword">this</span>._scroller.sequenceFrom(nextNode);
+            <span class="hljs-keyword">this</span>._node = nextNode;
+            nextNode = <span class="hljs-keyword">this</span>._node.getNext();
+            nodeSize = _nodeSizeForDirection.call(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._node);
+        }
+
+        <span class="hljs-keyword">var</span> previousNode = <span class="hljs-keyword">this</span>._node.getPrevious();
+        <span class="hljs-keyword">var</span> previousNodeSize;
+
+        <span class="hljs-keyword">while</span> (position &lt; -TOLERANCE &amp;&amp; previousNode) {
+            previousNodeSize = _nodeSizeForDirection.call(<span class="hljs-keyword">this</span>, previousNode);
+            <span class="hljs-keyword">this</span>._scroller.sequenceFrom(previousNode);
+            <span class="hljs-keyword">this</span>._node = previousNode;
+            _shiftOrigin.call(<span class="hljs-keyword">this</span>, previousNodeSize);
+            position += previousNodeSize;
+            previousNode = <span class="hljs-keyword">this</span>._node.getPrevious();
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_shiftOrigin</span><span class="hljs-params">(amount)</span> </span>{
+        <span class="hljs-keyword">this</span>._edgeSpringPosition += amount;
+        <span class="hljs-keyword">this</span>._pageSpringPosition += amount;
+        <span class="hljs-keyword">this</span>.setPosition(<span class="hljs-keyword">this</span>.getPosition() + amount);
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._springState === SpringStates.EDGE) {
+            <span class="hljs-keyword">this</span>.spring.setOptions({anchor: [<span class="hljs-keyword">this</span>._edgeSpringPosition, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]});
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._springState === SpringStates.PAGE) {
+            <span class="hljs-keyword">this</span>.spring.setOptions({anchor: [<span class="hljs-keyword">this</span>._pageSpringPosition, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]});
+        }
+    }
+
+    Scrollview.prototype.outputFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">outputFrom</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._scroller.outputFrom.apply(<span class="hljs-keyword">this</span>._scroller, <span class="hljs-built_in">arguments</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Returns the position associated with the Scrollview instance's current node
+     *  (generally the node currently at the top).
+     * @method getPosition
+     * @param {number} [node] If specified, returns the position of the node at that index in the
+     * Scrollview instance's currently managed collection.
+     * @return {number} The position of either the specified node, or the Scrollview's current Node,
+     * in pixels translated.
+     */</span>
+    Scrollview.prototype.getPosition = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPosition</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._particle.getPosition1D();
+    };
+
+    <span class="hljs-comment">/**
+     * Sets position of the physics particle that controls Scrollview instance's "position"
+     * @method setPosition
+     * @param {number} x The amount of pixels you want your scrollview to progress by.
+     */</span>
+    Scrollview.prototype.setPosition = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setPosition</span><span class="hljs-params">(x)</span> </span>{
+        <span class="hljs-keyword">this</span>._particle.setPosition1D(x);
+    };
+
+    <span class="hljs-comment">/**
+     * Returns the Scrollview instance's velocity.
+     * @method getVelocity
+     * @return {Number} The velocity.
+     */</span>
+
+    Scrollview.prototype.getVelocity = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getVelocity</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._touchCount ? <span class="hljs-keyword">this</span>._touchVelocity : <span class="hljs-keyword">this</span>._particle.getVelocity1D();
+    };
+
+    <span class="hljs-comment">/**
+     * Sets the Scrollview instance's velocity. Until affected by input or another call of setVelocity
+     *  the Scrollview instance will scroll at the passed-in velocity.
+     * @method setVelocity
+     * @param {number} v The magnitude of the velocity.
+     */</span>
+    Scrollview.prototype.setVelocity = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setVelocity</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">this</span>._particle.setVelocity1D(v);
+    };
+
+    <span class="hljs-comment">/**
+     * Patches the Scrollview instance's options with the passed-in ones.
+     * @method setOptions
+     * @param {Options} options An object of configurable options for the Scrollview instance.
+     */</span>
+    Scrollview.prototype.setOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOptions</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">if</span> (options) {
+            <span class="hljs-keyword">if</span> (options.direction !== <span class="hljs-literal">undefined</span>) {
+                <span class="hljs-keyword">if</span> (options.direction === <span class="hljs-string">'x'</span>) options.direction = Utility.Direction.X;
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (options.direction === <span class="hljs-string">'y'</span>) options.direction = Utility.Direction.Y;
+            }
+
+            <span class="hljs-keyword">this</span>._scroller.setOptions(options);
+            <span class="hljs-keyword">this</span>._optionsManager.setOptions(options);
+        }
+
+        <span class="hljs-keyword">this</span>._scroller.setOptions(<span class="hljs-keyword">this</span>.options);
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.groupScroll)
+            <span class="hljs-keyword">this</span>._scroller.pipe(<span class="hljs-keyword">this</span>._eventInput);
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-keyword">this</span>._scroller.unpipe(<span class="hljs-keyword">this</span>._eventInput);
+
+        <span class="hljs-keyword">this</span>.drag.setOptions({strength: <span class="hljs-keyword">this</span>.options.drag});
+        <span class="hljs-keyword">this</span>.friction.setOptions({strength: <span class="hljs-keyword">this</span>.options.friction});
+
+        <span class="hljs-keyword">this</span>.spring.setOptions({
+            period: <span class="hljs-keyword">this</span>.options.edgePeriod,
+            dampingRatio: <span class="hljs-keyword">this</span>.options.edgeDamp
+        });
+
+        <span class="hljs-keyword">this</span>.sync.setOptions({
+            rails: <span class="hljs-keyword">this</span>.options.rails,
+            direction: (<span class="hljs-keyword">this</span>.options.direction === Utility.Direction.X) ? GenericSync.DIRECTION_X : GenericSync.DIRECTION_Y
+        });
+    };
+
+    <span class="hljs-comment">/**
+     * goToPreviousPage paginates your Scrollview instance backwards by one item.
+     * @method goToPreviousPage
+     * @return {ViewSequence} The previous node.
+     */</span>
+    Scrollview.prototype.goToPreviousPage = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">goToPreviousPage</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._node) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">var</span> previousNode = <span class="hljs-keyword">this</span>._node.getPrevious();
+        <span class="hljs-keyword">if</span> (previousNode) {
+            <span class="hljs-keyword">var</span> currentPosition = <span class="hljs-keyword">this</span>.getPosition();
+            <span class="hljs-keyword">var</span> previousNodeSize = _nodeSizeForDirection.call(<span class="hljs-keyword">this</span>, previousNode);
+            <span class="hljs-keyword">this</span>._scroller.sequenceFrom(previousNode);
+            <span class="hljs-keyword">this</span>._node = previousNode;
+            <span class="hljs-keyword">var</span> previousSpringPosition = (currentPosition &lt; TOLERANCE) ? -previousNodeSize : <span class="hljs-number">0</span>;
+            _setSpring.call(<span class="hljs-keyword">this</span>, previousSpringPosition, SpringStates.PAGE);
+            _shiftOrigin.call(<span class="hljs-keyword">this</span>, previousNodeSize);
+        }
+        <span class="hljs-keyword">this</span>._eventOutput.emit(<span class="hljs-string">'pageChange'</span>, {direction: -<span class="hljs-number">1</span>});
+        <span class="hljs-keyword">return</span> previousNode;
+    };
+
+    <span class="hljs-comment">/**
+     * goToNextPage paginates your Scrollview instance forwards by one item.
+     * @method goToNextPage
+     * @return {ViewSequence} The next node.
+     */</span>
+    Scrollview.prototype.goToNextPage = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">goToNextPage</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._node) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">var</span> nextNode = <span class="hljs-keyword">this</span>._node.getNext();
+        <span class="hljs-keyword">if</span> (nextNode) {
+            <span class="hljs-keyword">var</span> currentPosition = <span class="hljs-keyword">this</span>.getPosition();
+            <span class="hljs-keyword">var</span> currentNodeSize = _nodeSizeForDirection.call(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._node);
+            <span class="hljs-keyword">var</span> nextNodeSize = _nodeSizeForDirection.call(<span class="hljs-keyword">this</span>, nextNode);
+            <span class="hljs-keyword">this</span>._scroller.sequenceFrom(nextNode);
+            <span class="hljs-keyword">this</span>._node = nextNode;
+            <span class="hljs-keyword">var</span> nextSpringPosition = (currentPosition &gt; currentNodeSize - TOLERANCE) ? currentNodeSize + nextNodeSize : currentNodeSize;
+            _setSpring.call(<span class="hljs-keyword">this</span>, nextSpringPosition, SpringStates.PAGE);
+            _shiftOrigin.call(<span class="hljs-keyword">this</span>, -currentNodeSize);
+        }
+        <span class="hljs-keyword">this</span>._eventOutput.emit(<span class="hljs-string">'pageChange'</span>, {direction: <span class="hljs-number">1</span>});
+        <span class="hljs-keyword">return</span> nextNode;
+    };
+
+    <span class="hljs-comment">/**
+     * Sets the collection of renderables under the Scrollview instance's control, by
+     *  setting its current node to the passed in ViewSequence. If you
+     *  pass in an array, the Scrollview instance will set its node as a ViewSequence instantiated with
+     *  the passed-in array.
+     *
+     * @method sequenceFrom
+     * @param {Array|ViewSequence} node Either an array of renderables or a Famous viewSequence.
+     */</span>
+    Scrollview.prototype.sequenceFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sequenceFrom</span><span class="hljs-params">(node)</span> </span>{
+        <span class="hljs-keyword">if</span> (node <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>) node = <span class="hljs-keyword">new</span> ViewSequence({array: node});
+        <span class="hljs-keyword">this</span>._node = node;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._scroller.sequenceFrom(node);
+    };
+
+    <span class="hljs-comment">/**
+     * Returns the width and the height of the Scrollview instance.
+     *
+     * @method getSize
+     * @return {Array} A two value array of the Scrollview instance's current width and height (in that order).
+     */</span>
+    Scrollview.prototype.getSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSize</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._scroller.getSize.apply(<span class="hljs-keyword">this</span>._scroller, <span class="hljs-built_in">arguments</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Generate a render spec from the contents of this component.
+     *
+     * @private
+     * @method render
+     * @return {number} Render spec for this component
+     */</span>
+    Scrollview.prototype.render = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._node) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+
+        _normalizeState.call(<span class="hljs-keyword">this</span>);
+        _handleEdge.call(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._scroller.onEdge());
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.paginated) _handlePagination.call(<span class="hljs-keyword">this</span>);
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._scroller.render();
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Scrollview;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

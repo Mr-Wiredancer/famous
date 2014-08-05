@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Vector.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Accumulator.html">
+                Accumulator.js
+              </a>
+            
+              
+              <a class="source" href="DesktopEmulationMode.html">
+                DesktopEmulationMode.js
+              </a>
+            
+              
+              <a class="source" href="FastClick.html">
+                FastClick.js
+              </a>
+            
+              
+              <a class="source" href="GenericSync.html">
+                GenericSync.js
+              </a>
+            
+              
+              <a class="source" href="MouseSync.html">
+                MouseSync.js
+              </a>
+            
+              
+              <a class="source" href="PinchSync.html">
+                PinchSync.js
+              </a>
+            
+              
+              <a class="source" href="RotateSync.html">
+                RotateSync.js
+              </a>
+            
+              
+              <a class="source" href="ScaleSync.html">
+                ScaleSync.js
+              </a>
+            
+              
+              <a class="source" href="ScrollSync.html">
+                ScrollSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchSync.html">
+                TouchSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchTracker.html">
+                TouchTracker.js
+              </a>
+            
+              
+              <a class="source" href="TwoFingerSync.html">
+                TwoFingerSync.js
+              </a>
+            
+              
+              <a class="source" href="Matrix.html">
+                Matrix.js
+              </a>
+            
+              
+              <a class="source" href="Quaternion.html">
+                Quaternion.js
+              </a>
+            
+              
+              <a class="source" href="Random.html">
+                Random.js
+              </a>
+            
+              
+              <a class="source" href="Utilities.html">
+                Utilities.js
+              </a>
+            
+              
+              <a class="source" href="Vector.html">
+                Vector.js
+              </a>
+            
+              
+              <a class="source" href="Draggable.html">
+                Draggable.js
+              </a>
+            
+              
+              <a class="source" href="Fader.html">
+                Fader.js
+              </a>
+            
+              
+              <a class="source" href="ModifierChain.html">
+                ModifierChain.js
+              </a>
+            
+              
+              <a class="source" href="StateModifier.html">
+                StateModifier.js
+              </a>
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Vector.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: david@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+
+    <span class="hljs-comment">/**
+     * Three-element floating point vector.
+     *
+     * @class Vector
+     * @constructor
+     *
+     * @param {number} x x element value
+     * @param {number} y y element value
+     * @param {number} z z element value
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Vector</span><span class="hljs-params">(x,y,z)</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">arguments</span>.length === <span class="hljs-number">1</span> &amp;&amp; x !== <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>.set(x);
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>.x = x || <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">this</span>.y = y || <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">this</span>.z = z || <span class="hljs-number">0</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+
+    <span class="hljs-keyword">var</span> _register = <span class="hljs-keyword">new</span> Vector(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);
+
+    <span class="hljs-comment">/**
+     * Add this element-wise to another Vector, element-wise.
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     *
+     * @method add
+     * @param {Vector} v addend
+     * @return {Vector} vector sum
+     */</span>
+    Vector.prototype.add = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">return</span> _setXYZ.call(_register,
+            <span class="hljs-keyword">this</span>.x + v.x,
+            <span class="hljs-keyword">this</span>.y + v.y,
+            <span class="hljs-keyword">this</span>.z + v.z
+        );
+    };
+
+    <span class="hljs-comment">/**
+     * Subtract another vector from this vector, element-wise.
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     *
+     * @method sub
+     * @param {Vector} v subtrahend
+     * @return {Vector} vector difference
+     */</span>
+    Vector.prototype.sub = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sub</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">return</span> _setXYZ.call(_register,
+            <span class="hljs-keyword">this</span>.x - v.x,
+            <span class="hljs-keyword">this</span>.y - v.y,
+            <span class="hljs-keyword">this</span>.z - v.z
+        );
+    };
+
+    <span class="hljs-comment">/**
+     * Scale Vector by floating point r.
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     *
+     * @method mult
+     *
+     * @param {number} r scalar
+     * @return {Vector} vector result
+     */</span>
+    Vector.prototype.mult = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mult</span><span class="hljs-params">(r)</span> </span>{
+        <span class="hljs-keyword">return</span> _setXYZ.call(_register,
+            r * <span class="hljs-keyword">this</span>.x,
+            r * <span class="hljs-keyword">this</span>.y,
+            r * <span class="hljs-keyword">this</span>.z
+        );
+    };
+
+    <span class="hljs-comment">/**
+     * Scale Vector by floating point 1/r.
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     *
+     * @method div
+     *
+     * @param {number} r scalar
+     * @return {Vector} vector result
+     */</span>
+    Vector.prototype.div = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">div</span><span class="hljs-params">(r)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.mult(<span class="hljs-number">1</span> / r);
+    };
+
+    <span class="hljs-comment">/**
+     * Given another vector v, return cross product (v)x(this).
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     *
+     * @method cross
+     * @param {Vector} v Left Hand Vector
+     * @return {Vector} vector result
+     */</span>
+    Vector.prototype.cross = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cross</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">var</span> x = <span class="hljs-keyword">this</span>.x;
+        <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">this</span>.y;
+        <span class="hljs-keyword">var</span> z = <span class="hljs-keyword">this</span>.z;
+        <span class="hljs-keyword">var</span> vx = v.x;
+        <span class="hljs-keyword">var</span> vy = v.y;
+        <span class="hljs-keyword">var</span> vz = v.z;
+
+        <span class="hljs-keyword">return</span> _setXYZ.call(_register,
+            z * vy - y * vz,
+            x * vz - z * vx,
+            y * vx - x * vy
+        );
+    };
+
+    <span class="hljs-comment">/**
+     * Component-wise equality test between this and Vector v.
+     * @method equals
+     * @param {Vector} v vector to compare
+     * @return {boolean}
+     */</span>
+    Vector.prototype.equals = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">equals</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">return</span> (v.x === <span class="hljs-keyword">this</span>.x &amp;&amp; v.y === <span class="hljs-keyword">this</span>.y &amp;&amp; v.z === <span class="hljs-keyword">this</span>.z);
+    };
+
+    <span class="hljs-comment">/**
+     * Rotate clockwise around x-axis by theta radians.
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     * @method rotateX
+     * @param {number} theta radians
+     * @return {Vector} rotated vector
+     */</span>
+    Vector.prototype.rotateX = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rotateX</span><span class="hljs-params">(theta)</span> </span>{
+        <span class="hljs-keyword">var</span> x = <span class="hljs-keyword">this</span>.x;
+        <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">this</span>.y;
+        <span class="hljs-keyword">var</span> z = <span class="hljs-keyword">this</span>.z;
+
+        <span class="hljs-keyword">var</span> cosTheta = <span class="hljs-built_in">Math</span>.cos(theta);
+        <span class="hljs-keyword">var</span> sinTheta = <span class="hljs-built_in">Math</span>.sin(theta);
+
+        <span class="hljs-keyword">return</span> _setXYZ.call(_register,
+            x,
+            y * cosTheta - z * sinTheta,
+            y * sinTheta + z * cosTheta
+        );
+    };
+
+    <span class="hljs-comment">/**
+     * Rotate clockwise around y-axis by theta radians.
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     * @method rotateY
+     * @param {number} theta radians
+     * @return {Vector} rotated vector
+     */</span>
+    Vector.prototype.rotateY = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rotateY</span><span class="hljs-params">(theta)</span> </span>{
+        <span class="hljs-keyword">var</span> x = <span class="hljs-keyword">this</span>.x;
+        <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">this</span>.y;
+        <span class="hljs-keyword">var</span> z = <span class="hljs-keyword">this</span>.z;
+
+        <span class="hljs-keyword">var</span> cosTheta = <span class="hljs-built_in">Math</span>.cos(theta);
+        <span class="hljs-keyword">var</span> sinTheta = <span class="hljs-built_in">Math</span>.sin(theta);
+
+        <span class="hljs-keyword">return</span> _setXYZ.call(_register,
+            z * sinTheta + x * cosTheta,
+            y,
+            z * cosTheta - x * sinTheta
+        );
+    };
+
+    <span class="hljs-comment">/**
+     * Rotate clockwise around z-axis by theta radians.
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     * @method rotateZ
+     * @param {number} theta radians
+     * @return {Vector} rotated vector
+     */</span>
+    Vector.prototype.rotateZ = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">rotateZ</span><span class="hljs-params">(theta)</span> </span>{
+        <span class="hljs-keyword">var</span> x = <span class="hljs-keyword">this</span>.x;
+        <span class="hljs-keyword">var</span> y = <span class="hljs-keyword">this</span>.y;
+        <span class="hljs-keyword">var</span> z = <span class="hljs-keyword">this</span>.z;
+
+        <span class="hljs-keyword">var</span> cosTheta = <span class="hljs-built_in">Math</span>.cos(theta);
+        <span class="hljs-keyword">var</span> sinTheta = <span class="hljs-built_in">Math</span>.sin(theta);
+
+        <span class="hljs-keyword">return</span> _setXYZ.call(_register,
+            x * cosTheta - y * sinTheta,
+            x * sinTheta + y * cosTheta,
+            z
+        );
+    };
+
+    <span class="hljs-comment">/**
+     * Return dot product of this with a second Vector
+     * @method dot
+     * @param {Vector} v second vector
+     * @return {number} dot product
+     */</span>
+    Vector.prototype.dot = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dot</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.x * v.x + <span class="hljs-keyword">this</span>.y * v.y + <span class="hljs-keyword">this</span>.z * v.z;
+    };
+
+    <span class="hljs-comment">/**
+     * Return squared length of this vector
+     * @method normSquared
+     * @return {number} squared length
+     */</span>
+    Vector.prototype.normSquared = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">normSquared</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.dot(<span class="hljs-keyword">this</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Return length of this vector
+     * @method norm
+     * @return {number} length
+     */</span>
+    Vector.prototype.norm = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">norm</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.sqrt(<span class="hljs-keyword">this</span>.normSquared());
+    };
+
+    <span class="hljs-comment">/**
+     * Scale Vector to specified length.
+     *   If length is less than internal tolerance, set vector to [length, 0, 0].
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     * @method normalize
+     *
+     * @param {number} length target length, default 1.0
+     * @return {Vector}
+     */</span>
+    Vector.prototype.normalize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">normalize</span><span class="hljs-params">(length)</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">arguments</span>.length === <span class="hljs-number">0</span>) length = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">var</span> norm = <span class="hljs-keyword">this</span>.norm();
+
+        <span class="hljs-keyword">if</span> (norm &gt; <span class="hljs-number">1e-7</span>) <span class="hljs-keyword">return</span> _setFromVector.call(_register, <span class="hljs-keyword">this</span>.mult(length / norm));
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> _setXYZ.call(_register, length, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Make a separate copy of the Vector.
+     *
+     * @method clone
+     *
+     * @return {Vector}
+     */</span>
+    Vector.prototype.clone = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clone</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Vector(<span class="hljs-keyword">this</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * True if and only if every value is 0 (or falsy)
+     *
+     * @method isZero
+     *
+     * @return {boolean}
+     */</span>
+    Vector.prototype.isZero = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isZero</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> !(<span class="hljs-keyword">this</span>.x || <span class="hljs-keyword">this</span>.y || <span class="hljs-keyword">this</span>.z);
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setXYZ</span><span class="hljs-params">(x,y,z)</span> </span>{
+        <span class="hljs-keyword">this</span>.x = x;
+        <span class="hljs-keyword">this</span>.y = y;
+        <span class="hljs-keyword">this</span>.z = z;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setFromArray</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">return</span> _setXYZ.call(<span class="hljs-keyword">this</span>,v[<span class="hljs-number">0</span>],v[<span class="hljs-number">1</span>],v[<span class="hljs-number">2</span>] || <span class="hljs-number">0</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setFromVector</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">return</span> _setXYZ.call(<span class="hljs-keyword">this</span>, v.x, v.y, v.z);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setFromNumber</span><span class="hljs-params">(x)</span> </span>{
+        <span class="hljs-keyword">return</span> _setXYZ.call(<span class="hljs-keyword">this</span>,x,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);
+    }
+
+    <span class="hljs-comment">/**
+     * Set this Vector to the values in the provided Array or Vector.
+     *
+     * @method set
+     * @param {object} v array, Vector, or number
+     * @return {Vector} this
+     */</span>
+    Vector.prototype.set = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">if</span> (v <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>) <span class="hljs-keyword">return</span> _setFromArray.call(<span class="hljs-keyword">this</span>, v);
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> v === <span class="hljs-string">'number'</span>) <span class="hljs-keyword">return</span> _setFromNumber.call(<span class="hljs-keyword">this</span>, v);
+        <span class="hljs-keyword">return</span> _setFromVector.call(<span class="hljs-keyword">this</span>, v);
+    };
+
+    Vector.prototype.setXYZ = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x,y,z)</span> </span>{
+        <span class="hljs-keyword">return</span> _setXYZ.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+    };
+
+    Vector.prototype.set1D = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span> </span>{
+        <span class="hljs-keyword">return</span> _setFromNumber.call(<span class="hljs-keyword">this</span>, x);
+    };
+
+    <span class="hljs-comment">/**
+     * Put result of last internal register calculation in specified output vector.
+     *
+     * @method put
+     * @param {Vector} v destination vector
+     * @return {Vector} destination vector
+     */</span>
+
+    Vector.prototype.put = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">put</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span> === _register) _setFromVector.call(v, _register);
+        <span class="hljs-keyword">else</span> _setFromVector.call(v, <span class="hljs-keyword">this</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Set this vector to [0,0,0]
+     *
+     * @method clear
+     */</span>
+    Vector.prototype.clear = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> _setXYZ.call(<span class="hljs-keyword">this</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Scale this Vector down to specified "cap" length.
+     *   If Vector shorter than cap, or cap is Infinity, do nothing.
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     *
+     * @method cap
+     * @return {Vector} capped vector
+     */</span>
+    Vector.prototype.cap = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cap</span><span class="hljs-params">(cap)</span> </span>{
+        <span class="hljs-keyword">if</span> (cap === <span class="hljs-literal">Infinity</span>) <span class="hljs-keyword">return</span> _setFromVector.call(_register, <span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">var</span> norm = <span class="hljs-keyword">this</span>.norm();
+        <span class="hljs-keyword">if</span> (norm &gt; cap) <span class="hljs-keyword">return</span> _setFromVector.call(_register, <span class="hljs-keyword">this</span>.mult(cap / norm));
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> _setFromVector.call(_register, <span class="hljs-keyword">this</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Return projection of this Vector onto another.
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     *
+     * @method project
+     * @param {Vector} n vector to project upon
+     * @return {Vector} projected vector
+     */</span>
+    Vector.prototype.project = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">project</span><span class="hljs-params">(n)</span> </span>{
+        <span class="hljs-keyword">return</span> n.mult(<span class="hljs-keyword">this</span>.dot(n));
+    };
+
+    <span class="hljs-comment">/**
+     * Reflect this Vector across provided vector.
+     *   Note: This sets the internal result register, so other references to that vector will change.
+     *
+     * @method reflectAcross
+     * @param {Vector} n vector to reflect across
+     * @return {Vector} reflected vector
+     */</span>
+    Vector.prototype.reflectAcross = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reflectAcross</span><span class="hljs-params">(n)</span> </span>{
+        n.normalize().put(n);
+        <span class="hljs-keyword">return</span> _setFromVector(_register, <span class="hljs-keyword">this</span>.sub(<span class="hljs-keyword">this</span>.project(n).mult(<span class="hljs-number">2</span>)));
+    };
+
+    <span class="hljs-comment">/**
+     * Convert Vector to three-element array.
+     *
+     * @method get
+     * @return {array&lt;number&gt;} three-element array
+     */</span>
+    Vector.prototype.get = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> [<span class="hljs-keyword">this</span>.x, <span class="hljs-keyword">this</span>.y, <span class="hljs-keyword">this</span>.z];
+    };
+
+    Vector.prototype.get1D = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.x;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Vector;
+
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

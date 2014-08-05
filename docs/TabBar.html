@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>TabBar.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+              
+              <a class="source" href="KeyCodes.html">
+                KeyCodes.js
+              </a>
+            
+              
+              <a class="source" href="Timer.html">
+                Timer.js
+              </a>
+            
+              
+              <a class="source" href="Utility.html">
+                Utility.js
+              </a>
+            
+              
+              <a class="source" href="ContextualView.html">
+                ContextualView.js
+              </a>
+            
+              
+              <a class="source" href="Deck.html">
+                Deck.js
+              </a>
+            
+              
+              <a class="source" href="DrawerLayout.html">
+                DrawerLayout.js
+              </a>
+            
+              
+              <a class="source" href="EdgeSwapper.html">
+                EdgeSwapper.js
+              </a>
+            
+              
+              <a class="source" href="FlexibleLayout.html">
+                FlexibleLayout.js
+              </a>
+            
+              
+              <a class="source" href="Flipper.html">
+                Flipper.js
+              </a>
+            
+              
+              <a class="source" href="GridLayout.html">
+                GridLayout.js
+              </a>
+            
+              
+              <a class="source" href="HeaderFooterLayout.html">
+                HeaderFooterLayout.js
+              </a>
+            
+              
+              <a class="source" href="Lightbox.html">
+                Lightbox.js
+              </a>
+            
+              
+              <a class="source" href="RenderController.html">
+                RenderController.js
+              </a>
+            
+              
+              <a class="source" href="ScrollContainer.html">
+                ScrollContainer.js
+              </a>
+            
+              
+              <a class="source" href="Scroller.html">
+                Scroller.js
+              </a>
+            
+              
+              <a class="source" href="Scrollview.html">
+                Scrollview.js
+              </a>
+            
+              
+              <a class="source" href="SequentialLayout.html">
+                SequentialLayout.js
+              </a>
+            
+              
+              <a class="source" href="NavigationBar.html">
+                NavigationBar.js
+              </a>
+            
+              
+              <a class="source" href="Slider.html">
+                Slider.js
+              </a>
+            
+              
+              <a class="source" href="TabBar.html">
+                TabBar.js
+              </a>
+            
+              
+              <a class="source" href="ToggleButton.html">
+                ToggleButton.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>TabBar.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> Utility = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/utilities/Utility'</span>);
+    <span class="hljs-keyword">var</span> View = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/View'</span>);
+    <span class="hljs-keyword">var</span> GridLayout = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/views/GridLayout'</span>);
+    <span class="hljs-keyword">var</span> ToggleButton = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./ToggleButton'</span>);
+
+    <span class="hljs-comment">/**
+     * A view for displaying various tabs that dispatch events
+     *  based on the id of the button that was clicked
+     *
+     * @class TabBar
+     * @extends View
+     * @constructor
+     *
+     * @param {object} options overrides of default options
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">TabBar</span><span class="hljs-params">(options)</span> </span>{
+        View.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+
+        <span class="hljs-keyword">this</span>.layout = <span class="hljs-keyword">new</span> GridLayout();
+        <span class="hljs-keyword">this</span>.buttons = [];
+        <span class="hljs-keyword">this</span>._buttonIds = {};
+        <span class="hljs-keyword">this</span>._buttonCallbacks = {};
+
+        <span class="hljs-keyword">this</span>.layout.sequenceFrom(<span class="hljs-keyword">this</span>.buttons);
+        <span class="hljs-keyword">this</span>._add(<span class="hljs-keyword">this</span>.layout);
+
+        <span class="hljs-keyword">this</span>._optionsManager.on(<span class="hljs-string">'change'</span>, _updateOptions.bind(<span class="hljs-keyword">this</span>));
+    }
+
+    TabBar.prototype = <span class="hljs-built_in">Object</span>.create(View.prototype);
+    TabBar.prototype.constructor = TabBar;
+
+    TabBar.DEFAULT_OPTIONS = {
+        sections: [],
+        widget: ToggleButton,
+        size: [<span class="hljs-literal">undefined</span>, <span class="hljs-number">50</span>],
+        direction: Utility.Direction.X,
+        buttons: {
+            toggleMode: ToggleButton.ON
+        }
+    };
+
+    <span class="hljs-comment">/**
+     * Update the options for all components of the view
+     *
+     * @method _updateOptions
+     *
+     * @param {object} data component options
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_updateOptions</span><span class="hljs-params">(data)</span> </span>{
+        <span class="hljs-keyword">var</span> id = data.id;
+        <span class="hljs-keyword">var</span> value = data.value;
+
+        <span class="hljs-keyword">if</span> (id === <span class="hljs-string">'direction'</span>) {
+            <span class="hljs-keyword">this</span>.layout.setOptions({dimensions: _resolveGridDimensions.call(<span class="hljs-keyword">this</span>.buttons.length, <span class="hljs-keyword">this</span>.options.direction)});
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (id === <span class="hljs-string">'buttons'</span>) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> <span class="hljs-keyword">this</span>.buttons) {
+                <span class="hljs-keyword">this</span>.buttons[i].setOptions(value);
+            }
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (id === <span class="hljs-string">'sections'</span>) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> sectionId <span class="hljs-keyword">in</span> <span class="hljs-keyword">this</span>.options.sections) {
+                <span class="hljs-keyword">this</span>.defineSection(sectionId, <span class="hljs-keyword">this</span>.options.sections[sectionId]);
+            }
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Return an array of the proper dimensions for the tabs
+     *
+     * @method _resolveGridDimensions
+     *
+     * @param {number} count number of buttons
+     * @param {number} direction direction of the layout
+     *
+     * @return {array} the dimensions of the tab section
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_resolveGridDimensions</span><span class="hljs-params">(count, direction)</span> </span>{
+        <span class="hljs-keyword">if</span> (direction === Utility.Direction.X) <span class="hljs-keyword">return</span> [count, <span class="hljs-number">1</span>];
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> [<span class="hljs-number">1</span>, count];
+    }
+
+    <span class="hljs-comment">/**
+     * Create a new button with the specified id.  If one already exists with
+     *  that id, unbind all listeners.
+     *
+     * @method defineSection
+     *
+     * @param {string} id name of the button
+     * @param {object} content data for the creation of a new ToggleButton
+     */</span>
+    TabBar.prototype.defineSection = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineSection</span><span class="hljs-params">(id, content)</span> </span>{
+        <span class="hljs-keyword">var</span> button;
+        <span class="hljs-keyword">var</span> i = <span class="hljs-keyword">this</span>._buttonIds[id];
+
+        <span class="hljs-keyword">if</span> (i === <span class="hljs-literal">undefined</span>) {
+            i = <span class="hljs-keyword">this</span>.buttons.length;
+            <span class="hljs-keyword">this</span>._buttonIds[id] = i;
+            <span class="hljs-keyword">var</span> widget = <span class="hljs-keyword">this</span>.options.widget;
+            button = <span class="hljs-keyword">new</span> widget();
+            <span class="hljs-keyword">this</span>.buttons[i] = button;
+            <span class="hljs-keyword">this</span>.layout.setOptions({dimensions: _resolveGridDimensions(<span class="hljs-keyword">this</span>.buttons.length, <span class="hljs-keyword">this</span>.options.direction)});
+        }
+        <span class="hljs-keyword">else</span> {
+            button = <span class="hljs-keyword">this</span>.buttons[i];
+            button.unbind(<span class="hljs-string">'select'</span>, <span class="hljs-keyword">this</span>._buttonCallbacks[id]);
+        }
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.buttons) button.setOptions(<span class="hljs-keyword">this</span>.options.buttons);
+        button.setOptions(content);
+
+        <span class="hljs-keyword">this</span>._buttonCallbacks[id] = <span class="hljs-keyword">this</span>.select.bind(<span class="hljs-keyword">this</span>, id);
+        button.on(<span class="hljs-string">'select'</span>, <span class="hljs-keyword">this</span>._buttonCallbacks[id]);
+    };
+
+    <span class="hljs-comment">/**
+     * Select a particular button and dispatch the id of the selection
+     *  to any listeners.  Deselect all others
+     *
+     * @method select
+     *
+     * @param {string} id button id
+     */</span>
+    TabBar.prototype.select = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">select</span><span class="hljs-params">(id)</span> </span>{
+        <span class="hljs-keyword">var</span> btn = <span class="hljs-keyword">this</span>._buttonIds[id];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>this prevents event loop</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.buttons[btn] &amp;&amp; <span class="hljs-keyword">this</span>.buttons[btn].isSelected()) {
+            <span class="hljs-keyword">this</span>._eventOutput.emit(<span class="hljs-string">'select'</span>, {id: id});
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.buttons[btn]) {
+            <span class="hljs-keyword">this</span>.buttons[btn].select();
+        }
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>.buttons.length; i++) {
+            <span class="hljs-keyword">if</span> (i !== btn) <span class="hljs-keyword">this</span>.buttons[i].deselect();
+        }
+    };
+
+    <span class="hljs-built_in">module</span>.exports = TabBar;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

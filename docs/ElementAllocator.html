@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>ElementAllocator.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Context.html">
+                Context.js
+              </a>
+            
+              
+              <a class="source" href="ElementAllocator.html">
+                ElementAllocator.js
+              </a>
+            
+              
+              <a class="source" href="ElementOutput.html">
+                ElementOutput.js
+              </a>
+            
+              
+              <a class="source" href="Engine.html">
+                Engine.js
+              </a>
+            
+              
+              <a class="source" href="Entity.html">
+                Entity.js
+              </a>
+            
+              
+              <a class="source" href="EventEmitter.html">
+                EventEmitter.js
+              </a>
+            
+              
+              <a class="source" href="EventHandler.html">
+                EventHandler.js
+              </a>
+            
+              
+              <a class="source" href="Group.html">
+                Group.js
+              </a>
+            
+              
+              <a class="source" href="Modifier.html">
+                Modifier.js
+              </a>
+            
+              
+              <a class="source" href="OptionsManager.html">
+                OptionsManager.js
+              </a>
+            
+              
+              <a class="source" href="RenderNode.html">
+                RenderNode.js
+              </a>
+            
+              
+              <a class="source" href="Scene.html">
+                Scene.js
+              </a>
+            
+              
+              <a class="source" href="SpecParser.html">
+                SpecParser.js
+              </a>
+            
+              
+              <a class="source" href="Surface.html">
+                Surface.js
+              </a>
+            
+              
+              <a class="source" href="Transform.html">
+                Transform.js
+              </a>
+            
+              
+              <a class="source" href="View.html">
+                View.js
+              </a>
+            
+              
+              <a class="source" href="ViewSequence.html">
+                ViewSequence.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>ElementAllocator.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+
+    <span class="hljs-comment">/**
+     * Internal helper object to Context that handles the process of
+     *   creating and allocating DOM elements within a managed div.
+     *   Private.
+     *
+     * @class ElementAllocator
+     * @constructor
+     * @private
+     * @param {Node} container document element in which Famo.us content will be inserted
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ElementAllocator</span><span class="hljs-params">(container)</span> </span>{
+        <span class="hljs-keyword">if</span> (!container) container = <span class="hljs-built_in">document</span>.createDocumentFragment();
+        <span class="hljs-keyword">this</span>.container = container;
+        <span class="hljs-keyword">this</span>.detachedNodes = {};
+        <span class="hljs-keyword">this</span>.nodeCount = <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-comment">/**
+     * Move the document elements from their original container to a new one.
+     *
+     * @private
+     * @method migrate
+     *
+     * @param {Node} container document element to which Famo.us content will be migrated
+     */</span>
+    ElementAllocator.prototype.migrate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">migrate</span><span class="hljs-params">(container)</span> </span>{
+        <span class="hljs-keyword">var</span> oldContainer = <span class="hljs-keyword">this</span>.container;
+        <span class="hljs-keyword">if</span> (container === oldContainer) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-keyword">if</span> (oldContainer <span class="hljs-keyword">instanceof</span> DocumentFragment) {
+            container.appendChild(oldContainer);
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">while</span> (oldContainer.hasChildNodes()) {
+                container.appendChild(oldContainer.removeChild(oldContainer.firstChild));
+            }
+        }
+
+        <span class="hljs-keyword">this</span>.container = container;
+    };
+
+    <span class="hljs-comment">/**
+     * Allocate an element of specified type from the pool.
+     *
+     * @private
+     * @method allocate
+     *
+     * @param {string} type type of element, e.g. 'div'
+     * @return {Node} allocated document element
+     */</span>
+    ElementAllocator.prototype.allocate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">allocate</span><span class="hljs-params">(type)</span> </span>{
+        type = type.toLowerCase();
+        <span class="hljs-keyword">if</span> (!(type <span class="hljs-keyword">in</span> <span class="hljs-keyword">this</span>.detachedNodes)) <span class="hljs-keyword">this</span>.detachedNodes[type] = [];
+        <span class="hljs-keyword">var</span> nodeStore = <span class="hljs-keyword">this</span>.detachedNodes[type];
+        <span class="hljs-keyword">var</span> result;
+        <span class="hljs-keyword">if</span> (nodeStore.length &gt; <span class="hljs-number">0</span>) {
+            result = nodeStore.pop();
+        }
+        <span class="hljs-keyword">else</span> {
+            result = <span class="hljs-built_in">document</span>.createElement(type);
+            <span class="hljs-keyword">this</span>.container.appendChild(result);
+        }
+        <span class="hljs-keyword">this</span>.nodeCount++;
+        <span class="hljs-keyword">return</span> result;
+    };
+
+    <span class="hljs-comment">/**
+     * De-allocate an element of specified type to the pool.
+     *
+     * @private
+     * @method deallocate
+     *
+     * @param {Node} element document element to deallocate
+     */</span>
+    ElementAllocator.prototype.deallocate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deallocate</span><span class="hljs-params">(element)</span> </span>{
+        <span class="hljs-keyword">var</span> nodeType = element.nodeName.toLowerCase();
+        <span class="hljs-keyword">var</span> nodeStore = <span class="hljs-keyword">this</span>.detachedNodes[nodeType];
+        nodeStore.push(element);
+        <span class="hljs-keyword">this</span>.nodeCount--;
+    };
+
+    <span class="hljs-comment">/**
+     * Get count of total allocated nodes in the document.
+     *
+     * @private
+     * @method getNodeCount
+     *
+     * @return {Number} total node count
+     */</span>
+    ElementAllocator.prototype.getNodeCount = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getNodeCount</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.nodeCount;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = ElementAllocator;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

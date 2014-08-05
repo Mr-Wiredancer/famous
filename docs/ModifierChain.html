@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>ModifierChain.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Accumulator.html">
+                Accumulator.js
+              </a>
+            
+              
+              <a class="source" href="DesktopEmulationMode.html">
+                DesktopEmulationMode.js
+              </a>
+            
+              
+              <a class="source" href="FastClick.html">
+                FastClick.js
+              </a>
+            
+              
+              <a class="source" href="GenericSync.html">
+                GenericSync.js
+              </a>
+            
+              
+              <a class="source" href="MouseSync.html">
+                MouseSync.js
+              </a>
+            
+              
+              <a class="source" href="PinchSync.html">
+                PinchSync.js
+              </a>
+            
+              
+              <a class="source" href="RotateSync.html">
+                RotateSync.js
+              </a>
+            
+              
+              <a class="source" href="ScaleSync.html">
+                ScaleSync.js
+              </a>
+            
+              
+              <a class="source" href="ScrollSync.html">
+                ScrollSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchSync.html">
+                TouchSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchTracker.html">
+                TouchTracker.js
+              </a>
+            
+              
+              <a class="source" href="TwoFingerSync.html">
+                TwoFingerSync.js
+              </a>
+            
+              
+              <a class="source" href="Matrix.html">
+                Matrix.js
+              </a>
+            
+              
+              <a class="source" href="Quaternion.html">
+                Quaternion.js
+              </a>
+            
+              
+              <a class="source" href="Random.html">
+                Random.js
+              </a>
+            
+              
+              <a class="source" href="Utilities.html">
+                Utilities.js
+              </a>
+            
+              
+              <a class="source" href="Vector.html">
+                Vector.js
+              </a>
+            
+              
+              <a class="source" href="Draggable.html">
+                Draggable.js
+              </a>
+            
+              
+              <a class="source" href="Fader.html">
+                Fader.js
+              </a>
+            
+              
+              <a class="source" href="ModifierChain.html">
+                ModifierChain.js
+              </a>
+            
+              
+              <a class="source" href="StateModifier.html">
+                StateModifier.js
+              </a>
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>ModifierChain.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: david@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+
+    <span class="hljs-comment">/**
+     * A class to add and remove a chain of modifiers
+     *   at a single point in the render tree
+     *
+     * @class ModifierChain
+     * @constructor
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ModifierChain</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>._chain = [];
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">arguments</span>.length) <span class="hljs-keyword">this</span>.addModifier.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+    }
+
+    <span class="hljs-comment">/**
+     * Add a modifier, or comma separated modifiers, to the modifier chain.
+     *
+     * @method addModifier
+     *
+     * @param {...Modifier*} varargs args list of Modifiers
+     */</span>
+    ModifierChain.prototype.addModifier = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addModifier</span><span class="hljs-params">(varargs)</span> </span>{
+        <span class="hljs-built_in">Array</span>.prototype.push.apply(<span class="hljs-keyword">this</span>._chain, <span class="hljs-built_in">arguments</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Remove a modifier from the modifier chain.
+     *
+     * @method removeModifier
+     *
+     * @param {Modifier} modifier
+     */</span>
+    ModifierChain.prototype.removeModifier = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">removeModifier</span><span class="hljs-params">(modifier)</span> </span>{
+        <span class="hljs-keyword">var</span> index = <span class="hljs-keyword">this</span>._chain.indexOf(modifier);
+        <span class="hljs-keyword">if</span> (index &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">this</span>._chain.splice(index, <span class="hljs-number">1</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Return render spec for this Modifier, applying to the provided
+     *    target component.  This is similar to render() for Surfaces.
+     *
+     * @private
+     * @method modify
+     *
+     * @param {Object} input (already rendered) render spec to
+     *    which to apply the transform.
+     * @return {Object} render spec for this Modifier, including the
+     *    provided target
+     */</span>
+    ModifierChain.prototype.modify = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">modify</span><span class="hljs-params">(input)</span> </span>{
+        <span class="hljs-keyword">var</span> chain  = <span class="hljs-keyword">this</span>._chain;
+        <span class="hljs-keyword">var</span> result = input;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; chain.length; i++) {
+            result = chain[i].modify(result);
+        }
+        <span class="hljs-keyword">return</span> result;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = ModifierChain;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

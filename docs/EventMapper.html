@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>EventMapper.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="EventArbiter.html">
+                EventArbiter.js
+              </a>
+            
+              
+              <a class="source" href="EventFilter.html">
+                EventFilter.js
+              </a>
+            
+              
+              <a class="source" href="EventMapper.html">
+                EventMapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>EventMapper.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: david@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> EventHandler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/EventHandler'</span>);
+
+    <span class="hljs-comment">/**
+     * EventMapper routes events to various event destinations
+     *  based on custom logic.  The function signature is arbitrary.
+     *
+     * @class EventMapper
+     * @constructor
+     *
+     * @param {function} mappingFunction function to determine where
+     *  events are routed to.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">EventMapper</span><span class="hljs-params">(mappingFunction)</span> </span>{
+        EventHandler.call(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>._mappingFunction = mappingFunction;
+    }
+    EventMapper.prototype = <span class="hljs-built_in">Object</span>.create(EventHandler.prototype);
+    EventMapper.prototype.constructor = EventMapper;
+
+    EventMapper.prototype.subscribe = <span class="hljs-literal">null</span>;
+    EventMapper.prototype.unsubscribe = <span class="hljs-literal">null</span>;
+
+    <span class="hljs-comment">/**
+     * Trigger an event, sending to all mapped downstream handlers
+     *   listening for provided 'type' key.
+     *
+     * @method emit
+     *
+     * @param {string} type event type key (for example, 'click')
+     * @param {Object} data event data
+     * @return {EventHandler} this
+     */</span>
+    EventMapper.prototype.emit = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">emit</span><span class="hljs-params">(type, data)</span> </span>{
+        <span class="hljs-keyword">var</span> target = <span class="hljs-keyword">this</span>._mappingFunction.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+        <span class="hljs-keyword">if</span> (target &amp;&amp; (target.emit <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>)) target.emit(type, data);
+    };
+
+    <span class="hljs-comment">/**
+     * Alias of emit.
+     * @method trigger
+     */</span>
+    EventMapper.prototype.trigger = EventMapper.prototype.emit;
+
+    <span class="hljs-built_in">module</span>.exports = EventMapper;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

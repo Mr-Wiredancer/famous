@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Context.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Context.html">
+                Context.js
+              </a>
+            
+              
+              <a class="source" href="ElementAllocator.html">
+                ElementAllocator.js
+              </a>
+            
+              
+              <a class="source" href="ElementOutput.html">
+                ElementOutput.js
+              </a>
+            
+              
+              <a class="source" href="Engine.html">
+                Engine.js
+              </a>
+            
+              
+              <a class="source" href="Entity.html">
+                Entity.js
+              </a>
+            
+              
+              <a class="source" href="EventEmitter.html">
+                EventEmitter.js
+              </a>
+            
+              
+              <a class="source" href="EventHandler.html">
+                EventHandler.js
+              </a>
+            
+              
+              <a class="source" href="Group.html">
+                Group.js
+              </a>
+            
+              
+              <a class="source" href="Modifier.html">
+                Modifier.js
+              </a>
+            
+              
+              <a class="source" href="OptionsManager.html">
+                OptionsManager.js
+              </a>
+            
+              
+              <a class="source" href="RenderNode.html">
+                RenderNode.js
+              </a>
+            
+              
+              <a class="source" href="Scene.html">
+                Scene.js
+              </a>
+            
+              
+              <a class="source" href="SpecParser.html">
+                SpecParser.js
+              </a>
+            
+              
+              <a class="source" href="Surface.html">
+                Surface.js
+              </a>
+            
+              
+              <a class="source" href="Transform.html">
+                Transform.js
+              </a>
+            
+              
+              <a class="source" href="View.html">
+                View.js
+              </a>
+            
+              
+              <a class="source" href="ViewSequence.html">
+                ViewSequence.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Context.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> RenderNode = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./RenderNode'</span>);
+    <span class="hljs-keyword">var</span> EventHandler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./EventHandler'</span>);
+    <span class="hljs-keyword">var</span> ElementAllocator = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./ElementAllocator'</span>);
+    <span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Transform'</span>);
+    <span class="hljs-keyword">var</span> Transitionable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/transitions/Transitionable'</span>);
+
+    <span class="hljs-keyword">var</span> _originZeroZero = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_getElementSize</span><span class="hljs-params">(element)</span> </span>{
+        <span class="hljs-keyword">return</span> [element.clientWidth, element.clientHeight];
+    }
+
+    <span class="hljs-comment">/**
+     * The top-level container for a Famous-renderable piece of the document.
+     *   It is directly updated by the process-wide Engine object, and manages one
+     *   render tree root, which can contain other renderables.
+     *
+     * @class Context
+     * @constructor
+     * @private
+     * @param {Node} container Element in which content will be inserted
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Context</span><span class="hljs-params">(container)</span> </span>{
+        <span class="hljs-keyword">this</span>.container = container;
+        <span class="hljs-keyword">this</span>._allocator = <span class="hljs-keyword">new</span> ElementAllocator(container);
+
+        <span class="hljs-keyword">this</span>._node = <span class="hljs-keyword">new</span> RenderNode();
+        <span class="hljs-keyword">this</span>._eventOutput = <span class="hljs-keyword">new</span> EventHandler();
+        <span class="hljs-keyword">this</span>._size = _getElementSize(<span class="hljs-keyword">this</span>.container);
+
+        <span class="hljs-keyword">this</span>._perspectiveState = <span class="hljs-keyword">new</span> Transitionable(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">this</span>._perspective = <span class="hljs-literal">undefined</span>;
+
+        <span class="hljs-keyword">this</span>._nodeContext = {
+            allocator: <span class="hljs-keyword">this</span>._allocator,
+            transform: Transform.identity,
+            opacity: <span class="hljs-number">1</span>,
+            origin: _originZeroZero,
+            align: <span class="hljs-literal">null</span>,
+            size: <span class="hljs-keyword">this</span>._size
+        };
+
+        <span class="hljs-keyword">this</span>._eventOutput.on(<span class="hljs-string">'resize'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">this</span>.setSize(_getElementSize(<span class="hljs-keyword">this</span>.container));
+        }.bind(<span class="hljs-keyword">this</span>));
+
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Note: Unused</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    Context.prototype.getAllocator = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAllocator</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._allocator;
+    };
+
+    <span class="hljs-comment">/**
+     * Add renderables to this Context's render tree.
+     *
+     * @method add
+     *
+     * @param {Object} obj renderable object
+     * @return {RenderNode} RenderNode wrapping this object, if not already a RenderNode
+     */</span>
+    Context.prototype.add = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span><span class="hljs-params">(obj)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._node.add(obj);
+    };
+
+    <span class="hljs-comment">/**
+     * Move this Context to another containing document element.
+     *
+     * @method migrate
+     *
+     * @param {Node} container Element to which content will be migrated
+     */</span>
+    Context.prototype.migrate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">migrate</span><span class="hljs-params">(container)</span> </span>{
+        <span class="hljs-keyword">if</span> (container === <span class="hljs-keyword">this</span>.container) <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">this</span>.container = container;
+        <span class="hljs-keyword">this</span>._allocator.migrate(container);
+    };
+
+    <span class="hljs-comment">/**
+     * Gets viewport size for Context.
+     *
+     * @method getSize
+     *
+     * @return {Array.Number} viewport size as [width, height]
+     */</span>
+    Context.prototype.getSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSize</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._size;
+    };
+
+    <span class="hljs-comment">/**
+     * Sets viewport size for Context.
+     *
+     * @method setSize
+     *
+     * @param {Array.Number} size [width, height].  If unspecified, use size of root document element.
+     */</span>
+    Context.prototype.setSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setSize</span><span class="hljs-params">(size)</span> </span>{
+        <span class="hljs-keyword">if</span> (!size) size = _getElementSize(<span class="hljs-keyword">this</span>.container);
+        <span class="hljs-keyword">this</span>._size[<span class="hljs-number">0</span>] = size[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">this</span>._size[<span class="hljs-number">1</span>] = size[<span class="hljs-number">1</span>];
+    };
+
+    <span class="hljs-comment">/**
+     * Commit this Context's content changes to the document.
+     *
+     * @private
+     * @method update
+     * @param {Object} contextParameters engine commit specification
+     */</span>
+    Context.prototype.update = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span><span class="hljs-params">(contextParameters)</span> </span>{
+        <span class="hljs-keyword">if</span> (contextParameters) {
+            <span class="hljs-keyword">if</span> (contextParameters.transform) <span class="hljs-keyword">this</span>._nodeContext.transform = contextParameters.transform;
+            <span class="hljs-keyword">if</span> (contextParameters.opacity) <span class="hljs-keyword">this</span>._nodeContext.opacity = contextParameters.opacity;
+            <span class="hljs-keyword">if</span> (contextParameters.origin) <span class="hljs-keyword">this</span>._nodeContext.origin = contextParameters.origin;
+            <span class="hljs-keyword">if</span> (contextParameters.align) <span class="hljs-keyword">this</span>._nodeContext.align = contextParameters.align;
+            <span class="hljs-keyword">if</span> (contextParameters.size) <span class="hljs-keyword">this</span>._nodeContext.size = contextParameters.size;
+        }
+        <span class="hljs-keyword">var</span> perspective = <span class="hljs-keyword">this</span>._perspectiveState.get();
+        <span class="hljs-keyword">if</span> (perspective !== <span class="hljs-keyword">this</span>._perspective) {
+            <span class="hljs-keyword">this</span>.container.style.perspective = perspective ? perspective.toFixed() + <span class="hljs-string">'px'</span> : <span class="hljs-string">''</span>;
+            <span class="hljs-keyword">this</span>.container.style.webkitPerspective = perspective ? perspective.toFixed() : <span class="hljs-string">''</span>;
+            <span class="hljs-keyword">this</span>._perspective = perspective;
+        }
+
+        <span class="hljs-keyword">this</span>._node.commit(<span class="hljs-keyword">this</span>._nodeContext);
+    };
+
+    <span class="hljs-comment">/**
+     * Get current perspective of this context in pixels.
+     *
+     * @method getPerspective
+     * @return {Number} depth perspective in pixels
+     */</span>
+    Context.prototype.getPerspective = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPerspective</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._perspectiveState.get();
+    };
+
+    <span class="hljs-comment">/**
+     * Set current perspective of this context in pixels.
+     *
+     * @method setPerspective
+     * @param {Number} perspective in pixels
+     * @param {Object} [transition] Transitionable object for applying the change
+     * @param {function(Object)} callback function called on completion of transition
+     */</span>
+    Context.prototype.setPerspective = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setPerspective</span><span class="hljs-params">(perspective, transition, callback)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._perspectiveState.set(perspective, transition, callback);
+    };
+
+    <span class="hljs-comment">/**
+     * Trigger an event, sending to all downstream handlers
+     *   listening for provided 'type' key.
+     *
+     * @method emit
+     *
+     * @param {string} type event type key (for example, 'click')
+     * @param {Object} event event data
+     * @return {EventHandler} this
+     */</span>
+    Context.prototype.emit = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">emit</span><span class="hljs-params">(type, event)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._eventOutput.emit(type, event);
+    };
+
+    <span class="hljs-comment">/**
+     * Bind a callback function to an event type handled by this object.
+     *
+     * @method "on"
+     *
+     * @param {string} type event type key (for example, 'click')
+     * @param {function(string, Object)} handler callback
+     * @return {EventHandler} this
+     */</span>
+    Context.prototype.on = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">on</span><span class="hljs-params">(type, handler)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._eventOutput.on(type, handler);
+    };
+
+    <span class="hljs-comment">/**
+     * Unbind an event by type and handler.
+     *   This undoes the work of "on".
+     *
+     * @method removeListener
+     *
+     * @param {string} type event type key (for example, 'click')
+     * @param {function} handler function object to remove
+     * @return {EventHandler} internal event handler object (for chaining)
+     */</span>
+    Context.prototype.removeListener = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">removeListener</span><span class="hljs-params">(type, handler)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._eventOutput.removeListener(type, handler);
+    };
+
+    <span class="hljs-comment">/**
+     * Add event handler object to set of downstream handlers.
+     *
+     * @method pipe
+     *
+     * @param {EventHandler} target event handler target object
+     * @return {EventHandler} passed event handler
+     */</span>
+    Context.prototype.pipe = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pipe</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._eventOutput.pipe(target);
+    };
+
+    <span class="hljs-comment">/**
+     * Remove handler object from set of downstream handlers.
+     *   Undoes work of "pipe".
+     *
+     * @method unpipe
+     *
+     * @param {EventHandler} target target handler object
+     * @return {EventHandler} provided target
+     */</span>
+    Context.prototype.unpipe = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unpipe</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._eventOutput.unpipe(target);
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Context;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

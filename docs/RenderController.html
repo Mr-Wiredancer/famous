@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>RenderController.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+              
+              <a class="source" href="KeyCodes.html">
+                KeyCodes.js
+              </a>
+            
+              
+              <a class="source" href="Timer.html">
+                Timer.js
+              </a>
+            
+              
+              <a class="source" href="Utility.html">
+                Utility.js
+              </a>
+            
+              
+              <a class="source" href="ContextualView.html">
+                ContextualView.js
+              </a>
+            
+              
+              <a class="source" href="Deck.html">
+                Deck.js
+              </a>
+            
+              
+              <a class="source" href="DrawerLayout.html">
+                DrawerLayout.js
+              </a>
+            
+              
+              <a class="source" href="EdgeSwapper.html">
+                EdgeSwapper.js
+              </a>
+            
+              
+              <a class="source" href="FlexibleLayout.html">
+                FlexibleLayout.js
+              </a>
+            
+              
+              <a class="source" href="Flipper.html">
+                Flipper.js
+              </a>
+            
+              
+              <a class="source" href="GridLayout.html">
+                GridLayout.js
+              </a>
+            
+              
+              <a class="source" href="HeaderFooterLayout.html">
+                HeaderFooterLayout.js
+              </a>
+            
+              
+              <a class="source" href="Lightbox.html">
+                Lightbox.js
+              </a>
+            
+              
+              <a class="source" href="RenderController.html">
+                RenderController.js
+              </a>
+            
+              
+              <a class="source" href="ScrollContainer.html">
+                ScrollContainer.js
+              </a>
+            
+              
+              <a class="source" href="Scroller.html">
+                Scroller.js
+              </a>
+            
+              
+              <a class="source" href="Scrollview.html">
+                Scrollview.js
+              </a>
+            
+              
+              <a class="source" href="SequentialLayout.html">
+                SequentialLayout.js
+              </a>
+            
+              
+              <a class="source" href="NavigationBar.html">
+                NavigationBar.js
+              </a>
+            
+              
+              <a class="source" href="Slider.html">
+                Slider.js
+              </a>
+            
+              
+              <a class="source" href="TabBar.html">
+                TabBar.js
+              </a>
+            
+              
+              <a class="source" href="ToggleButton.html">
+                ToggleButton.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>RenderController.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: felix@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> Modifier = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/Modifier'</span>);
+    <span class="hljs-keyword">var</span> RenderNode = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/RenderNode'</span>);
+    <span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/Transform'</span>);
+    <span class="hljs-keyword">var</span> Transitionable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/transitions/Transitionable'</span>);
+    <span class="hljs-keyword">var</span> View = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/View'</span>);
+
+    <span class="hljs-comment">/**
+     * A dynamic view that can show or hide different renerables with transitions.
+     * @class RenderController
+     * @constructor
+     * @param {Options} [options] An object of configurable options.
+     * @param {Transition} [inTransition=true] The transition in charge of showing a renderable.
+     * @param {Transition} [outTransition=true]  The transition in charge of removing your previous renderable when
+     * you show a new one, or hiding your current renderable.
+     * @param {Boolean} [overlap=true] When showing a new renderable, overlap determines if the
+      out transition of the old one executes concurrently with the in transition of the new one,
+       or synchronously beforehand.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">RenderController</span><span class="hljs-params">(options)</span> </span>{
+        View.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+
+        <span class="hljs-keyword">this</span>._showing = -<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">this</span>._outgoingRenderables = [];
+        <span class="hljs-keyword">this</span>._nextRenderable = <span class="hljs-literal">null</span>;
+
+        <span class="hljs-keyword">this</span>._renderables = [];
+        <span class="hljs-keyword">this</span>._nodes = [];
+        <span class="hljs-keyword">this</span>._modifiers = [];
+        <span class="hljs-keyword">this</span>._states = [];
+
+        <span class="hljs-keyword">this</span>.inTransformMap = RenderController.DefaultMap.transform;
+        <span class="hljs-keyword">this</span>.inOpacityMap = RenderController.DefaultMap.opacity;
+        <span class="hljs-keyword">this</span>.inOriginMap = RenderController.DefaultMap.origin;
+        <span class="hljs-keyword">this</span>.outTransformMap = RenderController.DefaultMap.transform;
+        <span class="hljs-keyword">this</span>.outOpacityMap = RenderController.DefaultMap.opacity;
+        <span class="hljs-keyword">this</span>.outOriginMap = RenderController.DefaultMap.origin;
+
+        <span class="hljs-keyword">this</span>._output = [];
+    }
+    RenderController.prototype = <span class="hljs-built_in">Object</span>.create(View.prototype);
+    RenderController.prototype.constructor = RenderController;
+
+    RenderController.DEFAULT_OPTIONS = {
+        inTransition: <span class="hljs-literal">true</span>,
+        outTransition: <span class="hljs-literal">true</span>,
+        overlap: <span class="hljs-literal">true</span>
+    };
+
+    RenderController.DefaultMap = {
+        transform: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> Transform.identity;
+        },
+        opacity: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(progress)</span> </span>{
+            <span class="hljs-keyword">return</span> progress;
+        },
+        origin: <span class="hljs-literal">null</span>
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_mappedState</span><span class="hljs-params">(map, state)</span> </span>{
+        <span class="hljs-keyword">return</span> map(state.get());
+    }
+
+    <span class="hljs-comment">/**
+     * As your RenderController shows a new renderable, it executes a transition in. This transition in
+     *  will affect a default interior state and modify it as you bring renderables in and out. However, if you want to control
+     *  the transform, opacity, and origin state yourself, you may call certain methods (such as inTransformFrom) to obtain state from an outside source,
+     *  that may either be a function or a Famous transitionable. inTransformFrom sets the accessor for the state of
+     *  the transform used in transitioning in renderables.
+     *
+     * @method inTransformFrom
+     * @param {Function|Transitionable} transform  A function that returns a transform from outside closure, or a
+     * a transitionable that manages a full transform (a sixteen value array).
+     * @chainable
+     */</span>
+    RenderController.prototype.inTransformFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inTransformFrom</span><span class="hljs-params">(transform)</span> </span>{
+        <span class="hljs-keyword">if</span> (transform <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>.inTransformMap = transform;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (transform &amp;&amp; transform.get) <span class="hljs-keyword">this</span>.inTransformMap = transform.get.bind(transform);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'inTransformFrom takes only function or getter object'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>TODO: tween transition</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * inOpacityFrom sets the accessor for the state of the opacity used in transitioning in renderables.
+     * @method inOpacityFrom
+     * @param {Function|Transitionable} opacity  A function that returns an opacity from outside closure, or a
+     * a transitionable that manages opacity (a number between zero and one).
+     * @chainable
+     */</span>
+    RenderController.prototype.inOpacityFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inOpacityFrom</span><span class="hljs-params">(opacity)</span> </span>{
+        <span class="hljs-keyword">if</span> (opacity <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>.inOpacityMap = opacity;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (opacity &amp;&amp; opacity.get) <span class="hljs-keyword">this</span>.inOpacityMap = opacity.get.bind(opacity);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'inOpacityFrom takes only function or getter object'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>TODO: tween opacity</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * inOriginFrom sets the accessor for the state of the origin used in transitioning in renderables.
+     * @method inOriginFrom
+     * @param {Function|Transitionable} origin A function that returns an origin from outside closure, or a
+     * a transitionable that manages origin (a two value array of numbers between zero and one).
+     * @chainable
+     */</span>
+    RenderController.prototype.inOriginFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inOriginFrom</span><span class="hljs-params">(origin)</span> </span>{
+        <span class="hljs-keyword">if</span> (origin <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>.inOriginMap = origin;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (origin &amp;&amp; origin.get) <span class="hljs-keyword">this</span>.inOriginMap = origin.get.bind(origin);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'inOriginFrom takes only function or getter object'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>TODO: tween origin</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * outTransformFrom sets the accessor for the state of the transform used in transitioning out renderables.
+     * @method show
+     * @param {Function|Transitionable} transform  A function that returns a transform from outside closure, or a
+     * a transitionable that manages a full transform (a sixteen value array).
+     * @chainable
+     */</span>
+    RenderController.prototype.outTransformFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">outTransformFrom</span><span class="hljs-params">(transform)</span> </span>{
+        <span class="hljs-keyword">if</span> (transform <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>.outTransformMap = transform;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (transform &amp;&amp; transform.get) <span class="hljs-keyword">this</span>.outTransformMap = transform.get.bind(transform);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'inTransformFrom takes only function or getter object'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>TODO: tween transition</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * outOpacityFrom sets the accessor for the state of the opacity used in transitioning out renderables.
+     * @method inOpacityFrom
+     * @param {Function|Transitionable} opacity  A function that returns an opacity from outside closure, or a
+     * a transitionable that manages opacity (a number between zero and one).
+     * @chainable
+     */</span>
+    RenderController.prototype.outOpacityFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">outOpacityFrom</span><span class="hljs-params">(opacity)</span> </span>{
+        <span class="hljs-keyword">if</span> (opacity <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>.outOpacityMap = opacity;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (opacity &amp;&amp; opacity.get) <span class="hljs-keyword">this</span>.outOpacityMap = opacity.get.bind(opacity);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'inOpacityFrom takes only function or getter object'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>TODO: tween opacity</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * outOriginFrom sets the accessor for the state of the origin used in transitioning out renderables.
+     * @method inOriginFrom
+     * @param {Function|Transitionable} origin A function that returns an origin from outside closure, or a
+     * a transitionable that manages origin (a two value array of numbers between zero and one).
+     * @chainable
+     */</span>
+    RenderController.prototype.outOriginFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">outOriginFrom</span><span class="hljs-params">(origin)</span> </span>{
+        <span class="hljs-keyword">if</span> (origin <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>.outOriginMap = origin;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (origin &amp;&amp; origin.get) <span class="hljs-keyword">this</span>.outOriginMap = origin.get.bind(origin);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'inOriginFrom takes only function or getter object'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>TODO: tween origin</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Show displays the targeted renderable with a transition and an optional callback to
+     * execute afterwards.
+     * @method show
+     * @param {Object} renderable The renderable you want to show.
+     * @param {Transition} [transition] Overwrites the default transition in to display the
+     * passed-in renderable.
+     * @param {function} [callback] Executes after transitioning in the renderable.
+     * @chainable
+     */</span>
+    RenderController.prototype.show = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span><span class="hljs-params">(renderable, transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (!renderable) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.hide(callback);
+        }
+
+        <span class="hljs-keyword">if</span> (transition <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) {
+            callback = transition;
+            transition = <span class="hljs-literal">null</span>;
+        }
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._showing &gt;= <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.overlap) <span class="hljs-keyword">this</span>.hide();
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._nextRenderable) {
+                    <span class="hljs-keyword">this</span>._nextRenderable = renderable;
+                }
+                <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">this</span>._nextRenderable = renderable;
+                    <span class="hljs-keyword">this</span>.hide(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._nextRenderable === renderable) <span class="hljs-keyword">this</span>.show(<span class="hljs-keyword">this</span>._nextRenderable, callback);
+                        <span class="hljs-keyword">this</span>._nextRenderable = <span class="hljs-literal">null</span>;
+                    });
+                }
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
+            }
+        }
+
+        <span class="hljs-keyword">var</span> state = <span class="hljs-literal">null</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>check to see if we should restore</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">var</span> renderableIndex = <span class="hljs-keyword">this</span>._renderables.indexOf(renderable);
+        <span class="hljs-keyword">if</span> (renderableIndex &gt;= <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">this</span>._showing = renderableIndex;
+            state = <span class="hljs-keyword">this</span>._states[renderableIndex];
+            state.halt();
+
+            <span class="hljs-keyword">var</span> outgoingIndex = <span class="hljs-keyword">this</span>._outgoingRenderables.indexOf(renderable);
+            <span class="hljs-keyword">if</span> (outgoingIndex &gt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">this</span>._outgoingRenderables.splice(outgoingIndex, <span class="hljs-number">1</span>);
+        }
+        <span class="hljs-keyword">else</span> {
+            state = <span class="hljs-keyword">new</span> Transitionable(<span class="hljs-number">0</span>);
+
+            <span class="hljs-keyword">var</span> modifier = <span class="hljs-keyword">new</span> Modifier({
+                transform: <span class="hljs-keyword">this</span>.inTransformMap ? _mappedState.bind(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.inTransformMap, state) : <span class="hljs-literal">null</span>,
+                opacity: <span class="hljs-keyword">this</span>.inOpacityMap ? _mappedState.bind(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.inOpacityMap, state) : <span class="hljs-literal">null</span>,
+                origin: <span class="hljs-keyword">this</span>.inOriginMap ? _mappedState.bind(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.inOriginMap, state) : <span class="hljs-literal">null</span>
+            });
+            <span class="hljs-keyword">var</span> node = <span class="hljs-keyword">new</span> RenderNode();
+            node.add(modifier).add(renderable);
+
+            <span class="hljs-keyword">this</span>._showing = <span class="hljs-keyword">this</span>._nodes.length;
+            <span class="hljs-keyword">this</span>._nodes.push(node);
+            <span class="hljs-keyword">this</span>._modifiers.push(modifier);
+            <span class="hljs-keyword">this</span>._states.push(state);
+            <span class="hljs-keyword">this</span>._renderables.push(renderable);
+        }
+
+        <span class="hljs-keyword">if</span> (!transition) transition = <span class="hljs-keyword">this</span>.options.inTransition;
+        state.set(<span class="hljs-number">1</span>, transition, callback);
+    };
+
+    <span class="hljs-comment">/**
+     * Hide hides the currently displayed renderable with an out transition.
+     * @method hide
+     * @param {Transition} [transition] Overwrites the default transition in to hide the
+     * currently controlled renderable.
+     * @param {function} [callback] Executes after transitioning out the renderable.
+     * @chainable
+     */</span>
+    RenderController.prototype.hide = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hide</span><span class="hljs-params">(transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._showing &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">var</span> index = <span class="hljs-keyword">this</span>._showing;
+        <span class="hljs-keyword">this</span>._showing = -<span class="hljs-number">1</span>;
+
+        <span class="hljs-keyword">if</span> (transition <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) {
+            callback = transition;
+            transition = <span class="hljs-literal">undefined</span>;
+        }
+
+        <span class="hljs-keyword">var</span> node = <span class="hljs-keyword">this</span>._nodes[index];
+        <span class="hljs-keyword">var</span> modifier = <span class="hljs-keyword">this</span>._modifiers[index];
+        <span class="hljs-keyword">var</span> state = <span class="hljs-keyword">this</span>._states[index];
+        <span class="hljs-keyword">var</span> renderable = <span class="hljs-keyword">this</span>._renderables[index];
+
+        modifier.transformFrom(<span class="hljs-keyword">this</span>.outTransformMap ? _mappedState.bind(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.outTransformMap, state) : <span class="hljs-literal">null</span>);
+        modifier.opacityFrom(<span class="hljs-keyword">this</span>.outOpacityMap ? _mappedState.bind(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.outOpacityMap, state) : <span class="hljs-literal">null</span>);
+        modifier.originFrom(<span class="hljs-keyword">this</span>.outOriginMap ? _mappedState.bind(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.outOriginMap, state) : <span class="hljs-literal">null</span>);
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._outgoingRenderables.indexOf(renderable) &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">this</span>._outgoingRenderables.push(renderable);
+
+        <span class="hljs-keyword">if</span> (!transition) transition = <span class="hljs-keyword">this</span>.options.outTransition;
+        state.halt();
+        state.set(<span class="hljs-number">0</span>, transition, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(node, modifier, state, renderable)</span> </span>{
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._outgoingRenderables.indexOf(renderable) &gt;= <span class="hljs-number">0</span>) {
+                <span class="hljs-keyword">var</span> index = <span class="hljs-keyword">this</span>._nodes.indexOf(node);
+                <span class="hljs-keyword">this</span>._nodes.splice(index, <span class="hljs-number">1</span>);
+                <span class="hljs-keyword">this</span>._modifiers.splice(index, <span class="hljs-number">1</span>);
+                <span class="hljs-keyword">this</span>._states.splice(index, <span class="hljs-number">1</span>);
+                <span class="hljs-keyword">this</span>._renderables.splice(index, <span class="hljs-number">1</span>);
+                <span class="hljs-keyword">this</span>._outgoingRenderables.splice(<span class="hljs-keyword">this</span>._outgoingRenderables.indexOf(renderable), <span class="hljs-number">1</span>);
+
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._showing &gt;= index) <span class="hljs-keyword">this</span>._showing--;
+            }
+            <span class="hljs-keyword">if</span> (callback) callback.call(<span class="hljs-keyword">this</span>);
+        }.bind(<span class="hljs-keyword">this</span>, node, modifier, state, renderable));
+    };
+
+    <span class="hljs-comment">/**
+     * Generate a render spec from the contents of this component.
+     *
+     * @private
+     * @method render
+     * @return {number} Render spec for this component
+     */</span>
+    RenderController.prototype.render = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">var</span> result = <span class="hljs-keyword">this</span>._output;
+        <span class="hljs-keyword">if</span> (result.length &gt; <span class="hljs-keyword">this</span>._nodes.length) result.splice(<span class="hljs-keyword">this</span>._nodes.length);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>._nodes.length; i++) {
+            result[i] = <span class="hljs-keyword">this</span>._nodes[i].render();
+        }
+        <span class="hljs-keyword">return</span> result;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = RenderController;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

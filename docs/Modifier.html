@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Modifier.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Context.html">
+                Context.js
+              </a>
+            
+              
+              <a class="source" href="ElementAllocator.html">
+                ElementAllocator.js
+              </a>
+            
+              
+              <a class="source" href="ElementOutput.html">
+                ElementOutput.js
+              </a>
+            
+              
+              <a class="source" href="Engine.html">
+                Engine.js
+              </a>
+            
+              
+              <a class="source" href="Entity.html">
+                Entity.js
+              </a>
+            
+              
+              <a class="source" href="EventEmitter.html">
+                EventEmitter.js
+              </a>
+            
+              
+              <a class="source" href="EventHandler.html">
+                EventHandler.js
+              </a>
+            
+              
+              <a class="source" href="Group.html">
+                Group.js
+              </a>
+            
+              
+              <a class="source" href="Modifier.html">
+                Modifier.js
+              </a>
+            
+              
+              <a class="source" href="OptionsManager.html">
+                OptionsManager.js
+              </a>
+            
+              
+              <a class="source" href="RenderNode.html">
+                RenderNode.js
+              </a>
+            
+              
+              <a class="source" href="Scene.html">
+                Scene.js
+              </a>
+            
+              
+              <a class="source" href="SpecParser.html">
+                SpecParser.js
+              </a>
+            
+              
+              <a class="source" href="Surface.html">
+                Surface.js
+              </a>
+            
+              
+              <a class="source" href="Transform.html">
+                Transform.js
+              </a>
+            
+              
+              <a class="source" href="View.html">
+                View.js
+              </a>
+            
+              
+              <a class="source" href="ViewSequence.html">
+                ViewSequence.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Modifier.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Transform'</span>);
+
+    <span class="hljs-comment">/* TODO: remove these dependencies when deprecation complete */</span>
+    <span class="hljs-keyword">var</span> Transitionable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/transitions/Transitionable'</span>);
+    <span class="hljs-keyword">var</span> TransitionableTransform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/transitions/TransitionableTransform'</span>);
+
+    <span class="hljs-comment">/**
+     *
+     *  A collection of visual changes to be
+     *    applied to another renderable component. This collection includes a
+     *    transform matrix, an opacity constant, a size, an origin specifier.
+     *    Modifier objects can be added to any RenderNode or object
+     *    capable of displaying renderables.  The Modifier's children and descendants
+     *    are transformed by the amounts specified in the Modifier's properties.
+     *
+     * @class Modifier
+     * @constructor
+     * @param {Object} [options] overrides of default options
+     * @param {Transform} [options.transform] affine transformation matrix
+     * @param {Number} [options.opacity]
+     * @param {Array.Number} [options.origin] origin adjustment
+     * @param {Array.Number} [options.size] size to apply to descendants
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Modifier</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>._transformGetter = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._opacityGetter = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._originGetter = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._alignGetter = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._sizeGetter = <span class="hljs-literal">null</span>;
+
+        <span class="hljs-comment">/* TODO: remove this when deprecation complete */</span>
+        <span class="hljs-keyword">this</span>._legacyStates = {};
+
+        <span class="hljs-keyword">this</span>._output = {
+            transform: Transform.identity,
+            opacity: <span class="hljs-number">1</span>,
+            origin: <span class="hljs-literal">null</span>,
+            align: <span class="hljs-literal">null</span>,
+            size: <span class="hljs-literal">null</span>,
+            target: <span class="hljs-literal">null</span>
+        };
+
+        <span class="hljs-keyword">if</span> (options) {
+            <span class="hljs-keyword">if</span> (options.transform) <span class="hljs-keyword">this</span>.transformFrom(options.transform);
+            <span class="hljs-keyword">if</span> (options.opacity !== <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>.opacityFrom(options.opacity);
+            <span class="hljs-keyword">if</span> (options.origin) <span class="hljs-keyword">this</span>.originFrom(options.origin);
+            <span class="hljs-keyword">if</span> (options.align) <span class="hljs-keyword">this</span>.alignFrom(options.align);
+            <span class="hljs-keyword">if</span> (options.size) <span class="hljs-keyword">this</span>.sizeFrom(options.size);
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Function, object, or static transform matrix which provides the transform.
+     *   This is evaluated on every tick of the engine.
+     *
+     * @method transformFrom
+     *
+     * @param {Object} transform transform provider object
+     * @return {Modifier} this
+     */</span>
+    Modifier.prototype.transformFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">transformFrom</span><span class="hljs-params">(transform)</span> </span>{
+        <span class="hljs-keyword">if</span> (transform <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>._transformGetter = transform;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (transform <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> &amp;&amp; transform.get) <span class="hljs-keyword">this</span>._transformGetter = transform.get.bind(transform);
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>._transformGetter = <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">this</span>._output.transform = transform;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Set function, object, or number to provide opacity, in range [0,1].
+     *
+     * @method opacityFrom
+     *
+     * @param {Object} opacity provider object
+     * @return {Modifier} this
+     */</span>
+    Modifier.prototype.opacityFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">opacityFrom</span><span class="hljs-params">(opacity)</span> </span>{
+        <span class="hljs-keyword">if</span> (opacity <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>._opacityGetter = opacity;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (opacity <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> &amp;&amp; opacity.get) <span class="hljs-keyword">this</span>._opacityGetter = opacity.get.bind(opacity);
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>._opacityGetter = <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">this</span>._output.opacity = opacity;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Set function, object, or numerical array to provide origin, as [x,y],
+     *   where x and y are in the range [0,1].
+     *
+     * @method originFrom
+     *
+     * @param {Object} origin provider object
+     * @return {Modifier} this
+     */</span>
+    Modifier.prototype.originFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">originFrom</span><span class="hljs-params">(origin)</span> </span>{
+        <span class="hljs-keyword">if</span> (origin <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>._originGetter = origin;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (origin <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> &amp;&amp; origin.get) <span class="hljs-keyword">this</span>._originGetter = origin.get.bind(origin);
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>._originGetter = <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">this</span>._output.origin = origin;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Set function, object, or numerical array to provide align, as [x,y],
+     *   where x and y are in the range [0,1].
+     *
+     * @method alignFrom
+     *
+     * @param {Object} align provider object
+     * @return {Modifier} this
+     */</span>
+    Modifier.prototype.alignFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">alignFrom</span><span class="hljs-params">(align)</span> </span>{
+        <span class="hljs-keyword">if</span> (align <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>._alignGetter = align;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (align <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> &amp;&amp; align.get) <span class="hljs-keyword">this</span>._alignGetter = align.get.bind(align);
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>._alignGetter = <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">this</span>._output.align = align;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Set function, object, or numerical array to provide size, as [width, height].
+     *
+     * @method sizeFrom
+     *
+     * @param {Object} size provider object
+     * @return {Modifier} this
+     */</span>
+    Modifier.prototype.sizeFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sizeFrom</span><span class="hljs-params">(size)</span> </span>{
+        <span class="hljs-keyword">if</span> (size <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">this</span>._sizeGetter = size;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (size <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> &amp;&amp; size.get) <span class="hljs-keyword">this</span>._sizeGetter = size.get.bind(size);
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>._sizeGetter = <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">this</span>._output.size = size;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+     <span class="hljs-comment">/**
+     * Deprecated: Prefer transformFrom with static Transform, or use a TransitionableTransform.
+     * @deprecated
+     * @method setTransform
+     *
+     * @param {Transform} transform Transform to transition to
+     * @param {Transitionable} transition Valid transitionable object
+     * @param {Function} callback callback to call after transition completes
+     * @return {Modifier} this
+     */</span>
+    Modifier.prototype.setTransform = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setTransform</span><span class="hljs-params">(transform, transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (transition || <span class="hljs-keyword">this</span>._legacyStates.transform) {
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._legacyStates.transform) {
+                <span class="hljs-keyword">this</span>._legacyStates.transform = <span class="hljs-keyword">new</span> TransitionableTransform(<span class="hljs-keyword">this</span>._output.transform);
+            }
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._transformGetter) <span class="hljs-keyword">this</span>.transformFrom(<span class="hljs-keyword">this</span>._legacyStates.transform);
+
+            <span class="hljs-keyword">this</span>._legacyStates.transform.set(transform, transition, callback);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.transformFrom(transform);
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer opacityFrom with static opacity array, or use a Transitionable with that opacity.
+     * @deprecated
+     * @method setOpacity
+     *
+     * @param {Number} opacity Opacity value to transition to.
+     * @param {Transitionable} transition Valid transitionable object
+     * @param {Function} callback callback to call after transition completes
+     * @return {Modifier} this
+     */</span>
+    Modifier.prototype.setOpacity = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOpacity</span><span class="hljs-params">(opacity, transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (transition || <span class="hljs-keyword">this</span>._legacyStates.opacity) {
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._legacyStates.opacity) {
+                <span class="hljs-keyword">this</span>._legacyStates.opacity = <span class="hljs-keyword">new</span> Transitionable(<span class="hljs-keyword">this</span>._output.opacity);
+            }
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._opacityGetter) <span class="hljs-keyword">this</span>.opacityFrom(<span class="hljs-keyword">this</span>._legacyStates.opacity);
+
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._legacyStates.opacity.set(opacity, transition, callback);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.opacityFrom(opacity);
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer originFrom with static origin array, or use a Transitionable with that origin.
+     * @deprecated
+     * @method setOrigin
+     *
+     * @param {Array.Number} origin two element array with values between 0 and 1.
+     * @param {Transitionable} transition Valid transitionable object
+     * @param {Function} callback callback to call after transition completes
+     * @return {Modifier} this
+     */</span>
+    Modifier.prototype.setOrigin = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOrigin</span><span class="hljs-params">(origin, transition, callback)</span> </span>{
+        <span class="hljs-comment">/* TODO: remove this if statement when deprecation complete */</span>
+        <span class="hljs-keyword">if</span> (transition || <span class="hljs-keyword">this</span>._legacyStates.origin) {
+
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._legacyStates.origin) {
+                <span class="hljs-keyword">this</span>._legacyStates.origin = <span class="hljs-keyword">new</span> Transitionable(<span class="hljs-keyword">this</span>._output.origin || [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+            }
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._originGetter) <span class="hljs-keyword">this</span>.originFrom(<span class="hljs-keyword">this</span>._legacyStates.origin);
+
+            <span class="hljs-keyword">this</span>._legacyStates.origin.set(origin, transition, callback);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.originFrom(origin);
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer alignFrom with static align array, or use a Transitionable with that align.
+     * @deprecated
+     * @method setAlign
+     *
+     * @param {Array.Number} align two element array with values between 0 and 1.
+     * @param {Transitionable} transition Valid transitionable object
+     * @param {Function} callback callback to call after transition completes
+     * @return {Modifier} this
+     */</span>
+    Modifier.prototype.setAlign = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setAlign</span><span class="hljs-params">(align, transition, callback)</span> </span>{
+        <span class="hljs-comment">/* TODO: remove this if statement when deprecation complete */</span>
+        <span class="hljs-keyword">if</span> (transition || <span class="hljs-keyword">this</span>._legacyStates.align) {
+
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._legacyStates.align) {
+                <span class="hljs-keyword">this</span>._legacyStates.align = <span class="hljs-keyword">new</span> Transitionable(<span class="hljs-keyword">this</span>._output.align || [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+            }
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._alignGetter) <span class="hljs-keyword">this</span>.alignFrom(<span class="hljs-keyword">this</span>._legacyStates.align);
+
+            <span class="hljs-keyword">this</span>._legacyStates.align.set(align, transition, callback);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.alignFrom(align);
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer sizeFrom with static origin array, or use a Transitionable with that size.
+     * @deprecated
+     * @method setSize
+     * @param {Array.Number} size two element array of [width, height]
+     * @param {Transitionable} transition Valid transitionable object
+     * @param {Function} callback callback to call after transition completes
+     * @return {Modifier} this
+     */</span>
+    Modifier.prototype.setSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setSize</span><span class="hljs-params">(size, transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (size &amp;&amp; (transition || <span class="hljs-keyword">this</span>._legacyStates.size)) {
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._legacyStates.size) {
+                <span class="hljs-keyword">this</span>._legacyStates.size = <span class="hljs-keyword">new</span> Transitionable(<span class="hljs-keyword">this</span>._output.size || [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+            }
+            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._sizeGetter) <span class="hljs-keyword">this</span>.sizeFrom(<span class="hljs-keyword">this</span>._legacyStates.size);
+
+            <span class="hljs-keyword">this</span>._legacyStates.size.set(size, transition, callback);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.sizeFrom(size);
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer to stop transform in your provider object.
+     * @deprecated
+     * @method halt
+     */</span>
+    Modifier.prototype.halt = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">halt</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._legacyStates.transform) <span class="hljs-keyword">this</span>._legacyStates.transform.halt();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._legacyStates.opacity) <span class="hljs-keyword">this</span>._legacyStates.opacity.halt();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._legacyStates.origin) <span class="hljs-keyword">this</span>._legacyStates.origin.halt();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._legacyStates.align) <span class="hljs-keyword">this</span>._legacyStates.align.halt();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._legacyStates.size) <span class="hljs-keyword">this</span>._legacyStates.size.halt();
+        <span class="hljs-keyword">this</span>._transformGetter = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._opacityGetter = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._originGetter = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._alignGetter = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._sizeGetter = <span class="hljs-literal">null</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer to use your provided transform or output of your transform provider.
+     * @deprecated
+     * @method getTransform
+     * @return {Object} transform provider object
+     */</span>
+    Modifier.prototype.getTransform = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTransform</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._transformGetter();
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer to determine the end state of your transform from your transform provider
+     * @deprecated
+     * @method getFinalTransform
+     * @return {Transform} transform matrix
+     */</span>
+    Modifier.prototype.getFinalTransform = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFinalTransform</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._legacyStates.transform ? <span class="hljs-keyword">this</span>._legacyStates.transform.getFinal() : <span class="hljs-keyword">this</span>._output.transform;
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer to use your provided opacity or output of your opacity provider.
+     * @deprecated
+     * @method getOpacity
+     * @return {Object} opacity provider object
+     */</span>
+    Modifier.prototype.getOpacity = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getOpacity</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._opacityGetter();
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer to use your provided origin or output of your origin provider.
+     * @deprecated
+     * @method getOrigin
+     * @return {Object} origin provider object
+     */</span>
+    Modifier.prototype.getOrigin = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getOrigin</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._originGetter();
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer to use your provided align or output of your align provider.
+     * @deprecated
+     * @method getAlign
+     * @return {Object} align provider object
+     */</span>
+    Modifier.prototype.getAlign = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAlign</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._alignGetter();
+    };
+
+    <span class="hljs-comment">/**
+     * Deprecated: Prefer to use your provided size or output of your size provider.
+     * @deprecated
+     * @method getSize
+     * @return {Object} size provider object
+     */</span>
+    Modifier.prototype.getSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSize</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._sizeGetter ? <span class="hljs-keyword">this</span>._sizeGetter() : <span class="hljs-keyword">this</span>._output.size;
+    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>call providers on tick to receive render spec elements to apply</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_update</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._transformGetter) <span class="hljs-keyword">this</span>._output.transform = <span class="hljs-keyword">this</span>._transformGetter();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._opacityGetter) <span class="hljs-keyword">this</span>._output.opacity = <span class="hljs-keyword">this</span>._opacityGetter();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._originGetter) <span class="hljs-keyword">this</span>._output.origin = <span class="hljs-keyword">this</span>._originGetter();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._alignGetter) <span class="hljs-keyword">this</span>._output.align = <span class="hljs-keyword">this</span>._alignGetter();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._sizeGetter) <span class="hljs-keyword">this</span>._output.size = <span class="hljs-keyword">this</span>._sizeGetter();
+    }
+
+    <span class="hljs-comment">/**
+     * Return render spec for this Modifier, applying to the provided
+     *    target component.  This is similar to render() for Surfaces.
+     *
+     * @private
+     * @method modify
+     *
+     * @param {Object} target (already rendered) render spec to
+     *    which to apply the transform.
+     * @return {Object} render spec for this Modifier, including the
+     *    provided target
+     */</span>
+    Modifier.prototype.modify = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">modify</span><span class="hljs-params">(target)</span> </span>{
+        _update.call(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>._output.target = target;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._output;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Modifier;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

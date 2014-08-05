@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Random.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Accumulator.html">
+                Accumulator.js
+              </a>
+            
+              
+              <a class="source" href="DesktopEmulationMode.html">
+                DesktopEmulationMode.js
+              </a>
+            
+              
+              <a class="source" href="FastClick.html">
+                FastClick.js
+              </a>
+            
+              
+              <a class="source" href="GenericSync.html">
+                GenericSync.js
+              </a>
+            
+              
+              <a class="source" href="MouseSync.html">
+                MouseSync.js
+              </a>
+            
+              
+              <a class="source" href="PinchSync.html">
+                PinchSync.js
+              </a>
+            
+              
+              <a class="source" href="RotateSync.html">
+                RotateSync.js
+              </a>
+            
+              
+              <a class="source" href="ScaleSync.html">
+                ScaleSync.js
+              </a>
+            
+              
+              <a class="source" href="ScrollSync.html">
+                ScrollSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchSync.html">
+                TouchSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchTracker.html">
+                TouchTracker.js
+              </a>
+            
+              
+              <a class="source" href="TwoFingerSync.html">
+                TwoFingerSync.js
+              </a>
+            
+              
+              <a class="source" href="Matrix.html">
+                Matrix.js
+              </a>
+            
+              
+              <a class="source" href="Quaternion.html">
+                Quaternion.js
+              </a>
+            
+              
+              <a class="source" href="Random.html">
+                Random.js
+              </a>
+            
+              
+              <a class="source" href="Utilities.html">
+                Utilities.js
+              </a>
+            
+              
+              <a class="source" href="Vector.html">
+                Vector.js
+              </a>
+            
+              
+              <a class="source" href="Draggable.html">
+                Draggable.js
+              </a>
+            
+              
+              <a class="source" href="Fader.html">
+                Fader.js
+              </a>
+            
+              
+              <a class="source" href="ModifierChain.html">
+                ModifierChain.js
+              </a>
+            
+              
+              <a class="source" href="StateModifier.html">
+                StateModifier.js
+              </a>
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Random.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: david@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+
+    <span class="hljs-keyword">var</span> RAND = <span class="hljs-built_in">Math</span>.random;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_randomFloat</span><span class="hljs-params">(min,max)</span> </span>{
+        <span class="hljs-keyword">return</span> min + RAND() * (max - min);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_randomInteger</span><span class="hljs-params">(min,max)</span> </span>{
+        <span class="hljs-keyword">return</span> (min + RAND() * (max - min + <span class="hljs-number">1</span>)) &gt;&gt; <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-comment">/**
+     * Very simple uniform random number generator library wrapping Math.random().
+     *
+     * @class Random
+     * @static
+     */</span>
+    <span class="hljs-keyword">var</span> Random = {};
+
+    <span class="hljs-comment">/**
+     * Get single random integer between min and max (inclusive), or array
+     *   of size dim if specified.
+     *
+     * @method integer
+     *
+     * @param {Number} min lower bound, default 0
+     * @param {Number} max upper bound, default 1
+     * @param {Number} dim (optional) dimension of output array, if specified
+     * @return {number | array&lt;number&gt;} random integer, or optionally, an array of random integers
+     */</span>
+    Random.integer = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">integer</span><span class="hljs-params">(min,max,dim)</span> </span>{
+        min = (min !== <span class="hljs-literal">undefined</span>) ? min : <span class="hljs-number">0</span>;
+        max = (max !== <span class="hljs-literal">undefined</span>) ? max : <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">if</span> (dim !== <span class="hljs-literal">undefined</span>) {
+            <span class="hljs-keyword">var</span> result = [];
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; dim; i++) result.push(_randomInteger(min,max));
+            <span class="hljs-keyword">return</span> result;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> _randomInteger(min,max);
+    };
+
+    <span class="hljs-comment">/**
+     * Get single random float between min and max (inclusive), or array
+     *   of size dim if specified
+     *
+     * @method range
+     *
+     * @param {Number} min lower bound, default 0
+     * @param {Number} max upper bound, default 1
+     * @param {Number} [dim] dimension of output array, if specified
+     * @return {Number} random float, or optionally an array
+     */</span>
+    Random.range = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">range</span><span class="hljs-params">(min,max,dim)</span> </span>{
+        min = (min !== <span class="hljs-literal">undefined</span>) ? min : <span class="hljs-number">0</span>;
+        max = (max !== <span class="hljs-literal">undefined</span>) ? max : <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">if</span> (dim !== <span class="hljs-literal">undefined</span>) {
+            <span class="hljs-keyword">var</span> result = [];
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; dim; i++) result.push(_randomFloat(min,max));
+            <span class="hljs-keyword">return</span> result;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> _randomFloat(min,max);
+    };
+
+    <span class="hljs-comment">/**
+     * Return random number among the set {-1 ,1}
+     *
+     * @method sign
+     *
+     * @param {Number} prob probability of returning 1, default 0.5
+     * @return {Number} random sign (-1 or 1)
+     */</span>
+    Random.sign = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sign</span><span class="hljs-params">(prob)</span> </span>{
+        prob = (prob !== <span class="hljs-literal">undefined</span>) ? prob : <span class="hljs-number">0.5</span>;
+        <span class="hljs-keyword">return</span> (RAND() &lt; prob) ? <span class="hljs-number">1</span> : -<span class="hljs-number">1</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Return random boolean value, true or false.
+     *
+     * @method bool
+     *
+     * @param {Number} prob probability of returning true, default 0.5
+     * @return {Boolean} random boolean
+     */</span>
+    Random.bool = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bool</span><span class="hljs-params">(prob)</span> </span>{
+        prob = (prob !== <span class="hljs-literal">undefined</span>) ? prob : <span class="hljs-number">0.5</span>;
+        <span class="hljs-keyword">return</span> RAND() &lt; prob;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Random;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

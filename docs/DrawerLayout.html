@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>DrawerLayout.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+              
+              <a class="source" href="KeyCodes.html">
+                KeyCodes.js
+              </a>
+            
+              
+              <a class="source" href="Timer.html">
+                Timer.js
+              </a>
+            
+              
+              <a class="source" href="Utility.html">
+                Utility.js
+              </a>
+            
+              
+              <a class="source" href="ContextualView.html">
+                ContextualView.js
+              </a>
+            
+              
+              <a class="source" href="Deck.html">
+                Deck.js
+              </a>
+            
+              
+              <a class="source" href="DrawerLayout.html">
+                DrawerLayout.js
+              </a>
+            
+              
+              <a class="source" href="EdgeSwapper.html">
+                EdgeSwapper.js
+              </a>
+            
+              
+              <a class="source" href="FlexibleLayout.html">
+                FlexibleLayout.js
+              </a>
+            
+              
+              <a class="source" href="Flipper.html">
+                Flipper.js
+              </a>
+            
+              
+              <a class="source" href="GridLayout.html">
+                GridLayout.js
+              </a>
+            
+              
+              <a class="source" href="HeaderFooterLayout.html">
+                HeaderFooterLayout.js
+              </a>
+            
+              
+              <a class="source" href="Lightbox.html">
+                Lightbox.js
+              </a>
+            
+              
+              <a class="source" href="RenderController.html">
+                RenderController.js
+              </a>
+            
+              
+              <a class="source" href="ScrollContainer.html">
+                ScrollContainer.js
+              </a>
+            
+              
+              <a class="source" href="Scroller.html">
+                Scroller.js
+              </a>
+            
+              
+              <a class="source" href="Scrollview.html">
+                Scrollview.js
+              </a>
+            
+              
+              <a class="source" href="SequentialLayout.html">
+                SequentialLayout.js
+              </a>
+            
+              
+              <a class="source" href="NavigationBar.html">
+                NavigationBar.js
+              </a>
+            
+              
+              <a class="source" href="Slider.html">
+                Slider.js
+              </a>
+            
+              
+              <a class="source" href="TabBar.html">
+                TabBar.js
+              </a>
+            
+              
+              <a class="source" href="ToggleButton.html">
+                ToggleButton.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>DrawerLayout.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: david@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> RenderNode = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/RenderNode'</span>);
+    <span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/Transform'</span>);
+    <span class="hljs-keyword">var</span> OptionsManager = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/OptionsManager'</span>);
+    <span class="hljs-keyword">var</span> Transitionable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/transitions/Transitionable'</span>);
+    <span class="hljs-keyword">var</span> EventHandler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/EventHandler'</span>);
+
+    <span class="hljs-comment">/**
+     * A layout which will arrange two renderables: a featured content, and a
+     *   concealed drawer. The drawer can be revealed from any side of the
+     *   content (left, top, right, bottom) by dragging the content.
+     *
+     *   A @link{Sync} must be piped in to recieve user input.
+     *
+     *   Events:
+     *     broadcasts: 'open', 'close'
+     *     listens to: 'update', 'end'
+     *
+     * @class DrawerLayout
+     *
+     * @constructor
+     *
+     * @param [options] {Object}                                An object of configurable options
+     * @param [options.side=DrawerLayout.SIDES.LEFT] {Number}   The side of the content the drawer is placed.
+     *                                                          Choice of DrawerLayout.SIDES.LEFT/RIGHT/TOP/BOTTOM
+     * @param [options.drawerLength=0] {Number}                 The default length of the drawer
+     * @param [options.velocityThreshold=0] {Number}            The velocity threshold to trigger a toggle
+     * @param [options.positionThreshold=0] {Number}            The position threshold to trigger a toggle
+     * @param [options.transition=true] {Boolean|Object}        The toggle transition
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DrawerLayout</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>.options = <span class="hljs-built_in">Object</span>.create(DrawerLayout.DEFAULT_OPTIONS);
+        <span class="hljs-keyword">this</span>._optionsManager = <span class="hljs-keyword">new</span> OptionsManager(<span class="hljs-keyword">this</span>.options);
+        <span class="hljs-keyword">if</span> (options) <span class="hljs-keyword">this</span>.setOptions(options);
+
+        <span class="hljs-keyword">this</span>._position = <span class="hljs-keyword">new</span> Transitionable(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">this</span>._direction = _getDirectionFromSide(<span class="hljs-keyword">this</span>.options.side);
+        <span class="hljs-keyword">this</span>._orientation = _getOrientationFromSide(<span class="hljs-keyword">this</span>.options.side);
+        <span class="hljs-keyword">this</span>._isOpen = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._cachedLength = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">this</span>.drawer = <span class="hljs-keyword">new</span> RenderNode();
+        <span class="hljs-keyword">this</span>.content = <span class="hljs-keyword">new</span> RenderNode();
+
+        <span class="hljs-keyword">this</span>._eventInput = <span class="hljs-keyword">new</span> EventHandler();
+        <span class="hljs-keyword">this</span>._eventOutput = <span class="hljs-keyword">new</span> EventHandler();
+        EventHandler.setInputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._eventInput);
+        EventHandler.setOutputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._eventOutput);
+
+        <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'update'</span>, _handleUpdate.bind(<span class="hljs-keyword">this</span>));
+        <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'end'</span>, _handleEnd.bind(<span class="hljs-keyword">this</span>));
+    }
+
+    <span class="hljs-keyword">var</span> DIRECTION_X = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">var</span> DIRECTION_Y = <span class="hljs-number">1</span>;
+
+    DrawerLayout.SIDES = {
+        LEFT   : <span class="hljs-number">0</span>,
+        TOP    : <span class="hljs-number">1</span>,
+        RIGHT  : <span class="hljs-number">2</span>,
+        BOTTOM : <span class="hljs-number">3</span>
+    };
+
+    DrawerLayout.DEFAULT_OPTIONS = {
+        side: DrawerLayout.SIDES.LEFT,
+        drawerLength : <span class="hljs-number">0</span>,
+        velocityThreshold : <span class="hljs-number">0</span>,
+        positionThreshold : <span class="hljs-number">0</span>,
+        transition : <span class="hljs-literal">true</span>
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_getDirectionFromSide</span><span class="hljs-params">(side)</span> </span>{
+        <span class="hljs-keyword">var</span> SIDES = DrawerLayout.SIDES;
+        <span class="hljs-keyword">return</span> (side === SIDES.LEFT || side === SIDES.RIGHT) ? DIRECTION_X : DIRECTION_Y;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_getOrientationFromSide</span><span class="hljs-params">(side)</span> </span>{
+        <span class="hljs-keyword">var</span> SIDES = DrawerLayout.SIDES;
+        <span class="hljs-keyword">return</span> (side === SIDES.LEFT || side === SIDES.TOP) ? <span class="hljs-number">1</span> : -<span class="hljs-number">1</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_resolveNodeSize</span><span class="hljs-params">(node)</span> </span>{
+        <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">this</span>.options;
+        <span class="hljs-keyword">var</span> size;
+        <span class="hljs-keyword">if</span> (options.drawerLength) size = options.drawerLength;
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">var</span> nodeSize = node.getSize();
+            size = nodeSize ? nodeSize[<span class="hljs-keyword">this</span>._direction] : options.drawerLength;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._orientation * size;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleUpdate</span><span class="hljs-params">(data)</span> </span>{
+        <span class="hljs-keyword">var</span> newPosition = <span class="hljs-keyword">this</span>.getPosition() + data.delta;
+
+        <span class="hljs-keyword">var</span> MIN_LENGTH;
+        <span class="hljs-keyword">var</span> MAX_LENGTH;
+        <span class="hljs-keyword">this</span>._cachedLength = _resolveNodeSize.call(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.drawer);
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._orientation === <span class="hljs-number">1</span>){
+            MIN_LENGTH = <span class="hljs-number">0</span>;
+            MAX_LENGTH = <span class="hljs-keyword">this</span>._cachedLength;
+        }
+        <span class="hljs-keyword">else</span> {
+            MIN_LENGTH = <span class="hljs-keyword">this</span>._cachedLength;
+            MAX_LENGTH = <span class="hljs-number">0</span>;
+        }
+
+        <span class="hljs-keyword">if</span> (newPosition &gt; MAX_LENGTH) newPosition = MAX_LENGTH;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (newPosition &lt; MIN_LENGTH) newPosition = MIN_LENGTH;
+
+        <span class="hljs-keyword">this</span>.setPosition(newPosition);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleEnd</span><span class="hljs-params">(data)</span> </span>{
+        <span class="hljs-keyword">var</span> velocity = data.velocity;
+        <span class="hljs-keyword">var</span> position = <span class="hljs-keyword">this</span>._orientation * <span class="hljs-keyword">this</span>.getPosition();
+        <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">this</span>.options;
+
+        <span class="hljs-keyword">var</span> MAX_LENGTH = <span class="hljs-keyword">this</span>._orientation * <span class="hljs-keyword">this</span>._cachedLength;
+        <span class="hljs-keyword">var</span> positionThreshold = options.positionThreshold || MAX_LENGTH / <span class="hljs-number">2</span>;
+        <span class="hljs-keyword">var</span> velocityThreshold = options.velocityThreshold;
+
+        <span class="hljs-keyword">if</span> (options.transition <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>)
+            options.transition.velocity = data.velocity;
+
+        <span class="hljs-keyword">if</span> (position === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">this</span>._isOpen = <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-keyword">if</span> (position === MAX_LENGTH) {
+            <span class="hljs-keyword">this</span>._isOpen = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-keyword">var</span> shouldToggle = <span class="hljs-built_in">Math</span>.abs(velocity) &gt; velocityThreshold || (!<span class="hljs-keyword">this</span>._isOpen &amp;&amp; position &gt; positionThreshold) || (<span class="hljs-keyword">this</span>._isOpen &amp;&amp; position &lt; positionThreshold);
+        <span class="hljs-keyword">if</span> (shouldToggle) <span class="hljs-keyword">this</span>.toggle();
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.reset();
+    }
+
+    <span class="hljs-comment">/**
+     * Patches the DrawerLayout instance's options with the passed-in ones.
+     *
+     * @method setOptions
+     * @param options {Object} options
+     */</span>
+    DrawerLayout.prototype.setOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOptions</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>._optionsManager.setOptions(options);
+        <span class="hljs-keyword">if</span> (options.side !== <span class="hljs-literal">undefined</span>) {
+            <span class="hljs-keyword">this</span>._direction = _getDirectionFromSide(options.side);
+            <span class="hljs-keyword">this</span>._orientation = _getOrientationFromSide(options.side);
+        }
+    };
+
+    <span class="hljs-comment">/**
+     * Reveals the drawer with a transition
+     *   Emits an 'open' event when an opening transition has been committed to.
+     *
+     * @method open
+     * @param [transition] {Boolean|Object} transition definition
+     * @param [callback] {Function}         callback
+     */</span>
+    DrawerLayout.prototype.open = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">open</span><span class="hljs-params">(transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (transition <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) callback = transition;
+        <span class="hljs-keyword">if</span> (transition === <span class="hljs-literal">undefined</span>) transition = <span class="hljs-keyword">this</span>.options.transition;
+        <span class="hljs-keyword">this</span>._cachedLength = _resolveNodeSize.call(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.drawer);
+        <span class="hljs-keyword">this</span>.setPosition(<span class="hljs-keyword">this</span>._cachedLength, transition, callback);
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._isOpen) {
+            <span class="hljs-keyword">this</span>._isOpen = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">this</span>._eventOutput.emit(<span class="hljs-string">'open'</span>);
+        }
+    };
+
+    <span class="hljs-comment">/**
+     * Conceals the drawer with a transition
+     *   Emits a 'close' event when an closing transition has been committed to.
+     *
+     * @method close
+     * @param [transition] {Boolean|Object} transition definition
+     * @param [callback] {Function}         callback
+     */</span>
+    DrawerLayout.prototype.close = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span><span class="hljs-params">(transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (transition <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) callback = transition;
+        <span class="hljs-keyword">if</span> (transition === <span class="hljs-literal">undefined</span>) transition = <span class="hljs-keyword">this</span>.options.transition;
+        <span class="hljs-keyword">this</span>.setPosition(<span class="hljs-number">0</span>, transition, callback);
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._isOpen){
+            <span class="hljs-keyword">this</span>._isOpen = <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">this</span>._eventOutput.emit(<span class="hljs-string">'close'</span>);
+        }
+    };
+
+    <span class="hljs-comment">/**
+     * Sets the position in pixels for the content's displacement
+     *
+     * @method setPosition
+     * @param position {Number}             position
+     * @param [transition] {Boolean|Object} transition definition
+     * @param [callback] {Function}         callback
+     */</span>
+    DrawerLayout.prototype.setPosition = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setPosition</span><span class="hljs-params">(position, transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._position.isActive()) <span class="hljs-keyword">this</span>._position.halt();
+        <span class="hljs-keyword">this</span>._position.set(position, transition, callback);
+    };
+
+    <span class="hljs-comment">/**
+     * Gets the position in pixels for the content's displacement
+     *
+     * @method getPosition
+     * @return position {Number} position
+     */</span>
+    DrawerLayout.prototype.getPosition = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPosition</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._position.get();
+    };
+
+    <span class="hljs-comment">/**
+     * Sets the progress (between 0 and 1) for the content's displacement
+     *
+     * @method setProgress
+     * @param progress {Number}             position
+     * @param [transition] {Boolean|Object} transition definition
+     * @param [callback] {Function}         callback
+     */</span>
+    DrawerLayout.prototype.setProgress = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setProgress</span><span class="hljs-params">(progress, transition, callback)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._position.set(progress * <span class="hljs-keyword">this</span>._cachedLength, transition, callback);
+    };
+
+    <span class="hljs-comment">/**
+     * Gets the progress (between 0 and 1) for the content's displacement
+     *
+     * @method getProgress
+     * @return position {Number} position
+     */</span>
+    DrawerLayout.prototype.getProgress = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getProgress</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._position.get() / <span class="hljs-keyword">this</span>._cachedLength;
+    };
+
+    <span class="hljs-comment">/**
+     * Toggles between open and closed states
+     *
+     * @method toggle
+     * @param [transition] {Boolean|Object} transition definition
+     */</span>
+    DrawerLayout.prototype.toggle = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toggle</span><span class="hljs-params">(transition)</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._isOpen) <span class="hljs-keyword">this</span>.close(transition);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.open(transition);
+    };
+
+    <span class="hljs-comment">/**
+     * Resets to last state of being open or closed
+     *
+     * @method reset
+     * @param [transition] {Boolean|Object} transition definition
+     */</span>
+    DrawerLayout.prototype.reset = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reset</span><span class="hljs-params">(transition)</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._isOpen) <span class="hljs-keyword">this</span>.open(transition);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.close(transition);
+    };
+
+    <span class="hljs-comment">/**
+     * Returns if drawer is committed to being open or closed
+     *
+     * @method isOpen
+     * @return {Boolean}
+     */</span>
+    DrawerLayout.prototype.isOpen = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isOpen</span><span class="hljs-params">(transition)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._isOpen;
+    };
+
+    <span class="hljs-comment">/**
+     * Generates a Render Spec from the contents of this component
+     *
+     * @private
+     * @method render
+     * @return {Spec}
+     */</span>
+    DrawerLayout.prototype.render = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">var</span> position = <span class="hljs-keyword">this</span>.getPosition();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>clamp transition on close</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._isOpen &amp;&amp; (position &lt; <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>._orientation === <span class="hljs-number">1</span>) || (position &gt; <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>._orientation === -<span class="hljs-number">1</span>)) {
+            position = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">this</span>.setPosition(position);
+        }
+
+        <span class="hljs-keyword">var</span> contentTransform = (<span class="hljs-keyword">this</span>._direction === DIRECTION_X)
+            ? Transform.translate(position, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+            : Transform.translate(<span class="hljs-number">0</span>, position, <span class="hljs-number">0</span>);
+
+        <span class="hljs-keyword">return</span> [
+            {
+                transform : Transform.behind,
+                target: <span class="hljs-keyword">this</span>.drawer.render()
+            },
+            {
+                transform: contentTransform,
+                target: <span class="hljs-keyword">this</span>.content.render()
+            }
+        ];
+    };
+
+    <span class="hljs-built_in">module</span>.exports = DrawerLayout;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

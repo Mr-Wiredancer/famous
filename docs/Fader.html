@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Fader.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Accumulator.html">
+                Accumulator.js
+              </a>
+            
+              
+              <a class="source" href="DesktopEmulationMode.html">
+                DesktopEmulationMode.js
+              </a>
+            
+              
+              <a class="source" href="FastClick.html">
+                FastClick.js
+              </a>
+            
+              
+              <a class="source" href="GenericSync.html">
+                GenericSync.js
+              </a>
+            
+              
+              <a class="source" href="MouseSync.html">
+                MouseSync.js
+              </a>
+            
+              
+              <a class="source" href="PinchSync.html">
+                PinchSync.js
+              </a>
+            
+              
+              <a class="source" href="RotateSync.html">
+                RotateSync.js
+              </a>
+            
+              
+              <a class="source" href="ScaleSync.html">
+                ScaleSync.js
+              </a>
+            
+              
+              <a class="source" href="ScrollSync.html">
+                ScrollSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchSync.html">
+                TouchSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchTracker.html">
+                TouchTracker.js
+              </a>
+            
+              
+              <a class="source" href="TwoFingerSync.html">
+                TwoFingerSync.js
+              </a>
+            
+              
+              <a class="source" href="Matrix.html">
+                Matrix.js
+              </a>
+            
+              
+              <a class="source" href="Quaternion.html">
+                Quaternion.js
+              </a>
+            
+              
+              <a class="source" href="Random.html">
+                Random.js
+              </a>
+            
+              
+              <a class="source" href="Utilities.html">
+                Utilities.js
+              </a>
+            
+              
+              <a class="source" href="Vector.html">
+                Vector.js
+              </a>
+            
+              
+              <a class="source" href="Draggable.html">
+                Draggable.js
+              </a>
+            
+              
+              <a class="source" href="Fader.html">
+                Fader.js
+              </a>
+            
+              
+              <a class="source" href="ModifierChain.html">
+                ModifierChain.js
+              </a>
+            
+              
+              <a class="source" href="StateModifier.html">
+                StateModifier.js
+              </a>
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Fader.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> Transitionable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/transitions/Transitionable'</span>);
+    <span class="hljs-keyword">var</span> OptionsManager = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/OptionsManager'</span>);
+
+    <span class="hljs-comment">/**
+     * Modifier that allows you to fade the opacity of affected renderables in and out.
+     * @class Fader
+     * @constructor
+     * @param {Object} [options] options configuration object.
+     * @param {Boolean} [options.cull=false] Stops returning affected renderables up the tree when they're fully faded when true.
+     * @param {Transition} [options.transition=true] The main transition for showing and hiding.
+     * @param {Transition} [options.pulseInTransition=true] Controls the transition to a pulsed state when the Fader instance's pulse
+     * method is called.
+     * @param {Transition} [options.pulseOutTransition=true]Controls the transition back from a pulsed state when the Fader instance's pulse
+     * method is called.
+     *
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Fader</span><span class="hljs-params">(options, startState)</span> </span>{
+        <span class="hljs-keyword">this</span>.options = <span class="hljs-built_in">Object</span>.create(Fader.DEFAULT_OPTIONS);
+        <span class="hljs-keyword">this</span>._optionsManager = <span class="hljs-keyword">new</span> OptionsManager(<span class="hljs-keyword">this</span>.options);
+
+        <span class="hljs-keyword">if</span> (options) <span class="hljs-keyword">this</span>.setOptions(options);
+
+        <span class="hljs-keyword">if</span> (!startState) startState = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>.transitionHelper = <span class="hljs-keyword">new</span> Transitionable(startState);
+    }
+
+    Fader.DEFAULT_OPTIONS = {
+        cull: <span class="hljs-literal">false</span>,
+        transition: <span class="hljs-literal">true</span>,
+        pulseInTransition: <span class="hljs-literal">true</span>,
+        pulseOutTransition: <span class="hljs-literal">true</span>
+    };
+
+    <span class="hljs-comment">/**
+     * Set internal options, overriding any default options
+     *
+     * @method setOptions
+     *
+     * @param {Object} [options] overrides of default options.  See constructor.
+     */</span>
+    Fader.prototype.setOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOptions</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._optionsManager.setOptions(options);
+    };
+
+    <span class="hljs-comment">/**
+     * Fully displays the Fader instance's associated renderables.
+     *
+     * @method show
+     * @param {Transition} [transition] The transition that coordinates setting to the new state.
+     * @param {Function} [callback] A callback that executes once you've transitioned to the fully shown state.
+     */</span>
+    Fader.prototype.show = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span><span class="hljs-params">(transition, callback)</span> </span>{
+        transition = transition || <span class="hljs-keyword">this</span>.options.transition;
+        <span class="hljs-keyword">this</span>.set(<span class="hljs-number">1</span>, transition, callback);
+    };
+
+    <span class="hljs-comment">/**
+     * Fully fades the Fader instance's associated renderables.
+     *
+     * @method hide
+     * @param {Transition} [transition] The transition that coordinates setting to the new state.
+     * @param {Function} [callback] A callback that executes once you've transitioned to the fully faded state.
+     */</span>
+    Fader.prototype.hide = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hide</span><span class="hljs-params">(transition, callback)</span> </span>{
+        transition = transition || <span class="hljs-keyword">this</span>.options.transition;
+        <span class="hljs-keyword">this</span>.set(<span class="hljs-number">0</span>, transition, callback);
+    };
+
+    <span class="hljs-comment">/**
+     * Manually sets the opacity state of the fader to the passed-in one. Executes with an optional
+     * transition and callback.
+     *
+     * @method set
+     * @param {Number} state A number from zero to one: the amount of opacity you want to set to.
+     * @param {Transition} [transition] The transition that coordinates setting to the new state.
+     * @param {Function} [callback] A callback that executes once you've finished executing the pulse.
+     */</span>
+    Fader.prototype.set = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(state, transition, callback)</span> </span>{
+        <span class="hljs-keyword">this</span>.halt();
+        <span class="hljs-keyword">this</span>.transitionHelper.set(state, transition, callback);
+    };
+
+    <span class="hljs-comment">/**
+     * Halt the transition
+     *
+     * @method halt
+     */</span>
+    Fader.prototype.halt = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">halt</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.transitionHelper.halt();
+    };
+
+    <span class="hljs-comment">/**
+     * Tells you if your Fader instance is above its visibility threshold.
+     *
+     * @method isVisible
+     * @return {Boolean} Whether or not your Fader instance is visible.
+     */</span>
+    Fader.prototype.isVisible = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isVisible</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.transitionHelper.get() &gt; <span class="hljs-number">0</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Return render spec for this Modifier, applying to the provided
+     *    target component.  This is similar to render() for Surfaces.
+     *
+     * @private
+     * @method modify
+     *
+     * @param {Object} target (already rendered) render spec to
+     *    which to apply the transform.
+     * @return {Object} render spec for this Modifier, including the
+     *    provided target
+     */</span>
+    Fader.prototype.modify = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">modify</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">var</span> currOpacity = <span class="hljs-keyword">this</span>.transitionHelper.get();
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.cull &amp;&amp; !currOpacity) <span class="hljs-keyword">return</span> <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> {opacity: currOpacity, target: target};
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Fader;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

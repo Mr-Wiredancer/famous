@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>RenderNode.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Context.html">
+                Context.js
+              </a>
+            
+              
+              <a class="source" href="ElementAllocator.html">
+                ElementAllocator.js
+              </a>
+            
+              
+              <a class="source" href="ElementOutput.html">
+                ElementOutput.js
+              </a>
+            
+              
+              <a class="source" href="Engine.html">
+                Engine.js
+              </a>
+            
+              
+              <a class="source" href="Entity.html">
+                Entity.js
+              </a>
+            
+              
+              <a class="source" href="EventEmitter.html">
+                EventEmitter.js
+              </a>
+            
+              
+              <a class="source" href="EventHandler.html">
+                EventHandler.js
+              </a>
+            
+              
+              <a class="source" href="Group.html">
+                Group.js
+              </a>
+            
+              
+              <a class="source" href="Modifier.html">
+                Modifier.js
+              </a>
+            
+              
+              <a class="source" href="OptionsManager.html">
+                OptionsManager.js
+              </a>
+            
+              
+              <a class="source" href="RenderNode.html">
+                RenderNode.js
+              </a>
+            
+              
+              <a class="source" href="Scene.html">
+                Scene.js
+              </a>
+            
+              
+              <a class="source" href="SpecParser.html">
+                SpecParser.js
+              </a>
+            
+              
+              <a class="source" href="Surface.html">
+                Surface.js
+              </a>
+            
+              
+              <a class="source" href="Transform.html">
+                Transform.js
+              </a>
+            
+              
+              <a class="source" href="View.html">
+                View.js
+              </a>
+            
+              
+              <a class="source" href="ViewSequence.html">
+                ViewSequence.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>RenderNode.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> Entity = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Entity'</span>);
+    <span class="hljs-keyword">var</span> SpecParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./SpecParser'</span>);
+
+    <span class="hljs-comment">/**
+     * A wrapper for inserting a renderable component (like a Modifer or
+     *   Surface) into the render tree.
+     *
+     * @class RenderNode
+     * @constructor
+     *
+     * @param {Object} object Target renderable component
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">RenderNode</span><span class="hljs-params">(object)</span> </span>{
+        <span class="hljs-keyword">this</span>._object = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._child = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._hasMultipleChildren = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._isRenderable = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._isModifier = <span class="hljs-literal">false</span>;
+
+        <span class="hljs-keyword">this</span>._resultCache = {};
+        <span class="hljs-keyword">this</span>._prevResults = {};
+
+        <span class="hljs-keyword">this</span>._childResult = <span class="hljs-literal">null</span>;
+
+        <span class="hljs-keyword">if</span> (object) <span class="hljs-keyword">this</span>.set(object);
+    }
+
+    <span class="hljs-comment">/**
+     * Append a renderable to the list of this node's children.
+     *   This produces a new RenderNode in the tree.
+     *   Note: Does not double-wrap if child is a RenderNode already.
+     *
+     * @method add
+     * @param {Object} child renderable object
+     * @return {RenderNode} new render node wrapping child
+     */</span>
+    RenderNode.prototype.add = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span><span class="hljs-params">(child)</span> </span>{
+        <span class="hljs-keyword">var</span> childNode = (child <span class="hljs-keyword">instanceof</span> RenderNode) ? child : <span class="hljs-keyword">new</span> RenderNode(child);
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._child <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>) <span class="hljs-keyword">this</span>._child.push(childNode);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._child) {
+            <span class="hljs-keyword">this</span>._child = [<span class="hljs-keyword">this</span>._child, childNode];
+            <span class="hljs-keyword">this</span>._hasMultipleChildren = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">this</span>._childResult = []; <span class="hljs-comment">// to be used later</span>
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>._child = childNode;
+
+        <span class="hljs-keyword">return</span> childNode;
+    };
+
+    <span class="hljs-comment">/**
+     * Return the single wrapped object.  Returns null if this node has multiple child nodes.
+     *
+     * @method get
+     *
+     * @return {Ojbect} contained renderable object
+     */</span>
+    RenderNode.prototype.get = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._object || (<span class="hljs-keyword">this</span>._hasMultipleChildren ? <span class="hljs-literal">null</span> : (<span class="hljs-keyword">this</span>._child ? <span class="hljs-keyword">this</span>._child.get() : <span class="hljs-literal">null</span>));
+    };
+
+    <span class="hljs-comment">/**
+     * Overwrite the list of children to contain the single provided object
+     *
+     * @method set
+     * @param {Object} child renderable object
+     * @return {RenderNode} this render node, or child if it is a RenderNode
+     */</span>
+    RenderNode.prototype.set = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(child)</span> </span>{
+        <span class="hljs-keyword">this</span>._childResult = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._hasMultipleChildren = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._isRenderable = child.render ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._isModifier = child.modify ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._object = child;
+        <span class="hljs-keyword">this</span>._child = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span> (child <span class="hljs-keyword">instanceof</span> RenderNode) <span class="hljs-keyword">return</span> child;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Get render size of contained object.
+     *
+     * @method getSize
+     * @return {Array.Number} size of this or size of single child.
+     */</span>
+    RenderNode.prototype.getSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSize</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">var</span> result = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">var</span> target = <span class="hljs-keyword">this</span>.get();
+        <span class="hljs-keyword">if</span> (target &amp;&amp; target.getSize) result = target.getSize();
+        <span class="hljs-keyword">if</span> (!result &amp;&amp; <span class="hljs-keyword">this</span>._child &amp;&amp; <span class="hljs-keyword">this</span>._child.getSize) result = <span class="hljs-keyword">this</span>._child.getSize();
+        <span class="hljs-keyword">return</span> result;
+    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>apply results of rendering this subtree to the document</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_applyCommit</span><span class="hljs-params">(spec, context, cacheStorage)</span> </span>{
+        <span class="hljs-keyword">var</span> result = SpecParser.parse(spec, context);
+        <span class="hljs-keyword">var</span> keys = <span class="hljs-built_in">Object</span>.keys(result);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; keys.length; i++) {
+            <span class="hljs-keyword">var</span> id = keys[i];
+            <span class="hljs-keyword">var</span> childNode = Entity.get(id);
+            <span class="hljs-keyword">var</span> commitParams = result[id];
+            commitParams.allocator = context.allocator;
+            <span class="hljs-keyword">var</span> commitResult = childNode.commit(commitParams);
+            <span class="hljs-keyword">if</span> (commitResult) _applyCommit(commitResult, context, cacheStorage);
+            <span class="hljs-keyword">else</span> cacheStorage[id] = commitParams;
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Commit the content change from this node to the document.
+     *
+     * @private
+     * @method commit
+     * @param {Context} context render context
+     */</span>
+    RenderNode.prototype.commit = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">commit</span><span class="hljs-params">(context)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>free up some divs from the last loop</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">var</span> prevKeys = <span class="hljs-built_in">Object</span>.keys(<span class="hljs-keyword">this</span>._prevResults);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; prevKeys.length; i++) {
+            <span class="hljs-keyword">var</span> id = prevKeys[i];
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._resultCache[id] === <span class="hljs-literal">undefined</span>) {
+                <span class="hljs-keyword">var</span> object = Entity.get(id);
+                <span class="hljs-keyword">if</span> (object.cleanup) object.cleanup(context.allocator);
+            }
+        }
+
+        <span class="hljs-keyword">this</span>._prevResults = <span class="hljs-keyword">this</span>._resultCache;
+        <span class="hljs-keyword">this</span>._resultCache = {};
+        _applyCommit(<span class="hljs-keyword">this</span>.render(), context, <span class="hljs-keyword">this</span>._resultCache);
+    };
+
+    <span class="hljs-comment">/**
+     * Generate a render spec from the contents of the wrapped component.
+     *
+     * @private
+     * @method render
+     *
+     * @return {Object} render specification for the component subtree
+     *    only under this node.
+     */</span>
+    RenderNode.prototype.render = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._isRenderable) <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._object.render();
+
+        <span class="hljs-keyword">var</span> result = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._hasMultipleChildren) {
+            result = <span class="hljs-keyword">this</span>._childResult;
+            <span class="hljs-keyword">var</span> children = <span class="hljs-keyword">this</span>._child;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; children.length; i++) {
+                result[i] = children[i].render();
+            }
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._child) result = <span class="hljs-keyword">this</span>._child.render();
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._isModifier ? <span class="hljs-keyword">this</span>._object.modify(result) : result;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = RenderNode;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

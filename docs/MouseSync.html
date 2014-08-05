@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>MouseSync.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Accumulator.html">
+                Accumulator.js
+              </a>
+            
+              
+              <a class="source" href="DesktopEmulationMode.html">
+                DesktopEmulationMode.js
+              </a>
+            
+              
+              <a class="source" href="FastClick.html">
+                FastClick.js
+              </a>
+            
+              
+              <a class="source" href="GenericSync.html">
+                GenericSync.js
+              </a>
+            
+              
+              <a class="source" href="MouseSync.html">
+                MouseSync.js
+              </a>
+            
+              
+              <a class="source" href="PinchSync.html">
+                PinchSync.js
+              </a>
+            
+              
+              <a class="source" href="RotateSync.html">
+                RotateSync.js
+              </a>
+            
+              
+              <a class="source" href="ScaleSync.html">
+                ScaleSync.js
+              </a>
+            
+              
+              <a class="source" href="ScrollSync.html">
+                ScrollSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchSync.html">
+                TouchSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchTracker.html">
+                TouchTracker.js
+              </a>
+            
+              
+              <a class="source" href="TwoFingerSync.html">
+                TwoFingerSync.js
+              </a>
+            
+              
+              <a class="source" href="Matrix.html">
+                Matrix.js
+              </a>
+            
+              
+              <a class="source" href="Quaternion.html">
+                Quaternion.js
+              </a>
+            
+              
+              <a class="source" href="Random.html">
+                Random.js
+              </a>
+            
+              
+              <a class="source" href="Utilities.html">
+                Utilities.js
+              </a>
+            
+              
+              <a class="source" href="Vector.html">
+                Vector.js
+              </a>
+            
+              
+              <a class="source" href="Draggable.html">
+                Draggable.js
+              </a>
+            
+              
+              <a class="source" href="Fader.html">
+                Fader.js
+              </a>
+            
+              
+              <a class="source" href="ModifierChain.html">
+                ModifierChain.js
+              </a>
+            
+              
+              <a class="source" href="StateModifier.html">
+                StateModifier.js
+              </a>
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>MouseSync.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> EventHandler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/EventHandler'</span>);
+
+    <span class="hljs-comment">/**
+     * Handles piped in mouse drag events. Outputs an object with two
+     *   properties, position and velocity.
+     *   Emits 'start', 'update' and 'end' events with DOM event passthroughs,
+     *   with position, velocity, and a delta key.
+     *
+     * @class MouseSync
+     * @constructor
+     *
+     * @param [options] {Object}             default options overrides
+     * @param [options.direction] {Number}   read from a particular axis
+     * @param [options.rails] {Boolean}      read from axis with greatest differential
+     * @param [options.propogate] {Boolean}  add listened to document on mouseleave
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MouseSync</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>.options =  <span class="hljs-built_in">Object</span>.create(MouseSync.DEFAULT_OPTIONS);
+        <span class="hljs-keyword">if</span> (options) <span class="hljs-keyword">this</span>.setOptions(options);
+
+        <span class="hljs-keyword">this</span>._eventInput = <span class="hljs-keyword">new</span> EventHandler();
+        <span class="hljs-keyword">this</span>._eventOutput = <span class="hljs-keyword">new</span> EventHandler();
+
+        EventHandler.setInputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._eventInput);
+        EventHandler.setOutputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._eventOutput);
+
+        <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'mousedown'</span>, _handleStart.bind(<span class="hljs-keyword">this</span>));
+        <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'mousemove'</span>, _handleMove.bind(<span class="hljs-keyword">this</span>));
+        <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'mouseup'</span>, _handleEnd.bind(<span class="hljs-keyword">this</span>));
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.propogate) <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'mouseleave'</span>, _handleLeave.bind(<span class="hljs-keyword">this</span>));
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'mouseleave'</span>, _handleEnd.bind(<span class="hljs-keyword">this</span>));
+
+        <span class="hljs-keyword">this</span>._payload = {
+            delta    : <span class="hljs-literal">null</span>,
+            position : <span class="hljs-literal">null</span>,
+            velocity : <span class="hljs-literal">null</span>,
+            clientX  : <span class="hljs-number">0</span>,
+            clientY  : <span class="hljs-number">0</span>,
+            offsetX  : <span class="hljs-number">0</span>,
+            offsetY  : <span class="hljs-number">0</span>
+        };
+
+        <span class="hljs-keyword">this</span>._position = <span class="hljs-literal">null</span>;      <span class="hljs-comment">// to be deprecated</span>
+        <span class="hljs-keyword">this</span>._prevCoord = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>._prevTime = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>._down = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._moved = <span class="hljs-literal">false</span>;
+    }
+
+    MouseSync.DEFAULT_OPTIONS = {
+        direction: <span class="hljs-literal">undefined</span>,
+        rails: <span class="hljs-literal">false</span>,
+        scale: <span class="hljs-number">1</span>,
+        propogate: <span class="hljs-literal">true</span>  <span class="hljs-comment">// events piped to document on mouseleave</span>
+    };
+
+    MouseSync.DIRECTION_X = <span class="hljs-number">0</span>;
+    MouseSync.DIRECTION_Y = <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">var</span> MINIMUM_TICK_TIME = <span class="hljs-number">8</span>;
+
+    <span class="hljs-keyword">var</span> _now = <span class="hljs-built_in">Date</span>.now;
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleStart</span><span class="hljs-params">(event)</span> </span>{
+        <span class="hljs-keyword">var</span> delta;
+        <span class="hljs-keyword">var</span> velocity;
+        event.preventDefault(); <span class="hljs-comment">// prevent drag</span>
+
+        <span class="hljs-keyword">var</span> x = event.clientX;
+        <span class="hljs-keyword">var</span> y = event.clientY;
+
+        <span class="hljs-keyword">this</span>._prevCoord = [x, y];
+        <span class="hljs-keyword">this</span>._prevTime = _now();
+        <span class="hljs-keyword">this</span>._down = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">this</span>._move = <span class="hljs-literal">false</span>;
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.direction !== <span class="hljs-literal">undefined</span>){
+            <span class="hljs-keyword">this</span>._position = <span class="hljs-number">0</span>;
+            delta = <span class="hljs-number">0</span>;
+            velocity = <span class="hljs-number">0</span>;
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>._position = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+            delta = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+            velocity = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+        }
+
+        <span class="hljs-keyword">var</span> payload = <span class="hljs-keyword">this</span>._payload;
+        payload.delta = delta;
+        payload.position = <span class="hljs-keyword">this</span>._position;
+        payload.velocity = velocity;
+        payload.clientX = x;
+        payload.clientY = y;
+        payload.offsetX = event.offsetX;
+        payload.offsetY = event.offsetY;
+
+        <span class="hljs-keyword">this</span>._eventOutput.emit(<span class="hljs-string">'start'</span>, payload);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleMove</span><span class="hljs-params">(event)</span> </span>{
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._prevCoord) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-keyword">var</span> prevCoord = <span class="hljs-keyword">this</span>._prevCoord;
+        <span class="hljs-keyword">var</span> prevTime = <span class="hljs-keyword">this</span>._prevTime;
+
+        <span class="hljs-keyword">var</span> x = event.clientX;
+        <span class="hljs-keyword">var</span> y = event.clientY;
+
+        <span class="hljs-keyword">var</span> currTime = _now();
+
+        <span class="hljs-keyword">var</span> diffX = x - prevCoord[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">var</span> diffY = y - prevCoord[<span class="hljs-number">1</span>];
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.rails) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Math</span>.abs(diffX) &gt; <span class="hljs-built_in">Math</span>.abs(diffY)) diffY = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">else</span> diffX = <span class="hljs-number">0</span>;
+        }
+
+        <span class="hljs-keyword">var</span> diffTime = <span class="hljs-built_in">Math</span>.max(currTime - prevTime, MINIMUM_TICK_TIME); <span class="hljs-comment">// minimum tick time</span>
+
+        <span class="hljs-keyword">var</span> velX = diffX / diffTime;
+        <span class="hljs-keyword">var</span> velY = diffY / diffTime;
+
+        <span class="hljs-keyword">var</span> scale = <span class="hljs-keyword">this</span>.options.scale;
+        <span class="hljs-keyword">var</span> nextVel;
+        <span class="hljs-keyword">var</span> nextDelta;
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.direction === MouseSync.DIRECTION_X) {
+            nextDelta = scale * diffX;
+            nextVel = scale * velX;
+            <span class="hljs-keyword">this</span>._position += nextDelta;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.direction === MouseSync.DIRECTION_Y) {
+            nextDelta = scale * diffY;
+            nextVel = scale * velY;
+            <span class="hljs-keyword">this</span>._position += nextDelta;
+        }
+        <span class="hljs-keyword">else</span> {
+            nextDelta = [scale * diffX, scale * diffY];
+            nextVel = [scale * velX, scale * velY];
+            <span class="hljs-keyword">this</span>._position[<span class="hljs-number">0</span>] += nextDelta[<span class="hljs-number">0</span>];
+            <span class="hljs-keyword">this</span>._position[<span class="hljs-number">1</span>] += nextDelta[<span class="hljs-number">1</span>];
+        }
+
+        <span class="hljs-keyword">var</span> payload = <span class="hljs-keyword">this</span>._payload;
+        payload.delta    = nextDelta;
+        payload.position = <span class="hljs-keyword">this</span>._position;
+        payload.velocity = nextVel;
+        payload.clientX  = x;
+        payload.clientY  = y;
+        payload.offsetX  = event.offsetX;
+        payload.offsetY  = event.offsetY;
+
+        <span class="hljs-keyword">this</span>._eventOutput.emit(<span class="hljs-string">'update'</span>, payload);
+
+        <span class="hljs-keyword">this</span>._prevCoord = [x, y];
+        <span class="hljs-keyword">this</span>._prevTime = currTime;
+        <span class="hljs-keyword">this</span>._move = <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleEnd</span><span class="hljs-params">(event)</span> </span>{
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._down) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-keyword">this</span>._eventOutput.emit(<span class="hljs-string">'end'</span>, <span class="hljs-keyword">this</span>._payload);
+        <span class="hljs-keyword">this</span>._prevCoord = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>._prevTime = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>._down = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._move = <span class="hljs-literal">false</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_handleLeave</span><span class="hljs-params">(event)</span> </span>{
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._down || !<span class="hljs-keyword">this</span>._move) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-keyword">var</span> boundMove = _handleMove.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">var</span> boundEnd = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event)</span> </span>{
+            _handleEnd.call(<span class="hljs-keyword">this</span>, event);
+            <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">'mousemove'</span>, boundMove);
+            <span class="hljs-built_in">document</span>.removeEventListener(<span class="hljs-string">'mouseup'</span>, boundEnd);
+        }.bind(<span class="hljs-keyword">this</span>, event);
+
+        <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'mousemove'</span>, boundMove);
+        <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'mouseup'</span>, boundEnd);
+    }
+
+    <span class="hljs-comment">/**
+     * Return entire options dictionary, including defaults.
+     *
+     * @method getOptions
+     * @return {Object} configuration options
+     */</span>
+    MouseSync.prototype.getOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getOptions</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.options;
+    };
+
+    <span class="hljs-comment">/**
+     * Set internal options, overriding any default options
+     *
+     * @method setOptions
+     *
+     * @param [options] {Object}             default options overrides
+     * @param [options.direction] {Number}   read from a particular axis
+     * @param [options.rails] {Boolean}      read from axis with greatest differential
+     * @param [options.propogate] {Boolean}  add listened to document on mouseleave
+     */</span>
+    MouseSync.prototype.setOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOptions</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">if</span> (options.direction !== <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>.options.direction = options.direction;
+        <span class="hljs-keyword">if</span> (options.rails !== <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>.options.rails = options.rails;
+        <span class="hljs-keyword">if</span> (options.scale !== <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>.options.scale = options.scale;
+        <span class="hljs-keyword">if</span> (options.propogate !== <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>.options.propogate = options.propogate;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = MouseSync;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

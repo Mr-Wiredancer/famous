@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Group.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Context.html">
+                Context.js
+              </a>
+            
+              
+              <a class="source" href="ElementAllocator.html">
+                ElementAllocator.js
+              </a>
+            
+              
+              <a class="source" href="ElementOutput.html">
+                ElementOutput.js
+              </a>
+            
+              
+              <a class="source" href="Engine.html">
+                Engine.js
+              </a>
+            
+              
+              <a class="source" href="Entity.html">
+                Entity.js
+              </a>
+            
+              
+              <a class="source" href="EventEmitter.html">
+                EventEmitter.js
+              </a>
+            
+              
+              <a class="source" href="EventHandler.html">
+                EventHandler.js
+              </a>
+            
+              
+              <a class="source" href="Group.html">
+                Group.js
+              </a>
+            
+              
+              <a class="source" href="Modifier.html">
+                Modifier.js
+              </a>
+            
+              
+              <a class="source" href="OptionsManager.html">
+                OptionsManager.js
+              </a>
+            
+              
+              <a class="source" href="RenderNode.html">
+                RenderNode.js
+              </a>
+            
+              
+              <a class="source" href="Scene.html">
+                Scene.js
+              </a>
+            
+              
+              <a class="source" href="SpecParser.html">
+                SpecParser.js
+              </a>
+            
+              
+              <a class="source" href="Surface.html">
+                Surface.js
+              </a>
+            
+              
+              <a class="source" href="Transform.html">
+                Transform.js
+              </a>
+            
+              
+              <a class="source" href="View.html">
+                View.js
+              </a>
+            
+              
+              <a class="source" href="ViewSequence.html">
+                ViewSequence.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Group.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> Context = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Context'</span>);
+    <span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Transform'</span>);
+    <span class="hljs-keyword">var</span> Surface = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Surface'</span>);
+
+    <span class="hljs-comment">/**
+     * A Context designed to contain surfaces and set properties
+     *   to be applied to all of them at once.
+     *   This is primarily used for specific performance improvements in the rendering engine.
+     *   Private.
+     *
+     * @private
+     * @class Group
+     * @extends Surface
+     * @constructor
+     * @param {Object} [options] Surface options array (see Surface})
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Group</span><span class="hljs-params">(options)</span> </span>{
+        Surface.call(<span class="hljs-keyword">this</span>, options);
+        <span class="hljs-keyword">this</span>._shouldRecalculateSize = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._container = <span class="hljs-built_in">document</span>.createDocumentFragment();
+        <span class="hljs-keyword">this</span>.context = <span class="hljs-keyword">new</span> Context(<span class="hljs-keyword">this</span>._container);
+        <span class="hljs-keyword">this</span>.setContent(<span class="hljs-keyword">this</span>._container);
+        <span class="hljs-keyword">this</span>._groupSize = [<span class="hljs-literal">undefined</span>, <span class="hljs-literal">undefined</span>];
+    }
+
+    <span class="hljs-comment">/** @const */</span>
+    Group.SIZE_ZERO = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+
+    Group.prototype = <span class="hljs-built_in">Object</span>.create(Surface.prototype);
+    Group.prototype.elementType = <span class="hljs-string">'div'</span>;
+    Group.prototype.elementClass = <span class="hljs-string">'famous-group'</span>;
+
+    <span class="hljs-comment">/**
+     * Add renderables to this component's render tree.
+     *
+     * @method add
+     * @private
+     * @param {Object} obj renderable object
+     * @return {RenderNode} Render wrapping provided object, if not already a RenderNode
+     */</span>
+    Group.prototype.add = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.context.add.apply(<span class="hljs-keyword">this</span>.context, <span class="hljs-built_in">arguments</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Generate a render spec from the contents of this component.
+     *
+     * @private
+     * @method render
+     * @return {Number} Render spec for this component
+     */</span>
+    Group.prototype.render = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> Surface.prototype.render.call(<span class="hljs-keyword">this</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Place the document element this component manages into the document.
+     *
+     * @private
+     * @method deploy
+     * @param {Node} target document parent of this container
+     */</span>
+    Group.prototype.deploy = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deploy</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">this</span>.context.migrate(target);
+    };
+
+    <span class="hljs-comment">/**
+     * Remove this component and contained content from the document
+     *
+     * @private
+     * @method recall
+     *
+     * @param {Node} target node to which the component was deployed
+     */</span>
+    Group.prototype.recall = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">recall</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">this</span>._container = <span class="hljs-built_in">document</span>.createDocumentFragment();
+        <span class="hljs-keyword">this</span>.context.migrate(<span class="hljs-keyword">this</span>._container);
+    };
+
+    <span class="hljs-comment">/**
+     * Apply changes from this component to the corresponding document element.
+     *
+     * @private
+     * @method commit
+     *
+     * @param {Object} context update spec passed in from above in the render tree.
+     */</span>
+    Group.prototype.commit = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">commit</span><span class="hljs-params">(context)</span> </span>{
+        <span class="hljs-keyword">var</span> transform = context.transform;
+        <span class="hljs-keyword">var</span> origin = context.origin;
+        <span class="hljs-keyword">var</span> opacity = context.opacity;
+        <span class="hljs-keyword">var</span> size = context.size;
+        <span class="hljs-keyword">var</span> result = Surface.prototype.commit.call(<span class="hljs-keyword">this</span>, {
+            allocator: context.allocator,
+            transform: Transform.thenMove(transform, [-origin[<span class="hljs-number">0</span>] * size[<span class="hljs-number">0</span>], -origin[<span class="hljs-number">1</span>] * size[<span class="hljs-number">1</span>], <span class="hljs-number">0</span>]),
+            opacity: opacity,
+            origin: origin,
+            size: Group.SIZE_ZERO
+        });
+        <span class="hljs-keyword">if</span> (size[<span class="hljs-number">0</span>] !== <span class="hljs-keyword">this</span>._groupSize[<span class="hljs-number">0</span>] || size[<span class="hljs-number">1</span>] !== <span class="hljs-keyword">this</span>._groupSize[<span class="hljs-number">1</span>]) {
+            <span class="hljs-keyword">this</span>._groupSize[<span class="hljs-number">0</span>] = size[<span class="hljs-number">0</span>];
+            <span class="hljs-keyword">this</span>._groupSize[<span class="hljs-number">1</span>] = size[<span class="hljs-number">1</span>];
+            <span class="hljs-keyword">this</span>.context.setSize(size);
+        }
+        <span class="hljs-keyword">this</span>.context.update({
+            transform: Transform.translate(-origin[<span class="hljs-number">0</span>] * size[<span class="hljs-number">0</span>], -origin[<span class="hljs-number">1</span>] * size[<span class="hljs-number">1</span>], <span class="hljs-number">0</span>),
+            origin: origin,
+            size: size
+        });
+        <span class="hljs-keyword">return</span> result;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Group;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

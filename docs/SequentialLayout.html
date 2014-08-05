@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>SequentialLayout.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+              
+              <a class="source" href="KeyCodes.html">
+                KeyCodes.js
+              </a>
+            
+              
+              <a class="source" href="Timer.html">
+                Timer.js
+              </a>
+            
+              
+              <a class="source" href="Utility.html">
+                Utility.js
+              </a>
+            
+              
+              <a class="source" href="ContextualView.html">
+                ContextualView.js
+              </a>
+            
+              
+              <a class="source" href="Deck.html">
+                Deck.js
+              </a>
+            
+              
+              <a class="source" href="DrawerLayout.html">
+                DrawerLayout.js
+              </a>
+            
+              
+              <a class="source" href="EdgeSwapper.html">
+                EdgeSwapper.js
+              </a>
+            
+              
+              <a class="source" href="FlexibleLayout.html">
+                FlexibleLayout.js
+              </a>
+            
+              
+              <a class="source" href="Flipper.html">
+                Flipper.js
+              </a>
+            
+              
+              <a class="source" href="GridLayout.html">
+                GridLayout.js
+              </a>
+            
+              
+              <a class="source" href="HeaderFooterLayout.html">
+                HeaderFooterLayout.js
+              </a>
+            
+              
+              <a class="source" href="Lightbox.html">
+                Lightbox.js
+              </a>
+            
+              
+              <a class="source" href="RenderController.html">
+                RenderController.js
+              </a>
+            
+              
+              <a class="source" href="ScrollContainer.html">
+                ScrollContainer.js
+              </a>
+            
+              
+              <a class="source" href="Scroller.html">
+                Scroller.js
+              </a>
+            
+              
+              <a class="source" href="Scrollview.html">
+                Scrollview.js
+              </a>
+            
+              
+              <a class="source" href="SequentialLayout.html">
+                SequentialLayout.js
+              </a>
+            
+              
+              <a class="source" href="NavigationBar.html">
+                NavigationBar.js
+              </a>
+            
+              
+              <a class="source" href="Slider.html">
+                Slider.js
+              </a>
+            
+              
+              <a class="source" href="TabBar.html">
+                TabBar.js
+              </a>
+            
+              
+              <a class="source" href="ToggleButton.html">
+                ToggleButton.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>SequentialLayout.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: felix@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> OptionsManager = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/OptionsManager'</span>);
+    <span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/Transform'</span>);
+    <span class="hljs-keyword">var</span> ViewSequence = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/ViewSequence'</span>);
+    <span class="hljs-keyword">var</span> Utility = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/utilities/Utility'</span>);
+
+    <span class="hljs-comment">/**
+     * SequentialLayout will lay out a collection of renderables sequentially in the specified direction.
+     * @class SequentialLayout
+     * @constructor
+     * @param {Options} [options] An object of configurable options.
+     * @param {Number} [options.direction=Utility.Direction.Y] Using the direction helper found in the famous Utility
+     * module, this option will lay out the SequentialLayout instance's renderables either horizontally
+     * (x) or vertically (y). Utility's direction is essentially either zero (X) or one (Y), so feel free
+     * to just use integers as well.
+     * @param {Array.Number} [options.defaultItemSize=[50, 50]] In the case where a renderable layed out
+     * under SequentialLayout's control doesen't have a getSize method, SequentialLayout will assign it
+     * this default size. (Commonly a case with Views).
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SequentialLayout</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>._items = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._size = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._outputFunction = SequentialLayout.DEFAULT_OUTPUT_FUNCTION;
+
+        <span class="hljs-keyword">this</span>.options = <span class="hljs-built_in">Object</span>.create(<span class="hljs-keyword">this</span>.constructor.DEFAULT_OPTIONS);
+        <span class="hljs-keyword">this</span>.optionsManager = <span class="hljs-keyword">new</span> OptionsManager(<span class="hljs-keyword">this</span>.options);
+
+        <span class="hljs-keyword">this</span>._itemsCache = [];
+        <span class="hljs-keyword">this</span>._outputCache = {
+            size: <span class="hljs-literal">null</span>,
+            target: <span class="hljs-keyword">this</span>._itemsCache
+        };
+
+        <span class="hljs-keyword">if</span> (options) <span class="hljs-keyword">this</span>.setOptions(options);
+    }
+
+    SequentialLayout.DEFAULT_OPTIONS = {
+        direction: Utility.Direction.Y,
+        itemSpacing: <span class="hljs-number">0</span>,
+        defaultItemSize: [<span class="hljs-number">50</span>, <span class="hljs-number">50</span>]
+    };
+
+    SequentialLayout.DEFAULT_OUTPUT_FUNCTION = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DEFAULT_OUTPUT_FUNCTION</span><span class="hljs-params">(input, offset, index)</span> </span>{
+        <span class="hljs-keyword">var</span> transform = (<span class="hljs-keyword">this</span>.options.direction === Utility.Direction.X) ? Transform.translate(offset, <span class="hljs-number">0</span>) : Transform.translate(<span class="hljs-number">0</span>, offset);
+        <span class="hljs-keyword">return</span> {
+            transform: transform,
+            target: input.render()
+        };
+    };
+
+    <span class="hljs-comment">/**
+     * Returns the width and the height of the SequentialLayout instance.
+     *
+     * @method getSize
+     * @return {Array} A two value array of the SequentialLayout instance's current width and height (in that order).
+     */</span>
+    SequentialLayout.prototype.getSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSize</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._size) <span class="hljs-keyword">this</span>.render(); <span class="hljs-comment">// hack size in</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._size;
+    };
+
+    <span class="hljs-comment">/**
+     * Sets the collection of renderables under the SequentialLayout instance's control.
+     *
+     * @method sequenceFrom
+     * @param {Array|ViewSequence} items Either an array of renderables or a Famous viewSequence.
+     * @chainable
+     */</span>
+    SequentialLayout.prototype.sequenceFrom = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sequenceFrom</span><span class="hljs-params">(items)</span> </span>{
+        <span class="hljs-keyword">if</span> (items <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>) items = <span class="hljs-keyword">new</span> ViewSequence(items);
+        <span class="hljs-keyword">this</span>._items = items;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Patches the SequentialLayout instance's options with the passed-in ones.
+     *
+     * @method setOptions
+     * @param {Options} options An object of configurable options for the SequentialLayout instance.
+     * @chainable
+     */</span>
+    SequentialLayout.prototype.setOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOptions</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>.optionsManager.setOptions.apply(<span class="hljs-keyword">this</span>.optionsManager, <span class="hljs-built_in">arguments</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * setOutputFunction is used to apply a user-defined output transform on each processed renderable.
+     *  For a good example, check out SequentialLayout's own DEFAULT_OUTPUT_FUNCTION in the code.
+     *
+     * @method setOutputFunction
+     * @param {Function} outputFunction An output processer for each renderable in the SequentialLayout
+     * instance.
+     * @chainable
+     */</span>
+    SequentialLayout.prototype.setOutputFunction = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOutputFunction</span><span class="hljs-params">(outputFunction)</span> </span>{
+        <span class="hljs-keyword">this</span>._outputFunction = outputFunction;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Generate a render spec from the contents of this component.
+     *
+     * @private
+     * @method render
+     * @return {number} Render spec for this component
+     */</span>
+    SequentialLayout.prototype.render = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">var</span> length = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">var</span> girth = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">var</span> lengthDim = (<span class="hljs-keyword">this</span>.options.direction === Utility.Direction.X) ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">var</span> girthDim = (<span class="hljs-keyword">this</span>.options.direction === Utility.Direction.X) ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">var</span> currentNode = <span class="hljs-keyword">this</span>._items;
+        <span class="hljs-keyword">var</span> result = <span class="hljs-keyword">this</span>._itemsCache;
+        <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">while</span> (currentNode) {
+            <span class="hljs-keyword">var</span> item = currentNode.get();
+            <span class="hljs-keyword">if</span> (!item) <span class="hljs-keyword">break</span>;
+
+            <span class="hljs-keyword">var</span> itemSize;
+            <span class="hljs-keyword">if</span> (item &amp;&amp; item.getSize) itemSize = item.getSize();
+            <span class="hljs-keyword">if</span> (!itemSize) itemSize = <span class="hljs-keyword">this</span>.options.defaultItemSize;
+            <span class="hljs-keyword">if</span> (itemSize[girthDim] !== <span class="hljs-literal">true</span>) girth = <span class="hljs-built_in">Math</span>.max(girth, itemSize[girthDim]);
+
+            <span class="hljs-keyword">var</span> output = <span class="hljs-keyword">this</span>._outputFunction.call(<span class="hljs-keyword">this</span>, item, length, i);
+            result[i] = output;
+
+            <span class="hljs-keyword">if</span> (itemSize[lengthDim] &amp;&amp; (itemSize[lengthDim] !== <span class="hljs-literal">true</span>)) length += itemSize[lengthDim] + <span class="hljs-keyword">this</span>.options.itemSpacing;
+            currentNode = currentNode.getNext();
+            i++;
+        }
+        <span class="hljs-keyword">this</span>._itemsCache.splice(i);
+
+        <span class="hljs-keyword">if</span> (!girth) girth = <span class="hljs-literal">undefined</span>;
+
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._size) <span class="hljs-keyword">this</span>._size = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+        <span class="hljs-keyword">this</span>._size[lengthDim] = length - <span class="hljs-keyword">this</span>.options.itemSpacing; <span class="hljs-comment">// account for last itemSpacing</span>
+        <span class="hljs-keyword">this</span>._size[girthDim] = girth;
+
+        <span class="hljs-keyword">this</span>._outputCache.size = <span class="hljs-keyword">this</span>.getSize();
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._outputCache;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = SequentialLayout;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

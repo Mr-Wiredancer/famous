@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>ScaleSync.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Accumulator.html">
+                Accumulator.js
+              </a>
+            
+              
+              <a class="source" href="DesktopEmulationMode.html">
+                DesktopEmulationMode.js
+              </a>
+            
+              
+              <a class="source" href="FastClick.html">
+                FastClick.js
+              </a>
+            
+              
+              <a class="source" href="GenericSync.html">
+                GenericSync.js
+              </a>
+            
+              
+              <a class="source" href="MouseSync.html">
+                MouseSync.js
+              </a>
+            
+              
+              <a class="source" href="PinchSync.html">
+                PinchSync.js
+              </a>
+            
+              
+              <a class="source" href="RotateSync.html">
+                RotateSync.js
+              </a>
+            
+              
+              <a class="source" href="ScaleSync.html">
+                ScaleSync.js
+              </a>
+            
+              
+              <a class="source" href="ScrollSync.html">
+                ScrollSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchSync.html">
+                TouchSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchTracker.html">
+                TouchTracker.js
+              </a>
+            
+              
+              <a class="source" href="TwoFingerSync.html">
+                TwoFingerSync.js
+              </a>
+            
+              
+              <a class="source" href="Matrix.html">
+                Matrix.js
+              </a>
+            
+              
+              <a class="source" href="Quaternion.html">
+                Quaternion.js
+              </a>
+            
+              
+              <a class="source" href="Random.html">
+                Random.js
+              </a>
+            
+              
+              <a class="source" href="Utilities.html">
+                Utilities.js
+              </a>
+            
+              
+              <a class="source" href="Vector.html">
+                Vector.js
+              </a>
+            
+              
+              <a class="source" href="Draggable.html">
+                Draggable.js
+              </a>
+            
+              
+              <a class="source" href="Fader.html">
+                Fader.js
+              </a>
+            
+              
+              <a class="source" href="ModifierChain.html">
+                ModifierChain.js
+              </a>
+            
+              
+              <a class="source" href="StateModifier.html">
+                StateModifier.js
+              </a>
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>ScaleSync.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> TwoFingerSync = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./TwoFingerSync'</span>);
+
+    <span class="hljs-comment">/**
+     * Handles piped in two-finger touch events to increase or decrease scale via pinching / expanding.
+     *   Emits 'start', 'update' and 'end' events an object with position, velocity, touch ids, distance, and scale factor.
+     *   Useful for determining a scaling factor from initial two-finger touch.
+     *
+     * @class ScaleSync
+     * @extends TwoFingerSync
+     * @constructor
+     * @param {Object} options default options overrides
+     * @param {Number} [options.scale] scale velocity by this factor
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ScaleSync</span><span class="hljs-params">(options)</span> </span>{
+        TwoFingerSync.call(<span class="hljs-keyword">this</span>);
+
+        <span class="hljs-keyword">this</span>.options = <span class="hljs-built_in">Object</span>.create(ScaleSync.DEFAULT_OPTIONS);
+        <span class="hljs-keyword">if</span> (options) <span class="hljs-keyword">this</span>.setOptions(options);
+
+        <span class="hljs-keyword">this</span>._scaleFactor = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">this</span>._startDist = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>._eventInput.on(<span class="hljs-string">'pipe'</span>, _reset.bind(<span class="hljs-keyword">this</span>));
+    }
+
+    ScaleSync.prototype = <span class="hljs-built_in">Object</span>.create(TwoFingerSync.prototype);
+    ScaleSync.prototype.constructor = ScaleSync;
+
+    ScaleSync.DEFAULT_OPTIONS = {
+        scale : <span class="hljs-number">1</span>
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_reset</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.touchAId = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>.touchBId = <span class="hljs-literal">undefined</span>;
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>handles initial touch of two fingers</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    ScaleSync.prototype._startUpdate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_startUpdate</span><span class="hljs-params">(event)</span> </span>{
+        <span class="hljs-keyword">this</span>._scaleFactor = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">this</span>._startDist = TwoFingerSync.calculateDistance(<span class="hljs-keyword">this</span>.posA, <span class="hljs-keyword">this</span>.posB);
+        <span class="hljs-keyword">this</span>._eventOutput.emit(<span class="hljs-string">'start'</span>, {
+            count: event.touches.length,
+            touches: [<span class="hljs-keyword">this</span>.touchAId, <span class="hljs-keyword">this</span>.touchBId],
+            distance: <span class="hljs-keyword">this</span>._startDist,
+            center: TwoFingerSync.calculateCenter(<span class="hljs-keyword">this</span>.posA, <span class="hljs-keyword">this</span>.posB)
+        });
+    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>handles movement of two fingers</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    ScaleSync.prototype._moveUpdate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_moveUpdate</span><span class="hljs-params">(diffTime)</span> </span>{
+        <span class="hljs-keyword">var</span> scale = <span class="hljs-keyword">this</span>.options.scale;
+
+        <span class="hljs-keyword">var</span> currDist = TwoFingerSync.calculateDistance(<span class="hljs-keyword">this</span>.posA, <span class="hljs-keyword">this</span>.posB);
+        <span class="hljs-keyword">var</span> center = TwoFingerSync.calculateCenter(<span class="hljs-keyword">this</span>.posA, <span class="hljs-keyword">this</span>.posB);
+
+        <span class="hljs-keyword">var</span> delta = (currDist - <span class="hljs-keyword">this</span>._startDist) / <span class="hljs-keyword">this</span>._startDist;
+        <span class="hljs-keyword">var</span> newScaleFactor = <span class="hljs-built_in">Math</span>.max(<span class="hljs-number">1</span> + scale * delta, <span class="hljs-number">0</span>);
+        <span class="hljs-keyword">var</span> veloScale = (newScaleFactor - <span class="hljs-keyword">this</span>._scaleFactor) / diffTime;
+
+        <span class="hljs-keyword">this</span>._eventOutput.emit(<span class="hljs-string">'update'</span>, {
+            delta : delta,
+            scale: newScaleFactor,
+            velocity: veloScale,
+            distance: currDist,
+            center : center,
+            touches: [<span class="hljs-keyword">this</span>.touchAId, <span class="hljs-keyword">this</span>.touchBId]
+        });
+
+        <span class="hljs-keyword">this</span>._scaleFactor = newScaleFactor;
+    };
+
+    <span class="hljs-comment">/**
+     * Return entire options dictionary, including defaults.
+     *
+     * @method getOptions
+     * @return {Object} configuration options
+     */</span>
+    ScaleSync.prototype.getOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getOptions</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.options;
+    };
+
+    <span class="hljs-comment">/**
+     * Set internal options, overriding any default options
+     *
+     * @method setOptions
+     *
+     * @param {Object} [options] overrides of default options
+     * @param {Number} [options.scale] scale velocity by this factor
+     */</span>
+    ScaleSync.prototype.setOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOptions</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">if</span> (options.scale !== <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>.options.scale = options.scale;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = ScaleSync;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

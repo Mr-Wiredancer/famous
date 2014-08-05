@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Transitionable.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+              
+              <a class="source" href="KeyCodes.html">
+                KeyCodes.js
+              </a>
+            
+              
+              <a class="source" href="Timer.html">
+                Timer.js
+              </a>
+            
+              
+              <a class="source" href="Utility.html">
+                Utility.js
+              </a>
+            
+              
+              <a class="source" href="ContextualView.html">
+                ContextualView.js
+              </a>
+            
+              
+              <a class="source" href="Deck.html">
+                Deck.js
+              </a>
+            
+              
+              <a class="source" href="DrawerLayout.html">
+                DrawerLayout.js
+              </a>
+            
+              
+              <a class="source" href="EdgeSwapper.html">
+                EdgeSwapper.js
+              </a>
+            
+              
+              <a class="source" href="FlexibleLayout.html">
+                FlexibleLayout.js
+              </a>
+            
+              
+              <a class="source" href="Flipper.html">
+                Flipper.js
+              </a>
+            
+              
+              <a class="source" href="GridLayout.html">
+                GridLayout.js
+              </a>
+            
+              
+              <a class="source" href="HeaderFooterLayout.html">
+                HeaderFooterLayout.js
+              </a>
+            
+              
+              <a class="source" href="Lightbox.html">
+                Lightbox.js
+              </a>
+            
+              
+              <a class="source" href="RenderController.html">
+                RenderController.js
+              </a>
+            
+              
+              <a class="source" href="ScrollContainer.html">
+                ScrollContainer.js
+              </a>
+            
+              
+              <a class="source" href="Scroller.html">
+                Scroller.js
+              </a>
+            
+              
+              <a class="source" href="Scrollview.html">
+                Scrollview.js
+              </a>
+            
+              
+              <a class="source" href="SequentialLayout.html">
+                SequentialLayout.js
+              </a>
+            
+              
+              <a class="source" href="NavigationBar.html">
+                NavigationBar.js
+              </a>
+            
+              
+              <a class="source" href="Slider.html">
+                Slider.js
+              </a>
+            
+              
+              <a class="source" href="TabBar.html">
+                TabBar.js
+              </a>
+            
+              
+              <a class="source" href="ToggleButton.html">
+                ToggleButton.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Transitionable.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: david@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> MultipleTransition = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./MultipleTransition'</span>);
+    <span class="hljs-keyword">var</span> TweenTransition = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./TweenTransition'</span>);
+
+    <span class="hljs-comment">/**
+     * A state maintainer for a smooth transition between
+     *    numerically-specified states. Example numeric states include floats or
+     *    Transform objects.
+     *
+     * An initial state is set with the constructor or set(startState). A
+     *    corresponding end state and transition are set with set(endState,
+     *    transition). Subsequent calls to set(endState, transition) begin at
+     *    the last state. Calls to get(timestamp) provide the interpolated state
+     *    along the way.
+     *
+     * Note that there is no event loop here - calls to get() are the only way
+     *    to find state projected to the current (or provided) time and are
+     *    the only way to trigger callbacks. Usually this kind of object would
+     *    be part of the render() path of a visible component.
+     *
+     * @class Transitionable
+     * @constructor
+     * @param {number|Array.Number|Object.&lt;number|string, number&gt;} start
+     *    beginning state
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Transitionable</span><span class="hljs-params">(start)</span> </span>{
+        <span class="hljs-keyword">this</span>.currentAction = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>.actionQueue = [];
+        <span class="hljs-keyword">this</span>.callbackQueue = [];
+
+        <span class="hljs-keyword">this</span>.state = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">this</span>.velocity = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>._callback = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>._engineInstance = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._currentMethod = <span class="hljs-literal">null</span>;
+
+        <span class="hljs-keyword">this</span>.set(start);
+    }
+
+    <span class="hljs-keyword">var</span> transitionMethods = {};
+
+    Transitionable.registerMethod = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">registerMethod</span><span class="hljs-params">(name, engineClass)</span> </span>{
+        <span class="hljs-keyword">if</span> (!(name <span class="hljs-keyword">in</span> transitionMethods)) {
+            transitionMethods[name] = engineClass;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    };
+
+    Transitionable.unregisterMethod = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unregisterMethod</span><span class="hljs-params">(name)</span> </span>{
+        <span class="hljs-keyword">if</span> (name <span class="hljs-keyword">in</span> transitionMethods) {
+            <span class="hljs-keyword">delete</span> transitionMethods[name];
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_loadNext</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._callback) {
+            <span class="hljs-keyword">var</span> callback = <span class="hljs-keyword">this</span>._callback;
+            <span class="hljs-keyword">this</span>._callback = <span class="hljs-literal">undefined</span>;
+            callback();
+        }
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.actionQueue.length &lt;= <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">this</span>.set(<span class="hljs-keyword">this</span>.get()); <span class="hljs-comment">// no update required</span>
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-keyword">this</span>.currentAction = <span class="hljs-keyword">this</span>.actionQueue.shift();
+        <span class="hljs-keyword">this</span>._callback = <span class="hljs-keyword">this</span>.callbackQueue.shift();
+
+        <span class="hljs-keyword">var</span> method = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">var</span> endValue = <span class="hljs-keyword">this</span>.currentAction[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">var</span> transition = <span class="hljs-keyword">this</span>.currentAction[<span class="hljs-number">1</span>];
+        <span class="hljs-keyword">if</span> (transition <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> &amp;&amp; transition.method) {
+            method = transition.method;
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> method === <span class="hljs-string">'string'</span>) method = transitionMethods[method];
+        }
+        <span class="hljs-keyword">else</span> {
+            method = TweenTransition;
+        }
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._currentMethod !== method) {
+            <span class="hljs-keyword">if</span> (!(endValue <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>) || method.SUPPORTS_MULTIPLE === <span class="hljs-literal">true</span> || endValue.length &lt;= method.SUPPORTS_MULTIPLE) {
+                <span class="hljs-keyword">this</span>._engineInstance = <span class="hljs-keyword">new</span> method();
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">this</span>._engineInstance = <span class="hljs-keyword">new</span> MultipleTransition(method);
+            }
+            <span class="hljs-keyword">this</span>._currentMethod = method;
+        }
+
+        <span class="hljs-keyword">this</span>._engineInstance.reset(<span class="hljs-keyword">this</span>.state, <span class="hljs-keyword">this</span>.velocity);
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.velocity !== <span class="hljs-literal">undefined</span>) transition.velocity = <span class="hljs-keyword">this</span>.velocity;
+        <span class="hljs-keyword">this</span>._engineInstance.set(endValue, transition, _loadNext.bind(<span class="hljs-keyword">this</span>));
+    }
+
+    <span class="hljs-comment">/**
+     * Add transition to end state to the queue of pending transitions. Special
+     *    Use: calling without a transition resets the object to that state with
+     *    no pending actions
+     *
+     * @method set
+     *
+     * @param {number|FamousMatrix|Array.Number|Object.&lt;number, number&gt;} endState
+     *    end state to which we interpolate
+     * @param {transition=} transition object of type {duration: number, curve:
+     *    f[0,1] -&gt; [0,1] or name}. If transition is omitted, change will be
+     *    instantaneous.
+     * @param {function()=} callback Zero-argument function to call on observed
+     *    completion (t=1)
+     */</span>
+    Transitionable.prototype.set = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(endState, transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (!transition) {
+            <span class="hljs-keyword">this</span>.reset(endState);
+            <span class="hljs-keyword">if</span> (callback) callback();
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+
+        <span class="hljs-keyword">var</span> action = [endState, transition];
+        <span class="hljs-keyword">this</span>.actionQueue.push(action);
+        <span class="hljs-keyword">this</span>.callbackQueue.push(callback);
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.currentAction) _loadNext.call(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Cancel all transitions and reset to a stable state
+     *
+     * @method reset
+     *
+     * @param {number|Array.Number|Object.&lt;number, number&gt;} startState
+     *    stable state to set to
+     */</span>
+    Transitionable.prototype.reset = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reset</span><span class="hljs-params">(startState, startVelocity)</span> </span>{
+        <span class="hljs-keyword">this</span>._currentMethod = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._engineInstance = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._callback = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>.state = startState;
+        <span class="hljs-keyword">this</span>.velocity = startVelocity;
+        <span class="hljs-keyword">this</span>.currentAction = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>.actionQueue = [];
+        <span class="hljs-keyword">this</span>.callbackQueue = [];
+    };
+
+    <span class="hljs-comment">/**
+     * Add delay action to the pending action queue queue.
+     *
+     * @method delay
+     *
+     * @param {number} duration delay time (ms)
+     * @param {function} callback Zero-argument function to call on observed
+     *    completion (t=1)
+     */</span>
+    Transitionable.prototype.delay = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">delay</span><span class="hljs-params">(duration, callback)</span> </span>{
+        <span class="hljs-keyword">this</span>.set(<span class="hljs-keyword">this</span>.get(), {duration: duration,
+            curve: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+            }},
+            callback
+        );
+    };
+
+    <span class="hljs-comment">/**
+     * Get interpolated state of current action at provided time. If the last
+     *    action has completed, invoke its callback.
+     *
+     * @method get
+     *
+     * @param {number=} timestamp Evaluate the curve at a normalized version of this
+     *    time. If omitted, use current time. (Unix epoch time)
+     * @return {number|Object.&lt;number|string, number&gt;} beginning state
+     *    interpolated to this point in time.
+     */</span>
+    Transitionable.prototype.get = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">(timestamp)</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._engineInstance) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._engineInstance.getVelocity)
+                <span class="hljs-keyword">this</span>.velocity = <span class="hljs-keyword">this</span>._engineInstance.getVelocity();
+            <span class="hljs-keyword">this</span>.state = <span class="hljs-keyword">this</span>._engineInstance.get(timestamp);
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.state;
+    };
+
+    <span class="hljs-comment">/**
+     * Is there at least one action pending completion?
+     *
+     * @method isActive
+     *
+     * @return {boolean}
+     */</span>
+    Transitionable.prototype.isActive = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isActive</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> !!<span class="hljs-keyword">this</span>.currentAction;
+    };
+
+    <span class="hljs-comment">/**
+     * Halt transition at current state and erase all pending actions.
+     *
+     * @method halt
+     */</span>
+    Transitionable.prototype.halt = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">halt</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.set(<span class="hljs-keyword">this</span>.get());
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Transitionable;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

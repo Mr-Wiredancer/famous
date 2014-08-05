@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>TransitionableTransform.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+              
+              <a class="source" href="KeyCodes.html">
+                KeyCodes.js
+              </a>
+            
+              
+              <a class="source" href="Timer.html">
+                Timer.js
+              </a>
+            
+              
+              <a class="source" href="Utility.html">
+                Utility.js
+              </a>
+            
+              
+              <a class="source" href="ContextualView.html">
+                ContextualView.js
+              </a>
+            
+              
+              <a class="source" href="Deck.html">
+                Deck.js
+              </a>
+            
+              
+              <a class="source" href="DrawerLayout.html">
+                DrawerLayout.js
+              </a>
+            
+              
+              <a class="source" href="EdgeSwapper.html">
+                EdgeSwapper.js
+              </a>
+            
+              
+              <a class="source" href="FlexibleLayout.html">
+                FlexibleLayout.js
+              </a>
+            
+              
+              <a class="source" href="Flipper.html">
+                Flipper.js
+              </a>
+            
+              
+              <a class="source" href="GridLayout.html">
+                GridLayout.js
+              </a>
+            
+              
+              <a class="source" href="HeaderFooterLayout.html">
+                HeaderFooterLayout.js
+              </a>
+            
+              
+              <a class="source" href="Lightbox.html">
+                Lightbox.js
+              </a>
+            
+              
+              <a class="source" href="RenderController.html">
+                RenderController.js
+              </a>
+            
+              
+              <a class="source" href="ScrollContainer.html">
+                ScrollContainer.js
+              </a>
+            
+              
+              <a class="source" href="Scroller.html">
+                Scroller.js
+              </a>
+            
+              
+              <a class="source" href="Scrollview.html">
+                Scrollview.js
+              </a>
+            
+              
+              <a class="source" href="SequentialLayout.html">
+                SequentialLayout.js
+              </a>
+            
+              
+              <a class="source" href="NavigationBar.html">
+                NavigationBar.js
+              </a>
+            
+              
+              <a class="source" href="Slider.html">
+                Slider.js
+              </a>
+            
+              
+              <a class="source" href="TabBar.html">
+                TabBar.js
+              </a>
+            
+              
+              <a class="source" href="ToggleButton.html">
+                ToggleButton.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>TransitionableTransform.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: david@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> Transitionable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Transitionable'</span>);
+    <span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/Transform'</span>);
+    <span class="hljs-keyword">var</span> Utility = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/utilities/Utility'</span>);
+
+    <span class="hljs-comment">/**
+     * A class for transitioning the state of a Transform by transitioning
+     * its translate, scale, skew and rotate components independently.
+     *
+     * @class TransitionableTransform
+     * @constructor
+     *
+     * @param [transform=Transform.identity] {Transform} The initial transform state
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">TransitionableTransform</span><span class="hljs-params">(transform)</span> </span>{
+        <span class="hljs-keyword">this</span>._final = Transform.identity.slice();
+        <span class="hljs-keyword">this</span>.translate = <span class="hljs-keyword">new</span> Transitionable([<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+        <span class="hljs-keyword">this</span>.rotate = <span class="hljs-keyword">new</span> Transitionable([<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+        <span class="hljs-keyword">this</span>.skew = <span class="hljs-keyword">new</span> Transitionable([<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+        <span class="hljs-keyword">this</span>.scale = <span class="hljs-keyword">new</span> Transitionable([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]);
+
+        <span class="hljs-keyword">if</span> (transform) <span class="hljs-keyword">this</span>.set(transform);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_build</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> Transform.build({
+            translate: <span class="hljs-keyword">this</span>.translate.get(),
+            rotate: <span class="hljs-keyword">this</span>.rotate.get(),
+            skew: <span class="hljs-keyword">this</span>.skew.get(),
+            scale: <span class="hljs-keyword">this</span>.scale.get()
+        });
+    }
+
+    <span class="hljs-comment">/**
+     * An optimized way of setting only the translation component of a Transform
+     *
+     * @method setTranslate
+     * @chainable
+     *
+     * @param translate {Array}     New translation state
+     * @param [transition] {Object} Transition definition
+     * @param [callback] {Function} Callback
+     * @return {TransitionableTransform}
+     */</span>
+    TransitionableTransform.prototype.setTranslate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setTranslate</span><span class="hljs-params">(translate, transition, callback)</span> </span>{
+        <span class="hljs-keyword">this</span>.translate.set(translate, transition, callback);
+        <span class="hljs-keyword">this</span>._final = <span class="hljs-keyword">this</span>._final.slice();
+        <span class="hljs-keyword">this</span>._final[<span class="hljs-number">12</span>] = translate[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">this</span>._final[<span class="hljs-number">13</span>] = translate[<span class="hljs-number">1</span>];
+        <span class="hljs-keyword">if</span> (translate[<span class="hljs-number">2</span>] !== <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>._final[<span class="hljs-number">14</span>] = translate[<span class="hljs-number">2</span>];
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * An optimized way of setting only the scale component of a Transform
+     *
+     * @method setScale
+     * @chainable
+     *
+     * @param scale {Array}         New scale state
+     * @param [transition] {Object} Transition definition
+     * @param [callback] {Function} Callback
+     * @return {TransitionableTransform}
+     */</span>
+    TransitionableTransform.prototype.setScale = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setScale</span><span class="hljs-params">(scale, transition, callback)</span> </span>{
+        <span class="hljs-keyword">this</span>.scale.set(scale, transition, callback);
+        <span class="hljs-keyword">this</span>._final = <span class="hljs-keyword">this</span>._final.slice();
+        <span class="hljs-keyword">this</span>._final[<span class="hljs-number">0</span>] = scale[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">this</span>._final[<span class="hljs-number">5</span>] = scale[<span class="hljs-number">1</span>];
+        <span class="hljs-keyword">if</span> (scale[<span class="hljs-number">2</span>] !== <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>._final[<span class="hljs-number">10</span>] = scale[<span class="hljs-number">2</span>];
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * An optimized way of setting only the rotational component of a Transform
+     *
+     * @method setRotate
+     * @chainable
+     *
+     * @param eulerAngles {Array}   Euler angles for new rotation state
+     * @param [transition] {Object} Transition definition
+     * @param [callback] {Function} Callback
+     * @return {TransitionableTransform}
+     */</span>
+    TransitionableTransform.prototype.setRotate = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setRotate</span><span class="hljs-params">(eulerAngles, transition, callback)</span> </span>{
+        <span class="hljs-keyword">this</span>.rotate.set(eulerAngles, transition, callback);
+        <span class="hljs-keyword">this</span>._final = _build.call(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>._final = Transform.build({
+            translate: <span class="hljs-keyword">this</span>.translate.get(),
+            rotate: eulerAngles,
+            scale: <span class="hljs-keyword">this</span>.scale.get(),
+            skew: <span class="hljs-keyword">this</span>.skew.get()
+        });
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * An optimized way of setting only the skew component of a Transform
+     *
+     * @method setSkew
+     * @chainable
+     *
+     * @param skewAngles {Array}    New skew state
+     * @param [transition] {Object} Transition definition
+     * @param [callback] {Function} Callback
+     * @return {TransitionableTransform}
+     */</span>
+    TransitionableTransform.prototype.setSkew = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setSkew</span><span class="hljs-params">(skewAngles, transition, callback)</span> </span>{
+        <span class="hljs-keyword">this</span>.skew.set(skewAngles, transition, callback);
+        <span class="hljs-keyword">this</span>._final = Transform.build({
+            translate: <span class="hljs-keyword">this</span>.translate.get(),
+            rotate: <span class="hljs-keyword">this</span>.rotate.get(),
+            scale: <span class="hljs-keyword">this</span>.scale.get(),
+            skew: skewAngles
+        });
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Setter for a TransitionableTransform with optional parameters to transition
+     * between Transforms
+     *
+     * @method set
+     * @chainable
+     *
+     * @param transform {Array}     New transform state
+     * @param [transition] {Object} Transition definition
+     * @param [callback] {Function} Callback
+     * @return {TransitionableTransform}
+     */</span>
+    TransitionableTransform.prototype.set = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(transform, transition, callback)</span> </span>{
+        <span class="hljs-keyword">this</span>._final = transform;
+        <span class="hljs-keyword">var</span> components = Transform.interpret(transform);
+
+        <span class="hljs-keyword">var</span> _callback = callback ? Utility.after(<span class="hljs-number">4</span>, callback) : <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>.translate.set(components.translate, transition, _callback);
+        <span class="hljs-keyword">this</span>.rotate.set(components.rotate, transition, _callback);
+        <span class="hljs-keyword">this</span>.skew.set(components.skew, transition, _callback);
+        <span class="hljs-keyword">this</span>.scale.set(components.scale, transition, _callback);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Sets the default transition to use for transitioning betwen Transform states
+     *
+     * @method setDefaultTransition
+     *
+     * @param transition {Object} Transition definition
+     */</span>
+    TransitionableTransform.prototype.setDefaultTransition = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setDefaultTransition</span><span class="hljs-params">(transition)</span> </span>{
+        <span class="hljs-keyword">this</span>.translate.setDefault(transition);
+        <span class="hljs-keyword">this</span>.rotate.setDefault(transition);
+        <span class="hljs-keyword">this</span>.skew.setDefault(transition);
+        <span class="hljs-keyword">this</span>.scale.setDefault(transition);
+    };
+
+    <span class="hljs-comment">/**
+     * Getter. Returns the current state of the Transform
+     *
+     * @method get
+     *
+     * @return {Transform}
+     */</span>
+    TransitionableTransform.prototype.get = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isActive()) {
+            <span class="hljs-keyword">return</span> _build.call(<span class="hljs-keyword">this</span>);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._final;
+    };
+
+    <span class="hljs-comment">/**
+     * Get the destination state of the Transform
+     *
+     * @method getFinal
+     *
+     * @return Transform {Transform}
+     */</span>
+    TransitionableTransform.prototype.getFinal = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFinal</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._final;
+    };
+
+    <span class="hljs-comment">/**
+     * Determine if the TransitionalTransform is currently transitioning
+     *
+     * @method isActive
+     *
+     * @return {Boolean}
+     */</span>
+    TransitionableTransform.prototype.isActive = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isActive</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.translate.isActive() || <span class="hljs-keyword">this</span>.rotate.isActive() || <span class="hljs-keyword">this</span>.scale.isActive() || <span class="hljs-keyword">this</span>.skew.isActive();
+    };
+
+    <span class="hljs-comment">/**
+     * Halts the transition
+     *
+     * @method halt
+     */</span>
+    TransitionableTransform.prototype.halt = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">halt</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>._final = <span class="hljs-keyword">this</span>.get();
+        <span class="hljs-keyword">this</span>.translate.halt();
+        <span class="hljs-keyword">this</span>.rotate.halt();
+        <span class="hljs-keyword">this</span>.skew.halt();
+        <span class="hljs-keyword">this</span>.scale.halt();
+    };
+
+    <span class="hljs-built_in">module</span>.exports = TransitionableTransform;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

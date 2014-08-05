@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>EventArbiter.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="EventArbiter.html">
+                EventArbiter.js
+              </a>
+            
+              
+              <a class="source" href="EventFilter.html">
+                EventFilter.js
+              </a>
+            
+              
+              <a class="source" href="EventMapper.html">
+                EventMapper.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>EventArbiter.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: david@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> EventHandler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/EventHandler'</span>);
+
+    <span class="hljs-comment">/**
+     * A switch which wraps several event destinations and
+     *  redirects received events to at most one of them.
+     *  Setting the 'mode' of the object dictates which one
+     *  of these destinations will receive events.
+     *
+     * @class EventArbiter
+     * @constructor
+     *
+     * @param {Number | string} startMode initial setting of switch,
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">EventArbiter</span><span class="hljs-params">(startMode)</span> </span>{
+        <span class="hljs-keyword">this</span>.dispatchers = {};
+        <span class="hljs-keyword">this</span>.currMode = <span class="hljs-literal">undefined</span>;
+        <span class="hljs-keyword">this</span>.setMode(startMode);
+    }
+
+    <span class="hljs-comment">/**
+     * Set switch to this mode, passing events to the corresponding
+     *   EventHandler.  If mode has changed, emits 'change' event,
+     *   emits 'unpipe' event to the old mode's handler, and emits 'pipe'
+     *   event to the new mode's handler.
+     *
+     * @method setMode
+     *
+     * @param {string | number} mode indicating which event handler to send to.
+     */</span>
+    EventArbiter.prototype.setMode = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setMode</span><span class="hljs-params">(mode)</span> </span>{
+        <span class="hljs-keyword">if</span> (mode !== <span class="hljs-keyword">this</span>.currMode) {
+            <span class="hljs-keyword">var</span> startMode = <span class="hljs-keyword">this</span>.currMode;
+
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.dispatchers[<span class="hljs-keyword">this</span>.currMode]) <span class="hljs-keyword">this</span>.dispatchers[<span class="hljs-keyword">this</span>.currMode].trigger(<span class="hljs-string">'unpipe'</span>);
+            <span class="hljs-keyword">this</span>.currMode = mode;
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.dispatchers[mode]) <span class="hljs-keyword">this</span>.dispatchers[mode].emit(<span class="hljs-string">'pipe'</span>);
+            <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'change'</span>, {from: startMode, to: mode});
+        }
+    };
+
+    <span class="hljs-comment">/**
+     * Return the existing EventHandler corresponding to this
+     *   mode, creating one if it doesn't exist.
+     *
+     * @method forMode
+     *
+     * @param {string | number} mode mode to which this eventHandler corresponds
+     *
+     * @return {EventHandler} eventHandler corresponding to this mode
+     */</span>
+    EventArbiter.prototype.forMode = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">forMode</span><span class="hljs-params">(mode)</span> </span>{
+        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.dispatchers[mode]) <span class="hljs-keyword">this</span>.dispatchers[mode] = <span class="hljs-keyword">new</span> EventHandler();
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.dispatchers[mode];
+    };
+
+    <span class="hljs-comment">/**
+     * Trigger an event, sending to currently selected handler, if
+     *   it is listening for provided 'type' key.
+     *
+     * @method emit
+     *
+     * @param {string} eventType event type key (for example, 'click')
+     * @param {Object} event event data
+     * @return {EventHandler} this
+     */</span>
+    EventArbiter.prototype.emit = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">emit</span><span class="hljs-params">(eventType, event)</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.currMode === <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">if</span> (!event) event = {};
+        <span class="hljs-keyword">var</span> dispatcher = <span class="hljs-keyword">this</span>.dispatchers[<span class="hljs-keyword">this</span>.currMode];
+        <span class="hljs-keyword">if</span> (dispatcher) <span class="hljs-keyword">return</span> dispatcher.trigger(eventType, event);
+    };
+
+    <span class="hljs-built_in">module</span>.exports = EventArbiter;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>WallTransition.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+              
+              <a class="source" href="KeyCodes.html">
+                KeyCodes.js
+              </a>
+            
+              
+              <a class="source" href="Timer.html">
+                Timer.js
+              </a>
+            
+              
+              <a class="source" href="Utility.html">
+                Utility.js
+              </a>
+            
+              
+              <a class="source" href="ContextualView.html">
+                ContextualView.js
+              </a>
+            
+              
+              <a class="source" href="Deck.html">
+                Deck.js
+              </a>
+            
+              
+              <a class="source" href="DrawerLayout.html">
+                DrawerLayout.js
+              </a>
+            
+              
+              <a class="source" href="EdgeSwapper.html">
+                EdgeSwapper.js
+              </a>
+            
+              
+              <a class="source" href="FlexibleLayout.html">
+                FlexibleLayout.js
+              </a>
+            
+              
+              <a class="source" href="Flipper.html">
+                Flipper.js
+              </a>
+            
+              
+              <a class="source" href="GridLayout.html">
+                GridLayout.js
+              </a>
+            
+              
+              <a class="source" href="HeaderFooterLayout.html">
+                HeaderFooterLayout.js
+              </a>
+            
+              
+              <a class="source" href="Lightbox.html">
+                Lightbox.js
+              </a>
+            
+              
+              <a class="source" href="RenderController.html">
+                RenderController.js
+              </a>
+            
+              
+              <a class="source" href="ScrollContainer.html">
+                ScrollContainer.js
+              </a>
+            
+              
+              <a class="source" href="Scroller.html">
+                Scroller.js
+              </a>
+            
+              
+              <a class="source" href="Scrollview.html">
+                Scrollview.js
+              </a>
+            
+              
+              <a class="source" href="SequentialLayout.html">
+                SequentialLayout.js
+              </a>
+            
+              
+              <a class="source" href="NavigationBar.html">
+                NavigationBar.js
+              </a>
+            
+              
+              <a class="source" href="Slider.html">
+                Slider.js
+              </a>
+            
+              
+              <a class="source" href="TabBar.html">
+                TabBar.js
+              </a>
+            
+              
+              <a class="source" href="ToggleButton.html">
+                ToggleButton.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>WallTransition.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: david@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> PE = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/physics/PhysicsEngine'</span>);
+    <span class="hljs-keyword">var</span> Particle = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/physics/bodies/Particle'</span>);
+    <span class="hljs-keyword">var</span> Spring = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/physics/forces/Spring'</span>);
+    <span class="hljs-keyword">var</span> Wall = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/physics/constraints/Wall'</span>);
+    <span class="hljs-keyword">var</span> Vector = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/math/Vector'</span>);
+
+    <span class="hljs-comment">/**
+     * WallTransition is a method of transitioning between two values (numbers,
+     *   or arrays of numbers) with a bounce. Unlike a SpringTransition
+     *   The transition will not overshoot the target, but bounce back against it.
+     *   The behavior of the bounce is specified by the transition options.
+     *
+     * @class WallTransition
+     * @constructor
+     *
+     * @param {Number|Array} [state=0] Initial state
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">WallTransition</span><span class="hljs-params">(state)</span> </span>{
+        state = state || <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">this</span>.endState  = <span class="hljs-keyword">new</span> Vector(state);
+        <span class="hljs-keyword">this</span>.initState = <span class="hljs-keyword">new</span> Vector();
+
+        <span class="hljs-keyword">this</span>.spring = <span class="hljs-keyword">new</span> Spring({anchor : <span class="hljs-keyword">this</span>.endState});
+        <span class="hljs-keyword">this</span>.wall   = <span class="hljs-keyword">new</span> Wall();
+
+        <span class="hljs-keyword">this</span>._restTolerance = <span class="hljs-number">1e-10</span>;
+        <span class="hljs-keyword">this</span>._dimensions = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">this</span>._absRestTolerance = <span class="hljs-keyword">this</span>._restTolerance;
+        <span class="hljs-keyword">this</span>._callback = <span class="hljs-literal">undefined</span>;
+
+        <span class="hljs-keyword">this</span>.PE = <span class="hljs-keyword">new</span> PE();
+        <span class="hljs-keyword">this</span>.particle = <span class="hljs-keyword">new</span> Particle();
+
+        <span class="hljs-keyword">this</span>.PE.addBody(<span class="hljs-keyword">this</span>.particle);
+        <span class="hljs-keyword">this</span>.PE.attach([<span class="hljs-keyword">this</span>.wall, <span class="hljs-keyword">this</span>.spring], <span class="hljs-keyword">this</span>.particle);
+    }
+
+    WallTransition.SUPPORTS_MULTIPLE = <span class="hljs-number">3</span>;
+
+    <span class="hljs-comment">/**
+     * @property WallTransition.DEFAULT_OPTIONS
+     * @type Object
+     * @protected
+     * @static
+     */</span>
+    WallTransition.DEFAULT_OPTIONS = {
+
+        <span class="hljs-comment">/**
+         * The amount of time in milliseconds taken for one complete oscillation
+         * when there is no damping
+         *    Range : [0, Infinity]
+         *
+         * @attribute period
+         * @type Number
+         * @default 300
+         */</span>
+        period : <span class="hljs-number">300</span>,
+
+        <span class="hljs-comment">/**
+         * The damping of the snap.
+         *    Range : [0, 1]
+         *    0 = no damping, and the spring will oscillate forever
+         *    1 = critically damped (the spring will never oscillate)
+         *
+         * @attribute dampingRatio
+         * @type Number
+         * @default 0.5
+         */</span>
+        dampingRatio : <span class="hljs-number">0.5</span>,
+
+        <span class="hljs-comment">/**
+         * The initial velocity of the transition.
+         *
+         * @attribute velocity
+         * @type Number|Array
+         * @default 0
+         */</span>
+        velocity : <span class="hljs-number">0</span>,
+
+        <span class="hljs-comment">/**
+         * The percentage of momentum transferred to the wall
+         *
+         * @attribute restitution
+         * @type Number
+         * @default 0.5
+         */</span>
+        restitution : <span class="hljs-number">0.5</span>
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_getEnergy</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.particle.getEnergy() + <span class="hljs-keyword">this</span>.spring.getEnergy(<span class="hljs-keyword">this</span>.particle);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setAbsoluteRestTolerance</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">var</span> distance = <span class="hljs-keyword">this</span>.endState.sub(<span class="hljs-keyword">this</span>.initState).normSquared();
+        <span class="hljs-keyword">this</span>._absRestTolerance = (distance === <span class="hljs-number">0</span>)
+            ? <span class="hljs-keyword">this</span>._restTolerance
+            : <span class="hljs-keyword">this</span>._restTolerance * distance;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_wake</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.PE.wake();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_sleep</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.PE.sleep();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setTarget</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">this</span>.endState.set(target);
+
+        <span class="hljs-keyword">var</span> dist = <span class="hljs-keyword">this</span>.endState.sub(<span class="hljs-keyword">this</span>.initState).norm();
+
+        <span class="hljs-keyword">this</span>.wall.setOptions({
+            distance : <span class="hljs-keyword">this</span>.endState.norm(),
+            normal : (dist === <span class="hljs-number">0</span>)
+                ? <span class="hljs-keyword">this</span>.particle.velocity.normalize(-<span class="hljs-number">1</span>)
+                : <span class="hljs-keyword">this</span>.endState.sub(<span class="hljs-keyword">this</span>.initState).normalize(-<span class="hljs-number">1</span>)
+        });
+
+        _setAbsoluteRestTolerance.call(<span class="hljs-keyword">this</span>);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setParticlePosition</span><span class="hljs-params">(p)</span> </span>{
+        <span class="hljs-keyword">this</span>.particle.position.set(p);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setParticleVelocity</span><span class="hljs-params">(v)</span> </span>{
+        <span class="hljs-keyword">this</span>.particle.velocity.set(v);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_getParticlePosition</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>._dimensions === <span class="hljs-number">0</span>)
+            ? <span class="hljs-keyword">this</span>.particle.getPosition1D()
+            : <span class="hljs-keyword">this</span>.particle.getPosition();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_getParticleVelocity</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>._dimensions === <span class="hljs-number">0</span>)
+            ? <span class="hljs-keyword">this</span>.particle.getVelocity1D()
+            : <span class="hljs-keyword">this</span>.particle.getVelocity();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setCallback</span><span class="hljs-params">(callback)</span> </span>{
+        <span class="hljs-keyword">this</span>._callback = callback;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_update</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.PE.isSleeping()) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._callback) {
+                <span class="hljs-keyword">var</span> cb = <span class="hljs-keyword">this</span>._callback;
+                <span class="hljs-keyword">this</span>._callback = <span class="hljs-literal">undefined</span>;
+                cb();
+            }
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-keyword">var</span> energy = _getEnergy.call(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">if</span> (energy &lt; <span class="hljs-keyword">this</span>._absRestTolerance) {
+            _sleep.call(<span class="hljs-keyword">this</span>);
+            _setParticlePosition.call(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.endState);
+            _setParticleVelocity.call(<span class="hljs-keyword">this</span>, [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_setupDefinition</span><span class="hljs-params">(def)</span> </span>{
+        <span class="hljs-keyword">var</span> defaults = WallTransition.DEFAULT_OPTIONS;
+        <span class="hljs-keyword">if</span> (def.period === <span class="hljs-literal">undefined</span>) def.period = defaults.period;
+        <span class="hljs-keyword">if</span> (def.dampingRatio === <span class="hljs-literal">undefined</span>) def.dampingRatio = defaults.dampingRatio;
+        <span class="hljs-keyword">if</span> (def.velocity === <span class="hljs-literal">undefined</span>) def.velocity = defaults.velocity;
+        <span class="hljs-keyword">if</span> (def.restitution === <span class="hljs-literal">undefined</span>) def.restitution = defaults.restitution;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>setup spring</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">this</span>.spring.setOptions({
+            period : def.period,
+            dampingRatio : def.dampingRatio
+        });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>setup wall</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">this</span>.wall.setOptions({
+            restitution : def.restitution
+        });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>setup particle</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        _setParticleVelocity.call(<span class="hljs-keyword">this</span>, def.velocity);
+    }
+
+    <span class="hljs-comment">/**
+     * Resets the state and velocity
+     *
+     * @method reset
+     *
+     * @param {Number|Array}  state     State
+     * @param  {Number|Array} [velocity] Velocity
+     */</span>
+    WallTransition.prototype.reset = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reset</span><span class="hljs-params">(state, velocity)</span> </span>{
+        <span class="hljs-keyword">this</span>._dimensions = (state <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>)
+            ? state.length
+            : <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">this</span>.initState.set(state);
+        _setParticlePosition.call(<span class="hljs-keyword">this</span>, state);
+        <span class="hljs-keyword">if</span> (velocity) _setParticleVelocity.call(<span class="hljs-keyword">this</span>, velocity);
+        _setTarget.call(<span class="hljs-keyword">this</span>, state);
+        _setCallback.call(<span class="hljs-keyword">this</span>, <span class="hljs-literal">undefined</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Getter for velocity
+     *
+     * @method getVelocity
+     *
+     * @return velocity {Number|Array}
+     */</span>
+    WallTransition.prototype.getVelocity = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getVelocity</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> _getParticleVelocity.call(<span class="hljs-keyword">this</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Setter for velocity
+     *
+     * @method setVelocity
+     *
+     * @return velocity {Number|Array}
+     */</span>
+    WallTransition.prototype.setVelocity = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setVelocity</span><span class="hljs-params">(velocity)</span> </span>{
+        <span class="hljs-keyword">this</span>.call(<span class="hljs-keyword">this</span>, _setParticleVelocity(velocity));
+    };
+
+    <span class="hljs-comment">/**
+     * Detects whether a transition is in progress
+     *
+     * @method isActive
+     *
+     * @return {Boolean}
+     */</span>
+    WallTransition.prototype.isActive = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isActive</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> !<span class="hljs-keyword">this</span>.PE.isSleeping();
+    };
+
+    <span class="hljs-comment">/**
+     * Halt the transition
+     *
+     * @method halt
+     */</span>
+    WallTransition.prototype.halt = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">halt</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.set(<span class="hljs-keyword">this</span>.get());
+    };
+
+    <span class="hljs-comment">/**
+     * Getter
+     *
+     * @method get
+     *
+     * @return state {Number|Array}
+     */</span>
+    WallTransition.prototype.get = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>{
+        _update.call(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">return</span> _getParticlePosition.call(<span class="hljs-keyword">this</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Set the end position and transition, with optional callback on completion.
+     *
+     * @method set
+     *
+     * @param state {Number|Array}      Final state
+     * @param [definition] {Object}     Transition definition
+     * @param [callback] {Function}     Callback
+     */</span>
+    WallTransition.prototype.set = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(state, definition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (!definition) {
+            <span class="hljs-keyword">this</span>.reset(state);
+            <span class="hljs-keyword">if</span> (callback) callback();
+            <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-keyword">this</span>._dimensions = (state <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>)
+            ? state.length
+            : <span class="hljs-number">0</span>;
+
+        _wake.call(<span class="hljs-keyword">this</span>);
+        _setupDefinition.call(<span class="hljs-keyword">this</span>, definition);
+        _setTarget.call(<span class="hljs-keyword">this</span>, state);
+        _setCallback.call(<span class="hljs-keyword">this</span>, callback);
+    };
+
+    <span class="hljs-built_in">module</span>.exports = WallTransition;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

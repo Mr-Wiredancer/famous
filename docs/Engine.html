@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Engine.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Context.html">
+                Context.js
+              </a>
+            
+              
+              <a class="source" href="ElementAllocator.html">
+                ElementAllocator.js
+              </a>
+            
+              
+              <a class="source" href="ElementOutput.html">
+                ElementOutput.js
+              </a>
+            
+              
+              <a class="source" href="Engine.html">
+                Engine.js
+              </a>
+            
+              
+              <a class="source" href="Entity.html">
+                Entity.js
+              </a>
+            
+              
+              <a class="source" href="EventEmitter.html">
+                EventEmitter.js
+              </a>
+            
+              
+              <a class="source" href="EventHandler.html">
+                EventHandler.js
+              </a>
+            
+              
+              <a class="source" href="Group.html">
+                Group.js
+              </a>
+            
+              
+              <a class="source" href="Modifier.html">
+                Modifier.js
+              </a>
+            
+              
+              <a class="source" href="OptionsManager.html">
+                OptionsManager.js
+              </a>
+            
+              
+              <a class="source" href="RenderNode.html">
+                RenderNode.js
+              </a>
+            
+              
+              <a class="source" href="Scene.html">
+                Scene.js
+              </a>
+            
+              
+              <a class="source" href="SpecParser.html">
+                SpecParser.js
+              </a>
+            
+              
+              <a class="source" href="Surface.html">
+                Surface.js
+              </a>
+            
+              
+              <a class="source" href="Transform.html">
+                Transform.js
+              </a>
+            
+              
+              <a class="source" href="View.html">
+                View.js
+              </a>
+            
+              
+              <a class="source" href="ViewSequence.html">
+                ViewSequence.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Engine.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+
+    <span class="hljs-comment">/**
+     * The singleton object initiated upon process
+     *   startup which manages all active Context instances, runs
+     *   the render dispatch loop, and acts as a listener and dispatcher
+     *   for events.  All methods are therefore static.
+     *
+     *   On static initialization, window.requestAnimationFrame is called with
+     *     the event loop function.
+     *
+     *   Note: Any window in which Engine runs will prevent default
+     *     scrolling behavior on the 'touchmove' event.
+     *
+     * @static
+     * @class Engine
+     */</span>
+    <span class="hljs-keyword">var</span> Context = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Context'</span>);
+    <span class="hljs-keyword">var</span> EventHandler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./EventHandler'</span>);
+    <span class="hljs-keyword">var</span> OptionsManager = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./OptionsManager'</span>);
+
+    <span class="hljs-keyword">var</span> Engine = {};
+
+    <span class="hljs-keyword">var</span> contexts = [];
+    <span class="hljs-keyword">var</span> nextTickQueue = [];
+    <span class="hljs-keyword">var</span> deferQueue = [];
+
+    <span class="hljs-keyword">var</span> lastTime = <span class="hljs-built_in">Date</span>.now();
+    <span class="hljs-keyword">var</span> frameTime;
+    <span class="hljs-keyword">var</span> frameTimeLimit;
+    <span class="hljs-keyword">var</span> loopEnabled = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">var</span> eventForwarders = {};
+    <span class="hljs-keyword">var</span> eventHandler = <span class="hljs-keyword">new</span> EventHandler();
+
+    <span class="hljs-keyword">var</span> options = {
+        containerType: <span class="hljs-string">'div'</span>,
+        containerClass: <span class="hljs-string">'famous-container'</span>,
+        fpsCap: <span class="hljs-literal">undefined</span>,
+        runLoop: <span class="hljs-literal">true</span>,
+        appMode: <span class="hljs-literal">true</span>
+    };
+    <span class="hljs-keyword">var</span> optionsManager = <span class="hljs-keyword">new</span> OptionsManager(options);
+
+    <span class="hljs-comment">/** @const */</span>
+    <span class="hljs-keyword">var</span> MAX_DEFER_FRAME_TIME = <span class="hljs-number">10</span>;
+
+    <span class="hljs-comment">/**
+     * Inside requestAnimationFrame loop, step() is called, which:
+     *   calculates current FPS (throttling loop if it is over limit set in setFPSCap),
+     *   emits dataless 'prerender' event on start of loop,
+     *   calls in order any one-shot functions registered by nextTick on last loop,
+     *   calls Context.update on all Context objects registered,
+     *   and emits dataless 'postrender' event on end of loop.
+     *
+     * @static
+     * @private
+     * @method step
+     */</span>
+    Engine.step = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">step</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">var</span> currentTime = <span class="hljs-built_in">Date</span>.now();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>skip frame if we’re over our framerate cap</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> (frameTimeLimit &amp;&amp; currentTime - lastTime &lt; frameTimeLimit) <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+
+        frameTime = currentTime - lastTime;
+        lastTime = currentTime;
+
+        eventHandler.emit(<span class="hljs-string">'prerender'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>empty the queue</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; nextTickQueue.length; i++) nextTickQueue[i].call(<span class="hljs-keyword">this</span>);
+        nextTickQueue.splice(<span class="hljs-number">0</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>limit total execution time for deferrable functions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">while</span> (deferQueue.length &amp;&amp; (<span class="hljs-built_in">Date</span>.now() - currentTime) &lt; MAX_DEFER_FRAME_TIME) {
+            deferQueue.shift().call(<span class="hljs-keyword">this</span>);
+        }
+
+        <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; contexts.length; i++) contexts[i].update();
+
+        eventHandler.emit(<span class="hljs-string">'postrender'</span>);
+    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>engage requestAnimationFrame</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (options.runLoop) {
+            Engine.step();
+            <span class="hljs-built_in">window</span>.requestAnimationFrame(loop);
+        }
+        <span class="hljs-keyword">else</span> loopEnabled = <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-built_in">window</span>.requestAnimationFrame(loop);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Upon main document window resize (unless on an “input” HTML element):
+  scroll to the top left corner of the window,
+  and for each managed Context: emit the ‘resize’ event and update its size.
+@param {Object=} event document event</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleResize</span><span class="hljs-params">(event)</span> </span>{
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; contexts.length; i++) {
+            contexts[i].emit(<span class="hljs-string">'resize'</span>);
+        }
+        eventHandler.emit(<span class="hljs-string">'resize'</span>);
+    }
+    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'resize'</span>, handleResize, <span class="hljs-literal">false</span>);
+    handleResize();
+
+    <span class="hljs-comment">/**
+     * Initialize famous for app mode
+     *
+     * @static
+     * @private
+     * @method initialize
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initialize</span><span class="hljs-params">()</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>prevent scrolling via browser</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'touchmove'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event)</span> </span>{
+            event.preventDefault();
+        }, <span class="hljs-literal">true</span>);
+        <span class="hljs-built_in">document</span>.body.classList.add(<span class="hljs-string">'famous-root'</span>);
+        <span class="hljs-built_in">document</span>.documentElement.classList.add(<span class="hljs-string">'famous-root'</span>);
+    }
+    <span class="hljs-keyword">var</span> initialized = <span class="hljs-literal">false</span>;
+
+    <span class="hljs-comment">/**
+     * Add event handler object to set of downstream handlers.
+     *
+     * @method pipe
+     *
+     * @param {EventHandler} target event handler target object
+     * @return {EventHandler} passed event handler
+     */</span>
+    Engine.pipe = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pipe</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">if</span> (target.subscribe <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">return</span> target.subscribe(Engine);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> eventHandler.pipe(target);
+    };
+
+    <span class="hljs-comment">/**
+     * Remove handler object from set of downstream handlers.
+     *   Undoes work of "pipe".
+     *
+     * @method unpipe
+     *
+     * @param {EventHandler} target target handler object
+     * @return {EventHandler} provided target
+     */</span>
+    Engine.unpipe = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unpipe</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">if</span> (target.unsubscribe <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>) <span class="hljs-keyword">return</span> target.unsubscribe(Engine);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> eventHandler.unpipe(target);
+    };
+
+    <span class="hljs-comment">/**
+     * Bind a callback function to an event type handled by this object.
+     *
+     * @static
+     * @method "on"
+     *
+     * @param {string} type event type key (for example, 'click')
+     * @param {function(string, Object)} handler callback
+     * @return {EventHandler} this
+     */</span>
+    Engine.on = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">on</span><span class="hljs-params">(type, handler)</span> </span>{
+        <span class="hljs-keyword">if</span> (!(type <span class="hljs-keyword">in</span> eventForwarders)) {
+            eventForwarders[type] = eventHandler.emit.bind(eventHandler, type);
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.body) {
+                <span class="hljs-built_in">document</span>.body.addEventListener(type, eventForwarders[type]);
+            }
+            <span class="hljs-keyword">else</span> {
+                Engine.nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(type, forwarder)</span> </span>{
+                    <span class="hljs-built_in">document</span>.body.addEventListener(type, forwarder);
+                }.bind(<span class="hljs-keyword">this</span>, type, eventForwarders[type]));
+            }
+        }
+        <span class="hljs-keyword">return</span> eventHandler.on(type, handler);
+    };
+
+    <span class="hljs-comment">/**
+     * Trigger an event, sending to all downstream handlers
+     *   listening for provided 'type' key.
+     *
+     * @method emit
+     *
+     * @param {string} type event type key (for example, 'click')
+     * @param {Object} event event data
+     * @return {EventHandler} this
+     */</span>
+    Engine.emit = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">emit</span><span class="hljs-params">(type, event)</span> </span>{
+        <span class="hljs-keyword">return</span> eventHandler.emit(type, event);
+    };
+
+    <span class="hljs-comment">/**
+     * Unbind an event by type and handler.
+     *   This undoes the work of "on".
+     *
+     * @static
+     * @method removeListener
+     *
+     * @param {string} type event type key (for example, 'click')
+     * @param {function} handler function object to remove
+     * @return {EventHandler} internal event handler object (for chaining)
+     */</span>
+    Engine.removeListener = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">removeListener</span><span class="hljs-params">(type, handler)</span> </span>{
+        <span class="hljs-keyword">return</span> eventHandler.removeListener(type, handler);
+    };
+
+    <span class="hljs-comment">/**
+     * Return the current calculated frames per second of the Engine.
+     *
+     * @static
+     * @method getFPS
+     *
+     * @return {Number} calculated fps
+     */</span>
+    Engine.getFPS = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFPS</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1000</span> / frameTime;
+    };
+
+    <span class="hljs-comment">/**
+     * Set the maximum fps at which the system should run. If internal render
+     *    loop is called at a greater frequency than this FPSCap, Engine will
+     *    throttle render and update until this rate is achieved.
+     *
+     * @static
+     * @method setFPSCap
+     *
+     * @param {Number} fps maximum frames per second
+     */</span>
+    Engine.setFPSCap = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setFPSCap</span><span class="hljs-params">(fps)</span> </span>{
+        frameTimeLimit = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-number">1000</span> / fps);
+    };
+
+    <span class="hljs-comment">/**
+     * Return engine options.
+     *
+     * @static
+     * @method getOptions
+     * @param {string} key
+     * @return {Object} engine options
+     */</span>
+    Engine.getOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getOptions</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> optionsManager.getOptions.apply(optionsManager, <span class="hljs-built_in">arguments</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Set engine options
+     *
+     * @static
+     * @method setOptions
+     *
+     * @param {Object} [options] overrides of default options
+     * @param {Number} [options.fpsCap]  maximum fps at which the system should run
+     * @param {boolean} [options.runLoop=true] whether the run loop should continue
+     * @param {string} [options.containerType="div"] type of container element.  Defaults to 'div'.
+     * @param {string} [options.containerClass="famous-container"] type of container element.  Defaults to 'famous-container'.
+     */</span>
+    Engine.setOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOptions</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">return</span> optionsManager.setOptions.apply(optionsManager, <span class="hljs-built_in">arguments</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Creates a new Context for rendering and event handling with
+     *    provided document element as top of each tree. This will be tracked by the
+     *    process-wide Engine.
+     *
+     * @static
+     * @method createContext
+     *
+     * @param {Node} el will be top of Famo.us document element tree
+     * @return {Context} new Context within el
+     */</span>
+    Engine.createContext = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createContext</span><span class="hljs-params">(el)</span> </span>{
+        <span class="hljs-keyword">if</span> (!initialized &amp;&amp; options.appMode) initialize();
+
+        <span class="hljs-keyword">var</span> needMountContainer = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">if</span> (!el) {
+            el = <span class="hljs-built_in">document</span>.createElement(options.containerType);
+            el.classList.add(options.containerClass);
+            needMountContainer = <span class="hljs-literal">true</span>;
+        }
+        <span class="hljs-keyword">var</span> context = <span class="hljs-keyword">new</span> Context(el);
+        Engine.registerContext(context);
+        <span class="hljs-keyword">if</span> (needMountContainer) {
+            Engine.nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(context, el)</span> </span>{
+                <span class="hljs-built_in">document</span>.body.appendChild(el);
+                context.emit(<span class="hljs-string">'resize'</span>);
+            }.bind(<span class="hljs-keyword">this</span>, context, el));
+        }
+        <span class="hljs-keyword">return</span> context;
+    };
+
+    <span class="hljs-comment">/**
+     * Registers an existing context to be updated within the run loop.
+     *
+     * @static
+     * @method registerContext
+     *
+     * @param {Context} context Context to register
+     * @return {FamousContext} provided context
+     */</span>
+    Engine.registerContext = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">registerContext</span><span class="hljs-params">(context)</span> </span>{
+        contexts.push(context);
+        <span class="hljs-keyword">return</span> context;
+    };
+
+    <span class="hljs-comment">/**
+     * Returns a list of all contexts.
+     *
+     * @static
+     * @method getContexts
+     * @return {Array} contexts that are updated on each tick
+     */</span>
+    Engine.getContexts = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getContexts</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> contexts;
+    };
+
+    <span class="hljs-comment">/**
+     * Removes a context from the run loop. Note: this does not do any
+     *     cleanup.
+     *
+     * @static
+     * @method deregisterContext
+     *
+     * @param {Context} context Context to deregister
+     */</span>
+    Engine.deregisterContext = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deregisterContext</span><span class="hljs-params">(context)</span> </span>{
+        <span class="hljs-keyword">var</span> i = contexts.indexOf(context);
+        <span class="hljs-keyword">if</span> (i &gt;= <span class="hljs-number">0</span>) contexts.splice(i, <span class="hljs-number">1</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Queue a function to be executed on the next tick of the
+     *    Engine.
+     *
+     * @static
+     * @method nextTick
+     *
+     * @param {function(Object)} fn function accepting window object
+     */</span>
+    Engine.nextTick = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nextTick</span><span class="hljs-params">(fn)</span> </span>{
+        nextTickQueue.push(fn);
+    };
+
+    <span class="hljs-comment">/**
+     * Queue a function to be executed sometime soon, at a time that is
+     *    unlikely to affect frame rate.
+     *
+     * @static
+     * @method defer
+     *
+     * @param {Function} fn
+     */</span>
+    Engine.defer = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defer</span><span class="hljs-params">(fn)</span> </span>{
+        deferQueue.push(fn);
+    };
+
+    optionsManager.on(<span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span> </span>{
+        <span class="hljs-keyword">if</span> (data.id === <span class="hljs-string">'fpsCap'</span>) Engine.setFPSCap(data.value);
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (data.id === <span class="hljs-string">'runLoop'</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>kick off the loop only if it was stopped</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> (!loopEnabled &amp;&amp; data.value) {
+                loopEnabled = <span class="hljs-literal">true</span>;
+                <span class="hljs-built_in">window</span>.requestAnimationFrame(loop);
+            }
+        }
+    });
+
+    <span class="hljs-built_in">module</span>.exports = Engine;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

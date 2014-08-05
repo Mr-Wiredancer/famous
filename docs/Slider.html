@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Slider.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+              
+              <a class="source" href="KeyCodes.html">
+                KeyCodes.js
+              </a>
+            
+              
+              <a class="source" href="Timer.html">
+                Timer.js
+              </a>
+            
+              
+              <a class="source" href="Utility.html">
+                Utility.js
+              </a>
+            
+              
+              <a class="source" href="ContextualView.html">
+                ContextualView.js
+              </a>
+            
+              
+              <a class="source" href="Deck.html">
+                Deck.js
+              </a>
+            
+              
+              <a class="source" href="DrawerLayout.html">
+                DrawerLayout.js
+              </a>
+            
+              
+              <a class="source" href="EdgeSwapper.html">
+                EdgeSwapper.js
+              </a>
+            
+              
+              <a class="source" href="FlexibleLayout.html">
+                FlexibleLayout.js
+              </a>
+            
+              
+              <a class="source" href="Flipper.html">
+                Flipper.js
+              </a>
+            
+              
+              <a class="source" href="GridLayout.html">
+                GridLayout.js
+              </a>
+            
+              
+              <a class="source" href="HeaderFooterLayout.html">
+                HeaderFooterLayout.js
+              </a>
+            
+              
+              <a class="source" href="Lightbox.html">
+                Lightbox.js
+              </a>
+            
+              
+              <a class="source" href="RenderController.html">
+                RenderController.js
+              </a>
+            
+              
+              <a class="source" href="ScrollContainer.html">
+                ScrollContainer.js
+              </a>
+            
+              
+              <a class="source" href="Scroller.html">
+                Scroller.js
+              </a>
+            
+              
+              <a class="source" href="Scrollview.html">
+                Scrollview.js
+              </a>
+            
+              
+              <a class="source" href="SequentialLayout.html">
+                SequentialLayout.js
+              </a>
+            
+              
+              <a class="source" href="NavigationBar.html">
+                NavigationBar.js
+              </a>
+            
+              
+              <a class="source" href="Slider.html">
+                Slider.js
+              </a>
+            
+              
+              <a class="source" href="TabBar.html">
+                TabBar.js
+              </a>
+            
+              
+              <a class="source" href="ToggleButton.html">
+                ToggleButton.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Slider.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> Surface = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/Surface'</span>);
+    <span class="hljs-keyword">var</span> CanvasSurface = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/surfaces/CanvasSurface'</span>);
+    <span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/Transform'</span>);
+    <span class="hljs-keyword">var</span> EventHandler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/EventHandler'</span>);
+    <span class="hljs-keyword">var</span> Utilities = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/math/Utilities'</span>);
+    <span class="hljs-keyword">var</span> OptionsManager = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/OptionsManager'</span>);
+
+    <span class="hljs-keyword">var</span> MouseSync = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/inputs/MouseSync'</span>);
+    <span class="hljs-keyword">var</span> TouchSync = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/inputs/TouchSync'</span>);
+    <span class="hljs-keyword">var</span> GenericSync = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/inputs/GenericSync'</span>);
+
+    GenericSync.register({
+        mouse : MouseSync,
+        touch : TouchSync
+    });
+
+    <span class="hljs-comment">/** @constructor */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Slider</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>.options = <span class="hljs-built_in">Object</span>.create(Slider.DEFAULT_OPTIONS);
+        <span class="hljs-keyword">this</span>.optionsManager = <span class="hljs-keyword">new</span> OptionsManager(<span class="hljs-keyword">this</span>.options);
+        <span class="hljs-keyword">if</span> (options) <span class="hljs-keyword">this</span>.setOptions(options);
+
+        <span class="hljs-keyword">this</span>.indicator = <span class="hljs-keyword">new</span> CanvasSurface({
+            size: <span class="hljs-keyword">this</span>.options.indicatorSize,
+            classes : [<span class="hljs-string">'slider-back'</span>]
+        });
+
+        <span class="hljs-keyword">this</span>.label = <span class="hljs-keyword">new</span> Surface({
+            size: <span class="hljs-keyword">this</span>.options.labelSize,
+            content: <span class="hljs-keyword">this</span>.options.label,
+            properties : {pointerEvents : <span class="hljs-string">'none'</span>},
+            classes: [<span class="hljs-string">'slider-label'</span>]
+        });
+
+        <span class="hljs-keyword">this</span>.eventOutput = <span class="hljs-keyword">new</span> EventHandler();
+        <span class="hljs-keyword">this</span>.eventInput = <span class="hljs-keyword">new</span> EventHandler();
+        EventHandler.setInputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.eventInput);
+        EventHandler.setOutputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.eventOutput);
+
+        <span class="hljs-keyword">var</span> scale = (<span class="hljs-keyword">this</span>.options.range[<span class="hljs-number">1</span>] - <span class="hljs-keyword">this</span>.options.range[<span class="hljs-number">0</span>]) / <span class="hljs-keyword">this</span>.options.indicatorSize[<span class="hljs-number">0</span>];
+
+        <span class="hljs-keyword">this</span>.sync = <span class="hljs-keyword">new</span> GenericSync(
+            [<span class="hljs-string">'mouse'</span>, <span class="hljs-string">'touch'</span>],
+            {
+                scale : scale,
+                direction : GenericSync.DIRECTION_X
+            }
+        );
+
+        <span class="hljs-keyword">this</span>.indicator.pipe(<span class="hljs-keyword">this</span>.sync);
+        <span class="hljs-keyword">this</span>.sync.pipe(<span class="hljs-keyword">this</span>);
+
+        <span class="hljs-keyword">this</span>.eventInput.on(<span class="hljs-string">'update'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span> </span>{
+            <span class="hljs-keyword">this</span>.set(data.position);
+        }.bind(<span class="hljs-keyword">this</span>));
+
+        <span class="hljs-keyword">this</span>._drawPos = <span class="hljs-number">0</span>;
+        _updateLabel.call(<span class="hljs-keyword">this</span>);
+    }
+
+    Slider.DEFAULT_OPTIONS = {
+        size: [<span class="hljs-number">200</span>, <span class="hljs-number">60</span>],
+        indicatorSize: [<span class="hljs-number">200</span>, <span class="hljs-number">30</span>],
+        labelSize: [<span class="hljs-number">200</span>, <span class="hljs-number">30</span>],
+        range: [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>],
+        precision: <span class="hljs-number">2</span>,
+        value: <span class="hljs-number">0</span>,
+        label: <span class="hljs-string">''</span>,
+        fillColor: <span class="hljs-string">'rgba(170, 170, 170, 1)'</span>
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_updateLabel</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>.label.setContent(<span class="hljs-keyword">this</span>.options.label + <span class="hljs-string">'&lt;span style="float: right"&gt;'</span> + <span class="hljs-keyword">this</span>.get().toFixed(<span class="hljs-keyword">this</span>.options.precision) + <span class="hljs-string">'&lt;/span&gt;'</span>);
+    }
+
+    Slider.prototype.setOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOptions</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optionsManager.setOptions(options);
+    };
+
+    Slider.prototype.get = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.options.value;
+    };
+
+    Slider.prototype.set = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">set</span><span class="hljs-params">(value)</span> </span>{
+        <span class="hljs-keyword">if</span> (value === <span class="hljs-keyword">this</span>.options.value) <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">this</span>.options.value = Utilities.clamp(value, <span class="hljs-keyword">this</span>.options.range);
+        _updateLabel.call(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.eventOutput.emit(<span class="hljs-string">'change'</span>, {value: value});
+    };
+
+    Slider.prototype.getSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSize</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.options.size;
+    };
+
+    Slider.prototype.render = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">var</span> range = <span class="hljs-keyword">this</span>.options.range;
+        <span class="hljs-keyword">var</span> fillSize = <span class="hljs-built_in">Math</span>.floor(((<span class="hljs-keyword">this</span>.get() - range[<span class="hljs-number">0</span>]) / (range[<span class="hljs-number">1</span>] - range[<span class="hljs-number">0</span>])) * <span class="hljs-keyword">this</span>.options.indicatorSize[<span class="hljs-number">0</span>]);
+
+        <span class="hljs-keyword">if</span> (fillSize &lt; <span class="hljs-keyword">this</span>._drawPos) {
+            <span class="hljs-keyword">this</span>.indicator.getContext(<span class="hljs-string">'2d'</span>).clearRect(fillSize, <span class="hljs-number">0</span>, <span class="hljs-keyword">this</span>._drawPos - fillSize + <span class="hljs-number">1</span>, <span class="hljs-keyword">this</span>.options.indicatorSize[<span class="hljs-number">1</span>]);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (fillSize &gt; <span class="hljs-keyword">this</span>._drawPos) {
+            <span class="hljs-keyword">var</span> ctx = <span class="hljs-keyword">this</span>.indicator.getContext(<span class="hljs-string">'2d'</span>);
+            ctx.fillStyle = <span class="hljs-keyword">this</span>.options.fillColor;
+            ctx.fillRect(<span class="hljs-keyword">this</span>._drawPos-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, fillSize - <span class="hljs-keyword">this</span>._drawPos+<span class="hljs-number">1</span>, <span class="hljs-keyword">this</span>.options.indicatorSize[<span class="hljs-number">1</span>]);
+        }
+        <span class="hljs-keyword">this</span>._drawPos = fillSize;
+
+        <span class="hljs-keyword">return</span> {
+            size: <span class="hljs-keyword">this</span>.options.size,
+            target: [
+                {
+                    origin: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+                    target: <span class="hljs-keyword">this</span>.indicator.render()
+                },
+                {
+                    transform: Transform.translate(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>),
+                    origin: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+                    target: <span class="hljs-keyword">this</span>.label.render()
+                }
+            ]
+        };
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Slider;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>View.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Context.html">
+                Context.js
+              </a>
+            
+              
+              <a class="source" href="ElementAllocator.html">
+                ElementAllocator.js
+              </a>
+            
+              
+              <a class="source" href="ElementOutput.html">
+                ElementOutput.js
+              </a>
+            
+              
+              <a class="source" href="Engine.html">
+                Engine.js
+              </a>
+            
+              
+              <a class="source" href="Entity.html">
+                Entity.js
+              </a>
+            
+              
+              <a class="source" href="EventEmitter.html">
+                EventEmitter.js
+              </a>
+            
+              
+              <a class="source" href="EventHandler.html">
+                EventHandler.js
+              </a>
+            
+              
+              <a class="source" href="Group.html">
+                Group.js
+              </a>
+            
+              
+              <a class="source" href="Modifier.html">
+                Modifier.js
+              </a>
+            
+              
+              <a class="source" href="OptionsManager.html">
+                OptionsManager.js
+              </a>
+            
+              
+              <a class="source" href="RenderNode.html">
+                RenderNode.js
+              </a>
+            
+              
+              <a class="source" href="Scene.html">
+                Scene.js
+              </a>
+            
+              
+              <a class="source" href="SpecParser.html">
+                SpecParser.js
+              </a>
+            
+              
+              <a class="source" href="Surface.html">
+                Surface.js
+              </a>
+            
+              
+              <a class="source" href="Transform.html">
+                Transform.js
+              </a>
+            
+              
+              <a class="source" href="View.html">
+                View.js
+              </a>
+            
+              
+              <a class="source" href="ViewSequence.html">
+                ViewSequence.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>View.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> EventHandler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./EventHandler'</span>);
+    <span class="hljs-keyword">var</span> OptionsManager = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./OptionsManager'</span>);
+    <span class="hljs-keyword">var</span> RenderNode = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./RenderNode'</span>);
+    <span class="hljs-keyword">var</span> Utility = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/utilities/Utility'</span>);
+
+    <span class="hljs-comment">/**
+     * Useful for quickly creating elements within applications
+     *   with large event systems.  Consists of a RenderNode paired with
+     *   an input EventHandler and an output EventHandler.
+     *   Meant to be extended by the developer.
+     *
+     * @class View
+     * @uses EventHandler
+     * @uses OptionsManager
+     * @uses RenderNode
+     * @constructor
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">View</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>._node = <span class="hljs-keyword">new</span> RenderNode();
+
+        <span class="hljs-keyword">this</span>._eventInput = <span class="hljs-keyword">new</span> EventHandler();
+        <span class="hljs-keyword">this</span>._eventOutput = <span class="hljs-keyword">new</span> EventHandler();
+        EventHandler.setInputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._eventInput);
+        EventHandler.setOutputHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>._eventOutput);
+
+        <span class="hljs-keyword">this</span>.options = Utility.clone(<span class="hljs-keyword">this</span>.constructor.DEFAULT_OPTIONS || View.DEFAULT_OPTIONS);
+        <span class="hljs-keyword">this</span>._optionsManager = <span class="hljs-keyword">new</span> OptionsManager(<span class="hljs-keyword">this</span>.options);
+
+        <span class="hljs-keyword">if</span> (options) <span class="hljs-keyword">this</span>.setOptions(options);
+    }
+
+    View.DEFAULT_OPTIONS = {}; <span class="hljs-comment">// no defaults</span>
+
+    <span class="hljs-comment">/**
+     * Look up options value by key
+     * @method getOptions
+     *
+     * @param {string} key key
+     * @return {Object} associated object
+     */</span>
+    View.prototype.getOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getOptions</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._optionsManager.value();
+    };
+
+    <span class="hljs-comment">/*
+     *  Set internal options.
+     *  No defaults options are set in View.
+     *
+     *  @method setOptions
+     *  @param {Object} options
+     */</span>
+    View.prototype.setOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOptions</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>._optionsManager.patch(options);
+    };
+
+    <span class="hljs-comment">/**
+     * Add a child renderable to the view.
+     *   Note: This is meant to be used by an inheriting class
+     *   rather than from outside the prototype chain.
+     *
+     * @method add
+     * @return {RenderNode}
+     * @protected
+     */</span>
+    View.prototype.add = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._node.add.apply(<span class="hljs-keyword">this</span>._node, <span class="hljs-built_in">arguments</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Alias for add
+     * @method _add
+     */</span>
+    View.prototype._add = View.prototype.add;
+
+    <span class="hljs-comment">/**
+     * Generate a render spec from the contents of this component.
+     *
+     * @private
+     * @method render
+     * @return {number} Render spec for this component
+     */</span>
+    View.prototype.render = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._node.render();
+    };
+
+    <span class="hljs-comment">/**
+     * Return size of contained element.
+     *
+     * @method getSize
+     * @return {Array.Number} [width, height]
+     */</span>
+    View.prototype.getSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSize</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._node &amp;&amp; <span class="hljs-keyword">this</span>._node.getSize) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._node.getSize.apply(<span class="hljs-keyword">this</span>._node, <span class="hljs-built_in">arguments</span>) || <span class="hljs-keyword">this</span>.options.size;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.options.size;
+    };
+
+    <span class="hljs-built_in">module</span>.exports = View;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

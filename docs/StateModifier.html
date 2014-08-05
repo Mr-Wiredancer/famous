@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>StateModifier.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Accumulator.html">
+                Accumulator.js
+              </a>
+            
+              
+              <a class="source" href="DesktopEmulationMode.html">
+                DesktopEmulationMode.js
+              </a>
+            
+              
+              <a class="source" href="FastClick.html">
+                FastClick.js
+              </a>
+            
+              
+              <a class="source" href="GenericSync.html">
+                GenericSync.js
+              </a>
+            
+              
+              <a class="source" href="MouseSync.html">
+                MouseSync.js
+              </a>
+            
+              
+              <a class="source" href="PinchSync.html">
+                PinchSync.js
+              </a>
+            
+              
+              <a class="source" href="RotateSync.html">
+                RotateSync.js
+              </a>
+            
+              
+              <a class="source" href="ScaleSync.html">
+                ScaleSync.js
+              </a>
+            
+              
+              <a class="source" href="ScrollSync.html">
+                ScrollSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchSync.html">
+                TouchSync.js
+              </a>
+            
+              
+              <a class="source" href="TouchTracker.html">
+                TouchTracker.js
+              </a>
+            
+              
+              <a class="source" href="TwoFingerSync.html">
+                TwoFingerSync.js
+              </a>
+            
+              
+              <a class="source" href="Matrix.html">
+                Matrix.js
+              </a>
+            
+              
+              <a class="source" href="Quaternion.html">
+                Quaternion.js
+              </a>
+            
+              
+              <a class="source" href="Random.html">
+                Random.js
+              </a>
+            
+              
+              <a class="source" href="Utilities.html">
+                Utilities.js
+              </a>
+            
+              
+              <a class="source" href="Vector.html">
+                Vector.js
+              </a>
+            
+              
+              <a class="source" href="Draggable.html">
+                Draggable.js
+              </a>
+            
+              
+              <a class="source" href="Fader.html">
+                Fader.js
+              </a>
+            
+              
+              <a class="source" href="ModifierChain.html">
+                ModifierChain.js
+              </a>
+            
+              
+              <a class="source" href="StateModifier.html">
+                StateModifier.js
+              </a>
+            
+              
+              <a class="source" href="PhysicsEngine.html">
+                PhysicsEngine.js
+              </a>
+            
+              
+              <a class="source" href="CanvasSurface.html">
+                CanvasSurface.js
+              </a>
+            
+              
+              <a class="source" href="ContainerSurface.html">
+                ContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="FormContainerSurface.html">
+                FormContainerSurface.js
+              </a>
+            
+              
+              <a class="source" href="ImageSurface.html">
+                ImageSurface.js
+              </a>
+            
+              
+              <a class="source" href="InputSurface.html">
+                InputSurface.js
+              </a>
+            
+              
+              <a class="source" href="SubmitInputSurface.html">
+                SubmitInputSurface.js
+              </a>
+            
+              
+              <a class="source" href="TextareaSurface.html">
+                TextareaSurface.js
+              </a>
+            
+              
+              <a class="source" href="VideoSurface.html">
+                VideoSurface.js
+              </a>
+            
+              
+              <a class="source" href="CachedMap.html">
+                CachedMap.js
+              </a>
+            
+              
+              <a class="source" href="Easing.html">
+                Easing.js
+              </a>
+            
+              
+              <a class="source" href="MultipleTransition.html">
+                MultipleTransition.js
+              </a>
+            
+              
+              <a class="source" href="SnapTransition.html">
+                SnapTransition.js
+              </a>
+            
+              
+              <a class="source" href="SpringTransition.html">
+                SpringTransition.js
+              </a>
+            
+              
+              <a class="source" href="Transitionable.html">
+                Transitionable.js
+              </a>
+            
+              
+              <a class="source" href="TransitionableTransform.html">
+                TransitionableTransform.js
+              </a>
+            
+              
+              <a class="source" href="TweenTransition.html">
+                TweenTransition.js
+              </a>
+            
+              
+              <a class="source" href="WallTransition.html">
+                WallTransition.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>StateModifier.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> Modifier = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/Modifier'</span>);
+    <span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/core/Transform'</span>);
+    <span class="hljs-keyword">var</span> Transitionable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/transitions/Transitionable'</span>);
+    <span class="hljs-keyword">var</span> TransitionableTransform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'famous/transitions/TransitionableTransform'</span>);
+
+    <span class="hljs-comment">/**
+     *  A collection of visual changes to be
+     *    applied to another renderable component, strongly coupled with the state that defines
+     *    those changes. This collection includes a
+     *    transform matrix, an opacity constant, a size, an origin specifier, and an alignment specifier.
+     *    StateModifier objects can be added to any RenderNode or object
+     *    capable of displaying renderables.  The StateModifier's children and descendants
+     *    are transformed by the amounts specified in the modifier's properties.
+     *
+     * @class StateModifier
+     * @constructor
+     * @param {Object} [options] overrides of default options
+     * @param {Transform} [options.transform] affine transformation matrix
+     * @param {Number} [options.opacity]
+     * @param {Array.Number} [options.origin] origin adjustment
+     * @param {Array.Number} [options.align] align adjustment
+     * @param {Array.Number} [options.size] size to apply to descendants
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">StateModifier</span><span class="hljs-params">(options)</span> </span>{
+        <span class="hljs-keyword">this</span>._transformState = <span class="hljs-keyword">new</span> TransitionableTransform(Transform.identity);
+        <span class="hljs-keyword">this</span>._opacityState = <span class="hljs-keyword">new</span> Transitionable(<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">this</span>._originState = <span class="hljs-keyword">new</span> Transitionable([<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+        <span class="hljs-keyword">this</span>._alignState = <span class="hljs-keyword">new</span> Transitionable([<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+        <span class="hljs-keyword">this</span>._sizeState = <span class="hljs-keyword">new</span> Transitionable([<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]);
+
+        <span class="hljs-keyword">this</span>._modifier = <span class="hljs-keyword">new</span> Modifier({
+            transform: <span class="hljs-keyword">this</span>._transformState,
+            opacity: <span class="hljs-keyword">this</span>._opacityState,
+            origin: <span class="hljs-literal">null</span>,
+            align: <span class="hljs-literal">null</span>,
+            size: <span class="hljs-literal">null</span>
+        });
+
+        <span class="hljs-keyword">this</span>._hasOrigin = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._hasAlign = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">this</span>._hasSize = <span class="hljs-literal">false</span>;
+
+        <span class="hljs-keyword">if</span> (options) {
+            <span class="hljs-keyword">if</span> (options.transform) <span class="hljs-keyword">this</span>.setTransform(options.transform);
+            <span class="hljs-keyword">if</span> (options.opacity !== <span class="hljs-literal">undefined</span>) <span class="hljs-keyword">this</span>.setOpacity(options.opacity);
+            <span class="hljs-keyword">if</span> (options.origin) <span class="hljs-keyword">this</span>.setOrigin(options.origin);
+            <span class="hljs-keyword">if</span> (options.align) <span class="hljs-keyword">this</span>.setAlign(options.align);
+            <span class="hljs-keyword">if</span> (options.size) <span class="hljs-keyword">this</span>.setSize(options.size);
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Set the transform matrix of this modifier, either statically or
+     *   through a provided Transitionable.
+     *
+     * @method setTransform
+     *
+     * @param {Transform} transform Transform to transition to.
+     * @param {Transitionable} [transition] Valid transitionable object
+     * @param {Function} [callback] callback to call after transition completes
+     * @return {StateModifier} this
+     */</span>
+    StateModifier.prototype.setTransform = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setTransform</span><span class="hljs-params">(transform, transition, callback)</span> </span>{
+        <span class="hljs-keyword">this</span>._transformState.set(transform, transition, callback);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Set the opacity of this modifier, either statically or
+     *   through a provided Transitionable.
+     *
+     * @method setOpacity
+     *
+     * @param {Number} opacity Opacity value to transition to.
+     * @param {Transitionable} transition Valid transitionable object
+     * @param {Function} callback callback to call after transition completes
+     * @return {StateModifier} this
+     */</span>
+    StateModifier.prototype.setOpacity = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOpacity</span><span class="hljs-params">(opacity, transition, callback)</span> </span>{
+        <span class="hljs-keyword">this</span>._opacityState.set(opacity, transition, callback);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Set the origin of this modifier, either statically or
+     *   through a provided Transitionable.
+     *
+     * @method setOrigin
+     *
+     * @param {Array.Number} origin two element array with values between 0 and 1.
+     * @param {Transitionable} transition Valid transitionable object
+     * @param {Function} callback callback to call after transition completes
+     * @return {StateModifier} this
+     */</span>
+    StateModifier.prototype.setOrigin = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOrigin</span><span class="hljs-params">(origin, transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (origin === <span class="hljs-literal">null</span>) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._hasOrigin) {
+                <span class="hljs-keyword">this</span>._modifier.originFrom(<span class="hljs-literal">null</span>);
+                <span class="hljs-keyword">this</span>._hasOrigin = <span class="hljs-literal">false</span>;
+            }
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._hasOrigin) {
+            <span class="hljs-keyword">this</span>._hasOrigin = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">this</span>._modifier.originFrom(<span class="hljs-keyword">this</span>._originState);
+        }
+        <span class="hljs-keyword">this</span>._originState.set(origin, transition, callback);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Set the alignment of this modifier, either statically or
+     *   through a provided Transitionable.
+     *
+     * @method setAlign
+     *
+     * @param {Array.Number} align two element array with values between 0 and 1.
+     * @param {Transitionable} transition Valid transitionable object
+     * @param {Function} callback callback to call after transition completes
+     * @return {StateModifier} this
+     */</span>
+    StateModifier.prototype.setAlign = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setOrigin</span><span class="hljs-params">(align, transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (align === <span class="hljs-literal">null</span>) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._hasAlign) {
+                <span class="hljs-keyword">this</span>._modifier.alignFrom(<span class="hljs-literal">null</span>);
+                <span class="hljs-keyword">this</span>._hasAlign = <span class="hljs-literal">false</span>;
+            }
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._hasAlign) {
+            <span class="hljs-keyword">this</span>._hasAlign = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">this</span>._modifier.alignFrom(<span class="hljs-keyword">this</span>._alignState);
+        }
+        <span class="hljs-keyword">this</span>._alignState.set(align, transition, callback);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Set the size of this modifier, either statically or
+     *   through a provided Transitionable.
+     *
+     * @method setSize
+     *
+     * @param {Array.Number} size two element array with values between 0 and 1.
+     * @param {Transitionable} transition Valid transitionable object
+     * @param {Function} callback callback to call after transition completes
+     * @return {StateModifier} this
+     */</span>
+    StateModifier.prototype.setSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setSize</span><span class="hljs-params">(size, transition, callback)</span> </span>{
+        <span class="hljs-keyword">if</span> (size === <span class="hljs-literal">null</span>) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>._hasSize) {
+                <span class="hljs-keyword">this</span>._modifier.sizeFrom(<span class="hljs-literal">null</span>);
+                <span class="hljs-keyword">this</span>._hasSize = <span class="hljs-literal">false</span>;
+            }
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>._hasSize) {
+            <span class="hljs-keyword">this</span>._hasSize = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">this</span>._modifier.sizeFrom(<span class="hljs-keyword">this</span>._sizeState);
+        }
+        <span class="hljs-keyword">this</span>._sizeState.set(size, transition, callback);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Stop the transition.
+     *
+     * @method halt
+     */</span>
+    StateModifier.prototype.halt = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">halt</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">this</span>._transformState.halt();
+        <span class="hljs-keyword">this</span>._opacityState.halt();
+        <span class="hljs-keyword">this</span>._originState.halt();
+        <span class="hljs-keyword">this</span>._alignState.halt();
+        <span class="hljs-keyword">this</span>._sizeState.halt();
+    };
+
+    <span class="hljs-comment">/**
+     * Get the current state of the transform matrix component.
+     *
+     * @method getTransform
+     * @return {Object} transform provider object
+     */</span>
+    StateModifier.prototype.getTransform = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getTransform</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._transformState.get();
+    };
+
+    <span class="hljs-comment">/**
+     * Get the destination state of the transform component.
+     *
+     * @method getFinalTransform
+     * @return {Transform} transform matrix
+     */</span>
+    StateModifier.prototype.getFinalTransform = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getFinalTransform</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._transformState.getFinal();
+    };
+
+    <span class="hljs-comment">/**
+     * Get the current state of the opacity component.
+     *
+     * @method getOpacity
+     * @return {Object} opacity provider object
+     */</span>
+    StateModifier.prototype.getOpacity = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getOpacity</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._opacityState.get();
+    };
+
+    <span class="hljs-comment">/**
+     * Get the current state of the origin component.
+     *
+     * @method getOrigin
+     * @return {Object} origin provider object
+     */</span>
+    StateModifier.prototype.getOrigin = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getOrigin</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._hasOrigin ? <span class="hljs-keyword">this</span>._originState.get() : <span class="hljs-literal">null</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Get the current state of the align component.
+     *
+     * @method getAlign
+     * @return {Object} align provider object
+     */</span>
+    StateModifier.prototype.getAlign = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAlign</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._hasAlign ? <span class="hljs-keyword">this</span>._alignState.get() : <span class="hljs-literal">null</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Get the current state of the size component.
+     *
+     * @method getSize
+     * @return {Object} size provider object
+     */</span>
+    StateModifier.prototype.getSize = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSize</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._hasSize ? <span class="hljs-keyword">this</span>._sizeState.get() : <span class="hljs-literal">null</span>;
+    };
+
+    <span class="hljs-comment">/**
+     * Return render spec for this StateModifier, applying to the provided
+     *    target component.  This is similar to render() for Surfaces.
+     *
+     * @private
+     * @method modify
+     *
+     * @param {Object} target (already rendered) render spec to
+     *    which to apply the transform.
+     * @return {Object} render spec for this StateModifier, including the
+     *    provided target
+     */</span>
+    StateModifier.prototype.modify = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">modify</span><span class="hljs-params">(target)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._modifier.modify(target);
+    };
+
+    <span class="hljs-built_in">module</span>.exports = StateModifier;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

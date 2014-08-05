@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Scene.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="Context.html">
+                Context.js
+              </a>
+            
+              
+              <a class="source" href="ElementAllocator.html">
+                ElementAllocator.js
+              </a>
+            
+              
+              <a class="source" href="ElementOutput.html">
+                ElementOutput.js
+              </a>
+            
+              
+              <a class="source" href="Engine.html">
+                Engine.js
+              </a>
+            
+              
+              <a class="source" href="Entity.html">
+                Entity.js
+              </a>
+            
+              
+              <a class="source" href="EventEmitter.html">
+                EventEmitter.js
+              </a>
+            
+              
+              <a class="source" href="EventHandler.html">
+                EventHandler.js
+              </a>
+            
+              
+              <a class="source" href="Group.html">
+                Group.js
+              </a>
+            
+              
+              <a class="source" href="Modifier.html">
+                Modifier.js
+              </a>
+            
+              
+              <a class="source" href="OptionsManager.html">
+                OptionsManager.js
+              </a>
+            
+              
+              <a class="source" href="RenderNode.html">
+                RenderNode.js
+              </a>
+            
+              
+              <a class="source" href="Scene.html">
+                Scene.js
+              </a>
+            
+              
+              <a class="source" href="SpecParser.html">
+                SpecParser.js
+              </a>
+            
+              
+              <a class="source" href="Surface.html">
+                Surface.js
+              </a>
+            
+              
+              <a class="source" href="Transform.html">
+                Transform.js
+              </a>
+            
+              
+              <a class="source" href="View.html">
+                View.js
+              </a>
+            
+              
+              <a class="source" href="ViewSequence.html">
+                ViewSequence.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>Scene.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * Owner: mark@famo.us
+ * @license MPL 2.0
+ * @copyright Famous Industries, Inc. 2014
+ */</span>
+
+define(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(require, exports, module)</span> </span>{
+    <span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Transform'</span>);
+    <span class="hljs-keyword">var</span> Modifier = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Modifier'</span>);
+    <span class="hljs-keyword">var</span> RenderNode = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./RenderNode'</span>);
+
+    <span class="hljs-comment">/**
+     * Builds and renders a scene graph based on a declarative structure definition.
+     * See the Scene examples in the examples distribution (http://github.com/Famous/examples.git).
+     *
+     * @class Scene
+     * @constructor
+     * @param {Object|Array|Spec} definition in the format of a render spec.
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Scene</span><span class="hljs-params">(definition)</span> </span>{
+        <span class="hljs-keyword">this</span>.id = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>._objects = <span class="hljs-literal">null</span>;
+
+        <span class="hljs-keyword">this</span>.node = <span class="hljs-keyword">new</span> RenderNode();
+        <span class="hljs-keyword">this</span>._definition = <span class="hljs-literal">null</span>;
+
+        <span class="hljs-keyword">if</span> (definition) <span class="hljs-keyword">this</span>.load(definition);
+    }
+
+    <span class="hljs-keyword">var</span> _MATRIX_GENERATORS = {
+        <span class="hljs-string">'translate'</span>: Transform.translate,
+        <span class="hljs-string">'rotate'</span>: Transform.rotate,
+        <span class="hljs-string">'rotateX'</span>: Transform.rotateX,
+        <span class="hljs-string">'rotateY'</span>: Transform.rotateY,
+        <span class="hljs-string">'rotateZ'</span>: Transform.rotateZ,
+        <span class="hljs-string">'rotateAxis'</span>: Transform.rotateAxis,
+        <span class="hljs-string">'scale'</span>: Transform.scale,
+        <span class="hljs-string">'skew'</span>: Transform.skew,
+        <span class="hljs-string">'matrix3d'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">arguments</span>;
+        }
+    };
+
+    <span class="hljs-comment">/**
+     * Clone this scene
+     *
+     * @method create
+     * @return {Scene} deep copy of this scene
+     */</span>
+    Scene.prototype.create = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Scene(<span class="hljs-keyword">this</span>._definition);
+    };
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_resolveTransformMatrix</span><span class="hljs-params">(matrixDefinition)</span> </span>{
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> type <span class="hljs-keyword">in</span> _MATRIX_GENERATORS) {
+            <span class="hljs-keyword">if</span> (type <span class="hljs-keyword">in</span> matrixDefinition) {
+                <span class="hljs-keyword">var</span> args = matrixDefinition[type];
+                <span class="hljs-keyword">if</span> (!(args <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>)) args = [args];
+                <span class="hljs-keyword">return</span> _MATRIX_GENERATORS[type].apply(<span class="hljs-keyword">this</span>, args);
+            }
+        }
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>parse transform into tree of render nodes, doing matrix multiplication
+when available</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_parseTransform</span><span class="hljs-params">(definition)</span> </span>{
+        <span class="hljs-keyword">var</span> transformDefinition = definition.transform;
+        <span class="hljs-keyword">var</span> opacity = definition.opacity;
+        <span class="hljs-keyword">var</span> origin = definition.origin;
+        <span class="hljs-keyword">var</span> align = definition.align;
+        <span class="hljs-keyword">var</span> size = definition.size;
+        <span class="hljs-keyword">var</span> transform = Transform.identity;
+        <span class="hljs-keyword">if</span> (transformDefinition <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>) {
+            <span class="hljs-keyword">if</span> (transformDefinition.length === <span class="hljs-number">16</span> &amp;&amp; <span class="hljs-keyword">typeof</span> transformDefinition[<span class="hljs-number">0</span>] === <span class="hljs-string">'number'</span>) {
+                transform = transformDefinition;
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; transformDefinition.length; i++) {
+                    transform = Transform.multiply(transform, _resolveTransformMatrix(transformDefinition[i]));
+                }
+            }
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (transformDefinition <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>) {
+            transform = _resolveTransformMatrix(transformDefinition);
+        }
+
+        <span class="hljs-keyword">var</span> result = <span class="hljs-keyword">new</span> Modifier({
+            transform: transform,
+            opacity: opacity,
+            origin: origin,
+            align: align,
+            size: size
+        });
+        <span class="hljs-keyword">return</span> result;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_parseArray</span><span class="hljs-params">(definition)</span> </span>{
+        <span class="hljs-keyword">var</span> result = <span class="hljs-keyword">new</span> RenderNode();
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; definition.length; i++) {
+            <span class="hljs-keyword">var</span> obj = _parse.call(<span class="hljs-keyword">this</span>, definition[i]);
+            <span class="hljs-keyword">if</span> (obj) result.add(obj);
+        }
+        <span class="hljs-keyword">return</span> result;
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>parse object directly into tree of RenderNodes</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_parse</span><span class="hljs-params">(definition)</span> </span>{
+        <span class="hljs-keyword">var</span> result;
+        <span class="hljs-keyword">var</span> id;
+        <span class="hljs-keyword">if</span> (definition <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>) {
+            result = _parseArray.call(<span class="hljs-keyword">this</span>, definition);
+        }
+        <span class="hljs-keyword">else</span> {
+            id = <span class="hljs-keyword">this</span>._objects.length;
+            <span class="hljs-keyword">if</span> (definition.render &amp;&amp; (definition.render <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>)) {
+                result = definition;
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (definition.target) {
+                <span class="hljs-keyword">var</span> targetObj = _parse.call(<span class="hljs-keyword">this</span>, definition.target);
+                <span class="hljs-keyword">var</span> obj = _parseTransform.call(<span class="hljs-keyword">this</span>, definition);
+
+                result = <span class="hljs-keyword">new</span> RenderNode(obj);
+                result.add(targetObj);
+                <span class="hljs-keyword">if</span> (definition.id) <span class="hljs-keyword">this</span>.id[definition.id] = obj;
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (definition.id) {
+                result = <span class="hljs-keyword">new</span> RenderNode();
+                <span class="hljs-keyword">this</span>.id[definition.id] = result;
+            }
+        }
+        <span class="hljs-keyword">this</span>._objects[id] = result;
+        <span class="hljs-keyword">return</span> result;
+    }
+
+    <span class="hljs-comment">/**
+     * Builds and renders a scene graph based on a canonical declarative scene definition.
+     * See examples/Scene/example.js.
+     *
+     * @method load
+     * @param {Object} definition definition in the format of a render spec.
+     */</span>
+    Scene.prototype.load = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">load</span><span class="hljs-params">(definition)</span> </span>{
+        <span class="hljs-keyword">this</span>._definition = definition;
+        <span class="hljs-keyword">this</span>.id = {};
+        <span class="hljs-keyword">this</span>._objects = [];
+        <span class="hljs-keyword">this</span>.node.set(_parse.call(<span class="hljs-keyword">this</span>, definition));
+    };
+
+    <span class="hljs-comment">/**
+     * Add renderables to this component's render tree
+     *
+     * @method add
+     *
+     * @param {Object} obj renderable object
+     * @return {RenderNode} Render wrapping provided object, if not already a RenderNode
+     */</span>
+    Scene.prototype.add = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.node.add.apply(<span class="hljs-keyword">this</span>.node, <span class="hljs-built_in">arguments</span>);
+    };
+
+    <span class="hljs-comment">/**
+     * Generate a render spec from the contents of this component.
+     *
+     * @private
+     * @method render
+     * @return {number} Render spec for this component
+     */</span>
+    Scene.prototype.render = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.node.render.apply(<span class="hljs-keyword">this</span>.node, <span class="hljs-built_in">arguments</span>);
+    };
+
+    <span class="hljs-built_in">module</span>.exports = Scene;
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
