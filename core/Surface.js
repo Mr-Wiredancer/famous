@@ -21,7 +21,7 @@ define(function(require, exports, module) {
      *
      * @param {Object} [options] default option overrides
      * @param {Array.Number} [options.size] [width, height] in pixels
-     * @param {Array.string} [options.classes] CSS classes to set on inner content
+     * @param {Array.string} [options.classes] CSS classes to set on target div
      * @param {Array} [options.properties] string dictionary of HTML attributes to set on target div
      * @param {string} [options.content] inner (HTML) content of surface
      */
@@ -104,6 +104,23 @@ define(function(require, exports, module) {
         if (i >= 0) {
             this._dirtyClasses.push(this.classList.splice(i, 1)[0]);
             this._classesDirty = true;
+        }
+    };
+
+    /**
+     * Toggle CSS-style class from the list of classes on this Surface.
+     *   Note this will map directly to the HTML property of the actual
+     *   corresponding rendered <div>.
+     *
+     * @method toggleClass
+     * @param {string} className name of class to toggle
+     */
+    Surface.prototype.toggleClass = function toggleClass(className) {
+        var i = this.classList.indexOf(className);
+        if (i >= 0) {
+            this.removeClass(className);
+        } else {
+            this.addClass(className);
         }
     };
 
@@ -224,6 +241,7 @@ define(function(require, exports, module) {
         this._classesDirty = true;
         this._sizeDirty = true;
         this._contentDirty = true;
+        this._transformDirty = true;
     };
 
     /**
