@@ -29,6 +29,7 @@ define(function(require, exports, module) {
      *
      * @class Transform
      */
+    // 一个静态的高性能矩阵库。反正就是线性代数的东西，懂就懂，不懂的话自己查书去。
     var Transform = {};
 
     // WARNING: these matrices correspond to WebKit matrices, which are
@@ -109,6 +110,7 @@ define(function(require, exports, module) {
      * @param {Array.Number} t floats delta vector of length 2 or 3
      * @return {Transform}
      */
+    // 先应用一个矩阵再平移
     Transform.thenMove = function thenMove(m, t) {
         if (!t[2]) t[2] = 0;
         return [m[0], m[1], m[2], 0, m[4], m[5], m[6], 0, m[8], m[9], m[10], 0, m[12] + t[0], m[13] + t[1], m[14] + t[2], 1];
@@ -127,6 +129,7 @@ define(function(require, exports, module) {
      * @param {Transform} m matrix to apply afterwards
      * @return {Transform} the resulting matrix
      */
+    // 先平移再应用一个矩阵
     Transform.moveThen = function moveThen(v, m) {
         if (!v[2]) v[2] = 0;
         var t0 = v[0] * m[0] + v[1] * m[4] + v[2] * m[8];
@@ -164,6 +167,7 @@ define(function(require, exports, module) {
      *    array.length == 3)
      * @return {Transform}
      */
+    // 先应用一个矩阵再scale
     Transform.thenScale = function thenScale(m, s) {
         return [
             s[0] * m[0], s[1] * m[1], s[2] * m[2], 0,

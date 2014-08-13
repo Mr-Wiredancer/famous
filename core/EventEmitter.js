@@ -14,6 +14,7 @@ define(function(require, exports, module) {
      * @class EventEmitter
      * @constructor
      */
+    // `EventEmitter`是一个事件分发器
     function EventEmitter() {
         this.listeners = {};
         this._owner = this;
@@ -29,6 +30,7 @@ define(function(require, exports, module) {
      * @param {Object} event event data
      * @return {EventHandler} this
      */
+    // 触发事件，调用所有监听`type`事件的处理器
     EventEmitter.prototype.emit = function emit(type, event) {
         var handlers = this.listeners[type];
         if (handlers) {
@@ -48,6 +50,7 @@ define(function(require, exports, module) {
      * @param {function(string, Object)} handler callback
      * @return {EventHandler} this
      */
+    // 将一个回调函数（事件处理器）绑定至监听`type`事件
    EventEmitter.prototype.on = function on(type, handler) {
         if (!(type in this.listeners)) this.listeners[type] = [];
         var index = this.listeners[type].indexOf(handler);
@@ -59,6 +62,7 @@ define(function(require, exports, module) {
      * Alias for "on".
      * @method addListener
      */
+    // 同`on`
     EventEmitter.prototype.addListener = EventEmitter.prototype.on;
 
    /**
@@ -71,6 +75,7 @@ define(function(require, exports, module) {
      * @param {function} handler function object to remove
      * @return {EventEmitter} this
      */
+    // `handler`处理器不再监听`type`事件
     EventEmitter.prototype.removeListener = function removeListener(type, handler) {
         var listener = this.listeners[type];
         if (listener !== undefined) {
@@ -87,6 +92,7 @@ define(function(require, exports, module) {
      *
      * @param {Object} owner object this EventEmitter belongs to
      */
+    // `owner`会成为所有处理器中的`this`
     EventEmitter.prototype.bindThis = function bindThis(owner) {
         this._owner = owner;
     };

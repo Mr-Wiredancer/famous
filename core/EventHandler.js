@@ -19,6 +19,7 @@ define(function(require, exports, module) {
      * @constructor
      */
     function EventHandler() {
+        // EventHandler继承Event Emitter
         EventEmitter.apply(this, arguments);
 
         this.downstream = []; // downstream event handlers
@@ -27,6 +28,7 @@ define(function(require, exports, module) {
         this.upstream = []; // upstream event handlers
         this.upstreamListeners = {}; // upstream listeners
     }
+    // setup继承链
     EventHandler.prototype = Object.create(EventEmitter.prototype);
     EventHandler.prototype.constructor = EventHandler;
 
@@ -76,6 +78,7 @@ define(function(require, exports, module) {
      * @return {EventHandler} this
      */
     EventHandler.prototype.emit = function emit(type, event) {
+        // 调用父类`EventEmitter`的emit
         EventEmitter.prototype.emit.apply(this, arguments);
         var i = 0;
         for (i = 0; i < this.downstream.length; i++) {
